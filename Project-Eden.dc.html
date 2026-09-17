@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+@font-face { font-family: 'Authentic Sans 90'; src: url("uploads/authentic-sans-condensed-90.otf") format("opentype"); font-display: block; }
+@font-face { font-family: 'Authentic Sans 130'; src: url("uploads/AUTHENTICSans-Condensed-130.otf") format("opentype"); font-display: block; }
+@keyframes edenTeeFade { 0%,28% { opacity:1 } 33.333%,94.667% { opacity:0 } 100% { opacity:1 } }
+@font-face { font-family: 'Sloop Script'; src: url("uploads/Sloop Script Medium One.ttf") format("truetype"); font-display: block; }
+html, body { margin: 0; background: #F8F8F6; overscroll-behavior-y: none; }
+body { cursor: url("assets/cursor.svg") 2 2, auto; }
+a, button, [role="button"] { cursor: url("assets/cursor.svg") 2 2, pointer; }
+a { color: inherit; text-decoration: none; }
+</style>
+<script src="image-slot.js"></script>
+<script src="drift.js"></script>
+<script src="preload.js"></script>
+</helmet>
+<div data-screen-label="Project – Eden" style="min-height:100vh;display:flex;flex-direction:column;background:#F8F8F6;font-family:'Authentic Sans 90',sans-serif;color:#0D2565">
+  <div style="position:sticky;top:0;z-index:20;background:#F8F8F6;border-bottom:2px solid #0D2565;display:flex;justify-content:space-between;align-items:center;height:min(80px,7.5vh);box-sizing:border-box;padding:0 24px;cursor:pointer" onClick="{{ scrollTop }}">
+    <a href="Home.dc.html" style="font-family:'Sloop Script',cursive;font-size:29px;display:inline-block;transition:transform .3s cubic-bezier(.22,.61,.36,1)">Liya Kedar</a>
+    <a href="About.dc.html" style-hover="font-family:'Sloop Script', cursive;font-size:29px;letter-spacing:0;text-transform:none" style-active="font-family:'Sloop Script', cursive;font-size:29px;letter-spacing:0;text-transform:none" style-focus="font-family:'Sloop Script', cursive;font-size:29px;letter-spacing:0;text-transform:none" style="font-family:'Authentic Sans 90',sans-serif;font-size:20px;letter-spacing:1px;text-transform:uppercase;display:inline-block;transition:transform .3s cubic-bezier(.22,.61,.36,1)">About</a>
+  </div>
+  <div style="flex:1;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));padding:28px 0 0">
+    <div ref="{{ textBlock }}" style="grid-column:1 / span 2;padding:0 32px 0 24px;position:sticky;top:calc(min(80px,7.5vh) + 28px);align-self:start;max-width:30vw;display:flex;flex-direction:column">
+      <div style="font-family:'Authentic Sans 130',sans-serif;font-size:30px;text-transform:uppercase;line-height:1.1">Eden Cinema</div>
+      <div style="font-family:'Authentic Sans 90',sans-serif;font-size:17px;margin-top:4px">Visual Identity</div>
+      <div style="font-family:'Authentic Sans 90',sans-serif;font-size:18px;line-height:1.5;margin-top:20px;text-wrap:pretty">
+        A new visual identity for Eden, the first cinema in Tel Aviv, reimagined as a contemporary home for Israeli film and local creation.<br /><br />
+        The project brings Eden back to life as a platform for emerging filmmakers, with all revenue reinvested in supporting young creators and Israeli cinema.<br /><br />
+        Created as my graduation project in Visual Communication at HIT.
+      </div>
+    </div>
+    <div ref="{{ lineIcon }}" style="position:fixed;left:24px;bottom:84px;z-index:6;width:64px;height:31px;pointer-events:none;transition:opacity .25s ease">
+      <img src="assets/eden-icon.svg" alt="" style="width:100%;height:100%;object-fit:contain;display:block" />
+    </div>
+    <div style="grid-column:3 / span 3;grid-row:1;padding:0 24px 24px 0;min-height:520px;display:flex;flex-direction:column;align-items:center;gap:32px">
+      <img src="assets/eden-program-wall.webp" alt="Eden Cinema programme posters on a wall" style="width:100%;height:auto;object-fit:contain;display:block" />
+      <div ref="{{ stackWrap }}" style="position:relative;width:100%;height:calc(520vh - 180px)">
+        <div style="position:sticky;top:90px;height:calc(100vh - 150px);display:flex;justify-content:center;align-items:flex-start;overflow:hidden;container-type:inline-size">
+          <div style="position:relative;flex:none;height:min(calc(100vh - 180px), 106cqw);aspect-ratio:0.938">
+            <img ref="{{ p0 }}" src="assets/eden-poster-1.webp" alt="Annual Animation Week poster" style="position:absolute;top:0;right:0;height:100%;width:auto;display:block;z-index:1;transform:translate3d(0,118%,0)" />
+            <img ref="{{ p1 }}" src="assets/eden-poster-gala.webp" alt="Israeli cinema support gala poster" style="position:absolute;top:0;right:5.33%;height:100%;width:auto;display:block;z-index:2;transform:translate3d(0,118%,0)" />
+            <img ref="{{ p2 }}" src="assets/eden-poster-sea.webp" alt="&ldquo;HaYam&rdquo; premiere poster" style="position:absolute;top:0;right:10.66%;height:100%;width:auto;display:block;z-index:3;transform:translate3d(0,118%,0)" />
+            <img ref="{{ p3 }}" src="assets/eden-poster-two.webp" alt="Two-for-one film and live show poster" style="position:absolute;top:0;right:16%;height:100%;width:auto;display:block;z-index:4;transform:translate3d(0,118%,0)" />
+            <img ref="{{ p4 }}" src="assets/eden-poster-cult.webp" alt="Double cult night poster" style="position:absolute;top:0;right:21.33%;height:100%;width:auto;display:block;z-index:5;transform:translate3d(0,118%,0)" />
+            <img ref="{{ p5 }}" src="assets/eden-poster-tubeav.webp" alt="Tu B&rsquo;Av rooftop romance poster" style="position:absolute;top:0;right:26.66%;height:100%;width:auto;display:block;z-index:6;transform:translate3d(0,118%,0)" />
+            <img ref="{{ p6 }}" src="assets/eden-poster-ugly.webp" alt="&ldquo;Ki At Mechoeret&rdquo; premiere poster" style="position:absolute;top:0;right:32%;height:100%;width:auto;display:block;z-index:7;transform:translate3d(0,118%,0)" />
+          </div>
+        </div>
+      </div>
+      <div style="position:relative;width:100%;aspect-ratio:1400 / 785;overflow:hidden">
+        <img src="assets/eden-tee-3.jpg" alt="Eden Cinema merch tee, white" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block" />
+        <img src="assets/eden-tee-2.jpg" alt="Eden Cinema merch tee, pink" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;animation:edenTeeFade 4.5s steps(1,end) 1.5s infinite" />
+        <img src="assets/eden-tee-1.jpg" alt="Eden Cinema merch tee, charcoal" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;animation:edenTeeFade 4.5s steps(1,end) 0s infinite" />
+      </div>
+      <div style="position:relative;width:100%;isolation:isolate;background:#FBF8F1;box-shadow:0 1px 0 rgba(90,80,62,.12)">
+        <img src="assets/eden-brochure-front.jpg" alt="Eden animation week accordion brochure, outer side" style="width:100%;height:auto;display:block" />
+        <div style="position:absolute;inset:0;pointer-events:none;mix-blend-mode:multiply;opacity:{{ toneOp }};background:radial-gradient(130% 90% at 16% 18%,rgba(255,255,255,0) 0%,rgba(128,118,96,.09) 68%,rgba(112,101,80,.17) 100%),linear-gradient(97deg,rgba(255,252,240,0) 18%,rgba(146,136,112,.07) 54%,rgba(255,252,240,0) 84%)"></div>
+        <div style="position:absolute;inset:0;pointer-events:none;mix-blend-mode:multiply;opacity:{{ inkOp }};background-image:repeating-linear-gradient(0deg,rgba(58,52,42,.13) 0 .5px,rgba(255,255,255,0) .5px 1.6px)"></div>
+        <div style="position:absolute;inset:0;pointer-events:none;mix-blend-mode:overlay;opacity:{{ grainOp }};background-image:url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='.6'/%3E%3C/svg%3E&quot;);background-size:280px 280px"></div>
+        <div style="position:absolute;inset:0;pointer-events:none;mix-blend-mode:multiply;opacity:{{ foldOp }};background:linear-gradient(90deg,rgba(72,64,50,0) 23.6%,rgba(72,64,50,.16) 24.8%,rgba(72,64,50,.26) 25%,rgba(72,64,50,.13) 25.3%,rgba(72,64,50,0) 26.4%),linear-gradient(90deg,rgba(72,64,50,0) 48.6%,rgba(72,64,50,.16) 49.8%,rgba(72,64,50,.26) 50%,rgba(72,64,50,.13) 50.3%,rgba(72,64,50,0) 51.4%),linear-gradient(90deg,rgba(72,64,50,0) 73.6%,rgba(72,64,50,.16) 74.8%,rgba(72,64,50,.26) 75%,rgba(72,64,50,.13) 75.3%,rgba(72,64,50,0) 76.4%)"></div>
+        <div style="position:absolute;inset:0;pointer-events:none;mix-blend-mode:screen;opacity:{{ foldOp }};background:linear-gradient(90deg,rgba(255,255,255,0) 25.1%,rgba(255,255,255,.42) 25.9%,rgba(255,255,255,0) 27.4%),linear-gradient(90deg,rgba(255,255,255,0) 50.1%,rgba(255,255,255,.42) 50.9%,rgba(255,255,255,0) 52.4%),linear-gradient(90deg,rgba(255,255,255,0) 75.1%,rgba(255,255,255,.42) 75.9%,rgba(255,255,255,0) 77.4%)"></div>
+        <div style="position:absolute;inset:0;pointer-events:none;mix-blend-mode:multiply;opacity:{{ wearOp }};background:radial-gradient(28% 34% at 88% 12%,rgba(96,86,68,.14) 0%,rgba(96,86,68,0) 100%),radial-gradient(22% 30% at 9% 86%,rgba(96,86,68,.12) 0%,rgba(96,86,68,0) 100%),radial-gradient(120% 120% at 50% 50%,rgba(96,86,68,0) 62%,rgba(96,86,68,.16) 100%)"></div>
+      </div>
+      <div style="position:relative;width:100%;isolation:isolate;background:#FBF8F1;box-shadow:0 1px 0 rgba(90,80,62,.12)">
+        <img src="assets/eden-brochure-back.jpg" alt="Eden animation week accordion brochure, inner side" style="width:100%;height:auto;display:block" />
+        <div style="position:absolute;inset:0;pointer-events:none;mix-blend-mode:multiply;opacity:{{ toneOp }};background:radial-gradient(130% 90% at 82% 24%,rgba(255,255,255,0) 0%,rgba(128,118,96,.08) 66%,rgba(112,101,80,.16) 100%),linear-gradient(83deg,rgba(255,252,240,0) 16%,rgba(146,136,112,.06) 52%,rgba(255,252,240,0) 86%)"></div>
+        <div style="position:absolute;inset:0;pointer-events:none;mix-blend-mode:multiply;opacity:{{ inkOp }};background-image:repeating-linear-gradient(0deg,rgba(58,52,42,.13) 0 .5px,rgba(255,255,255,0) .5px 1.6px)"></div>
+        <div style="position:absolute;inset:0;pointer-events:none;mix-blend-mode:overlay;opacity:{{ grainOp }};background-image:url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='.6'/%3E%3C/svg%3E&quot;);background-size:260px 260px"></div>
+        <div style="position:absolute;inset:0;pointer-events:none;mix-blend-mode:multiply;opacity:{{ foldOp }};background:linear-gradient(90deg,rgba(72,64,50,0) 23.6%,rgba(72,64,50,.14) 24.8%,rgba(72,64,50,.24) 25%,rgba(72,64,50,.12) 25.3%,rgba(72,64,50,0) 26.4%),linear-gradient(90deg,rgba(72,64,50,0) 48.6%,rgba(72,64,50,.14) 49.8%,rgba(72,64,50,.24) 50%,rgba(72,64,50,.12) 50.3%,rgba(72,64,50,0) 51.4%),linear-gradient(90deg,rgba(72,64,50,0) 73.6%,rgba(72,64,50,.14) 74.8%,rgba(72,64,50,.24) 75%,rgba(72,64,50,.12) 75.3%,rgba(72,64,50,0) 76.4%)"></div>
+        <div style="position:absolute;inset:0;pointer-events:none;mix-blend-mode:screen;opacity:{{ foldOp }};background:linear-gradient(90deg,rgba(255,255,255,0) 25.1%,rgba(255,255,255,.4) 25.9%,rgba(255,255,255,0) 27.4%),linear-gradient(90deg,rgba(255,255,255,0) 50.1%,rgba(255,255,255,.4) 50.9%,rgba(255,255,255,0) 52.4%),linear-gradient(90deg,rgba(255,255,255,0) 75.1%,rgba(255,255,255,.4) 75.9%,rgba(255,255,255,0) 77.4%)"></div>
+        <div style="position:absolute;inset:0;pointer-events:none;mix-blend-mode:multiply;opacity:{{ wearOp }};background:radial-gradient(26% 32% at 12% 14%,rgba(96,86,68,.13) 0%,rgba(96,86,68,0) 100%),radial-gradient(20% 28% at 92% 88%,rgba(96,86,68,.11) 0%,rgba(96,86,68,0) 100%),radial-gradient(120% 120% at 50% 50%,rgba(96,86,68,0) 62%,rgba(96,86,68,.15) 100%)"></div>
+      </div>
+      <div style="position:relative;width:100%;isolation:isolate;background:#FBF8F1;box-shadow:0 1px 0 rgba(90,80,62,.12);margin-top:96px">
+        <img src="assets/eden-doko-front.jpg" alt="Eden documentary festival accordion brochure, outer side" style="width:100%;height:auto;display:block" />
+        <div style="position:absolute;inset:0;pointer-events:none;mix-blend-mode:multiply;opacity:{{ toneOp }};background:radial-gradient(130% 90% at 16% 18%,rgba(255,255,255,0) 0%,rgba(128,118,96,.09) 68%,rgba(112,101,80,.17) 100%),linear-gradient(97deg,rgba(255,252,240,0) 18%,rgba(146,136,112,.07) 54%,rgba(255,252,240,0) 84%)"></div>
+        <div style="position:absolute;inset:0;pointer-events:none;mix-blend-mode:multiply;opacity:{{ inkOp }};background-image:repeating-linear-gradient(0deg,rgba(58,52,42,.13) 0 .5px,rgba(255,255,255,0) .5px 1.6px)"></div>
+        <div style="position:absolute;inset:0;pointer-events:none;mix-blend-mode:overlay;opacity:{{ grainOp }};background-image:url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='.6'/%3E%3C/svg%3E&quot;);background-size:280px 280px"></div>
+        <div style="position:absolute;inset:0;pointer-events:none;mix-blend-mode:multiply;opacity:{{ foldOp }};background:linear-gradient(90deg,rgba(72,64,50,0) 23.6%,rgba(72,64,50,.16) 24.8%,rgba(72,64,50,.26) 25%,rgba(72,64,50,.13) 25.3%,rgba(72,64,50,0) 26.4%),linear-gradient(90deg,rgba(72,64,50,0) 48.6%,rgba(72,64,50,.16) 49.8%,rgba(72,64,50,.26) 50%,rgba(72,64,50,.13) 50.3%,rgba(72,64,50,0) 51.4%),linear-gradient(90deg,rgba(72,64,50,0) 73.6%,rgba(72,64,50,.16) 74.8%,rgba(72,64,50,.26) 75%,rgba(72,64,50,.13) 75.3%,rgba(72,64,50,0) 76.4%)"></div>
+        <div style="position:absolute;inset:0;pointer-events:none;mix-blend-mode:screen;opacity:{{ foldOp }};background:linear-gradient(90deg,rgba(255,255,255,0) 25.1%,rgba(255,255,255,.42) 25.9%,rgba(255,255,255,0) 27.4%),linear-gradient(90deg,rgba(255,255,255,0) 50.1%,rgba(255,255,255,.42) 50.9%,rgba(255,255,255,0) 52.4%),linear-gradient(90deg,rgba(255,255,255,0) 75.1%,rgba(255,255,255,.42) 75.9%,rgba(255,255,255,0) 77.4%)"></div>
+        <div style="position:absolute;inset:0;pointer-events:none;mix-blend-mode:multiply;opacity:{{ wearOp }};background:radial-gradient(28% 34% at 88% 12%,rgba(96,86,68,.14) 0%,rgba(96,86,68,0) 100%),radial-gradient(22% 30% at 9% 86%,rgba(96,86,68,.12) 0%,rgba(96,86,68,0) 100%),radial-gradient(120% 120% at 50% 50%,rgba(96,86,68,0) 62%,rgba(96,86,68,.16) 100%)"></div>
+      </div>
+      <div style="position:relative;width:100%;isolation:isolate;background:#FBF8F1;box-shadow:0 1px 0 rgba(90,80,62,.12)">
+        <img src="assets/eden-doko-back.jpg" alt="Eden documentary festival accordion brochure, inner side" style="width:100%;height:auto;display:block" />
+        <div style="position:absolute;inset:0;pointer-events:none;mix-blend-mode:multiply;opacity:{{ toneOp }};background:radial-gradient(130% 90% at 82% 24%,rgba(255,255,255,0) 0%,rgba(128,118,96,.08) 66%,rgba(112,101,80,.16) 100%),linear-gradient(83deg,rgba(255,252,240,0) 16%,rgba(146,136,112,.06) 52%,rgba(255,252,240,0) 86%)"></div>
+        <div style="position:absolute;inset:0;pointer-events:none;mix-blend-mode:multiply;opacity:{{ inkOp }};background-image:repeating-linear-gradient(0deg,rgba(58,52,42,.13) 0 .5px,rgba(255,255,255,0) .5px 1.6px)"></div>
+        <div style="position:absolute;inset:0;pointer-events:none;mix-blend-mode:overlay;opacity:{{ grainOp }};background-image:url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='.6'/%3E%3C/svg%3E&quot;);background-size:260px 260px"></div>
+        <div style="position:absolute;inset:0;pointer-events:none;mix-blend-mode:multiply;opacity:{{ foldOp }};background:linear-gradient(90deg,rgba(72,64,50,0) 23.6%,rgba(72,64,50,.14) 24.8%,rgba(72,64,50,.24) 25%,rgba(72,64,50,.12) 25.3%,rgba(72,64,50,0) 26.4%),linear-gradient(90deg,rgba(72,64,50,0) 48.6%,rgba(72,64,50,.14) 49.8%,rgba(72,64,50,.24) 50%,rgba(72,64,50,.12) 50.3%,rgba(72,64,50,0) 51.4%),linear-gradient(90deg,rgba(72,64,50,0) 73.6%,rgba(72,64,50,.14) 74.8%,rgba(72,64,50,.24) 75%,rgba(72,64,50,.12) 75.3%,rgba(72,64,50,0) 76.4%)"></div>
+        <div style="position:absolute;inset:0;pointer-events:none;mix-blend-mode:screen;opacity:{{ foldOp }};background:linear-gradient(90deg,rgba(255,255,255,0) 25.1%,rgba(255,255,255,.4) 25.9%,rgba(255,255,255,0) 27.4%),linear-gradient(90deg,rgba(255,255,255,0) 50.1%,rgba(255,255,255,.4) 50.9%,rgba(255,255,255,0) 52.4%),linear-gradient(90deg,rgba(255,255,255,0) 75.1%,rgba(255,255,255,.4) 75.9%,rgba(255,255,255,0) 77.4%)"></div>
+        <div style="position:absolute;inset:0;pointer-events:none;mix-blend-mode:multiply;opacity:{{ wearOp }};background:radial-gradient(26% 32% at 12% 14%,rgba(96,86,68,.13) 0%,rgba(96,86,68,0) 100%),radial-gradient(20% 28% at 92% 88%,rgba(96,86,68,.11) 0%,rgba(96,86,68,0) 100%),radial-gradient(120% 120% at 50% 50%,rgba(96,86,68,0) 62%,rgba(96,86,68,.15) 100%)"></div>
+      </div>
+      <div style="position:relative;width:100%;isolation:isolate;background:#FBF8F1;box-shadow:0 1px 0 rgba(90,80,62,.12);margin-top:96px">
+        <img src="assets/eden-june-front.jpg" alt="Eden June programme accordion brochure, outer side" style="width:100%;height:auto;display:block" />
+        <div style="position:absolute;inset:0;pointer-events:none;mix-blend-mode:multiply;opacity:{{ toneOp }};background:radial-gradient(130% 90% at 16% 18%,rgba(255,255,255,0) 0%,rgba(128,118,96,.09) 68%,rgba(112,101,80,.17) 100%),linear-gradient(97deg,rgba(255,252,240,0) 18%,rgba(146,136,112,.07) 54%,rgba(255,252,240,0) 84%)"></div>
+        <div style="position:absolute;inset:0;pointer-events:none;mix-blend-mode:multiply;opacity:{{ inkOp }};background-image:repeating-linear-gradient(0deg,rgba(58,52,42,.13) 0 .5px,rgba(255,255,255,0) .5px 1.6px)"></div>
+        <div style="position:absolute;inset:0;pointer-events:none;mix-blend-mode:overlay;opacity:{{ grainOp }};background-image:url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='.6'/%3E%3C/svg%3E&quot;);background-size:280px 280px"></div>
+        <div style="position:absolute;inset:0;pointer-events:none;mix-blend-mode:multiply;opacity:{{ foldOp }};background:linear-gradient(90deg,rgba(72,64,50,0) 23.6%,rgba(72,64,50,.16) 24.8%,rgba(72,64,50,.26) 25%,rgba(72,64,50,.13) 25.3%,rgba(72,64,50,0) 26.4%),linear-gradient(90deg,rgba(72,64,50,0) 48.6%,rgba(72,64,50,.16) 49.8%,rgba(72,64,50,.26) 50%,rgba(72,64,50,.13) 50.3%,rgba(72,64,50,0) 51.4%),linear-gradient(90deg,rgba(72,64,50,0) 73.6%,rgba(72,64,50,.16) 74.8%,rgba(72,64,50,.26) 75%,rgba(72,64,50,.13) 75.3%,rgba(72,64,50,0) 76.4%)"></div>
+        <div style="position:absolute;inset:0;pointer-events:none;mix-blend-mode:screen;opacity:{{ foldOp }};background:linear-gradient(90deg,rgba(255,255,255,0) 25.1%,rgba(255,255,255,.42) 25.9%,rgba(255,255,255,0) 27.4%),linear-gradient(90deg,rgba(255,255,255,0) 50.1%,rgba(255,255,255,.42) 50.9%,rgba(255,255,255,0) 52.4%),linear-gradient(90deg,rgba(255,255,255,0) 75.1%,rgba(255,255,255,.42) 75.9%,rgba(255,255,255,0) 77.4%)"></div>
+        <div style="position:absolute;inset:0;pointer-events:none;mix-blend-mode:multiply;opacity:{{ wearOp }};background:radial-gradient(28% 34% at 88% 12%,rgba(96,86,68,.14) 0%,rgba(96,86,68,0) 100%),radial-gradient(22% 30% at 9% 86%,rgba(96,86,68,.12) 0%,rgba(96,86,68,0) 100%),radial-gradient(120% 120% at 50% 50%,rgba(96,86,68,0) 62%,rgba(96,86,68,.16) 100%)"></div>
+      </div>
+      <div style="position:relative;width:100%;isolation:isolate;background:#FBF8F1;box-shadow:0 1px 0 rgba(90,80,62,.12)">
+        <img src="assets/eden-june-back.jpg" alt="Eden June programme accordion brochure, inner side" style="width:100%;height:auto;display:block" />
+        <div style="position:absolute;inset:0;pointer-events:none;mix-blend-mode:multiply;opacity:{{ toneOp }};background:radial-gradient(130% 90% at 82% 24%,rgba(255,255,255,0) 0%,rgba(128,118,96,.08) 66%,rgba(112,101,80,.16) 100%),linear-gradient(83deg,rgba(255,252,240,0) 16%,rgba(146,136,112,.06) 52%,rgba(255,252,240,0) 86%)"></div>
+        <div style="position:absolute;inset:0;pointer-events:none;mix-blend-mode:multiply;opacity:{{ inkOp }};background-image:repeating-linear-gradient(0deg,rgba(58,52,42,.13) 0 .5px,rgba(255,255,255,0) .5px 1.6px)"></div>
+        <div style="position:absolute;inset:0;pointer-events:none;mix-blend-mode:overlay;opacity:{{ grainOp }};background-image:url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='.6'/%3E%3C/svg%3E&quot;);background-size:260px 260px"></div>
+        <div style="position:absolute;inset:0;pointer-events:none;mix-blend-mode:multiply;opacity:{{ foldOp }};background:linear-gradient(90deg,rgba(72,64,50,0) 23.6%,rgba(72,64,50,.14) 24.8%,rgba(72,64,50,.24) 25%,rgba(72,64,50,.12) 25.3%,rgba(72,64,50,0) 26.4%),linear-gradient(90deg,rgba(72,64,50,0) 48.6%,rgba(72,64,50,.14) 49.8%,rgba(72,64,50,.24) 50%,rgba(72,64,50,.12) 50.3%,rgba(72,64,50,0) 51.4%),linear-gradient(90deg,rgba(72,64,50,0) 73.6%,rgba(72,64,50,.14) 74.8%,rgba(72,64,50,.24) 75%,rgba(72,64,50,.12) 75.3%,rgba(72,64,50,0) 76.4%)"></div>
+        <div style="position:absolute;inset:0;pointer-events:none;mix-blend-mode:screen;opacity:{{ foldOp }};background:linear-gradient(90deg,rgba(255,255,255,0) 25.1%,rgba(255,255,255,.4) 25.9%,rgba(255,255,255,0) 27.4%),linear-gradient(90deg,rgba(255,255,255,0) 50.1%,rgba(255,255,255,.4) 50.9%,rgba(255,255,255,0) 52.4%),linear-gradient(90deg,rgba(255,255,255,0) 75.1%,rgba(255,255,255,.4) 75.9%,rgba(255,255,255,0) 77.4%)"></div>
+        <div style="position:absolute;inset:0;pointer-events:none;mix-blend-mode:multiply;opacity:{{ wearOp }};background:radial-gradient(26% 32% at 12% 14%,rgba(96,86,68,.13) 0%,rgba(96,86,68,0) 100%),radial-gradient(20% 28% at 92% 88%,rgba(96,86,68,.11) 0%,rgba(96,86,68,0) 100%),radial-gradient(120% 120% at 50% 50%,rgba(96,86,68,0) 62%,rgba(96,86,68,.15) 100%)"></div>
+      </div>
+      <img src="assets/eden-covers-stack.webp" alt="Three Eden brochure covers stacked: animation week, June programme, documentary festival" style="width:100%;height:auto;display:block;margin-top:96px" />
+      <img src="assets/eden-merch-cap-tote-new.webp" alt="Eden Cinema merch: embroidered cap and printed tote bag" style="width:100%;height:auto;display:block;margin-top:-32px" />
+      <img src="assets/eden-posters-wall-scene.webp" alt="Five Eden posters pasted side by side on a street hoarding" style="width:100%;height:auto;display:block;margin-top:-32px" />
+    </div>
+  </div>
+  <div style="position:sticky;bottom:0;z-index:20;display:flex;flex:none;height:60px;box-sizing:border-box;background:#F8F8F6;border-top:2px solid #0D2565">
+    <a href="Project-Fetch.dc.html" style-hover="background:#F1B8FF" style="flex:1;min-width:0;display:block;line-height:58px;padding:0 16px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;border-right:2px solid #0D2565;font-family:'Authentic Sans 130',sans-serif;font-size:clamp(13px,1.3vw,18px)">FETCH / GUILTY PLEASURES</a>
+    <a href="Project-Kisses.dc.html" style-hover="background:#F1B8FF" style="flex:1;min-width:0;display:block;line-height:58px;padding:0 16px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;border-right:2px solid #0D2565;font-family:'Authentic Sans 130',sans-serif;font-size:clamp(13px,1.3vw,18px)">HOPP BY WIX</a>
+    <a href="Project-Happened.dc.html" style-hover="background:#F1B8FF" style="flex:1;min-width:0;display:block;line-height:58px;padding:0 16px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;border-right:2px solid #0D2565;font-family:'Authentic Sans 130',sans-serif;font-size:clamp(13px,1.3vw,18px)">HERE'S HOW IT HAPPENED</a>
+    <a href="Project-Hibi.dc.html" style-hover="background:#F1B8FF" style="flex:1;min-width:0;display:block;line-height:58px;padding:0 16px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;border-right:2px solid #0D2565;font-family:'Authentic Sans 130',sans-serif;font-size:clamp(13px,1.3vw,18px)">HIBI</a>
+    <a href="Project-Eden.dc.html" style-hover="background:#F1B8FF" style="flex:1;min-width:0;display:block;line-height:58px;padding:0 16px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;background:#F1B8FF;font-family:'Authentic Sans 130',sans-serif;font-size:clamp(13px,1.3vw,18px)">EDEN CINEMA</a>
+  </div>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;paperGrain&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:0.38,&quot;min&quot;:0,&quot;max&quot;:1,&quot;step&quot;:0.02,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Brochure scan&quot;},&quot;toneVariation&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:0.42,&quot;min&quot;:0,&quot;max&quot;:1,&quot;step&quot;:0.02,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Brochure scan&quot;},&quot;foldIntensity&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:0.55,&quot;min&quot;:0,&quot;max&quot;:1,&quot;step&quot;:0.02,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Brochure scan&quot;},&quot;inkTexture&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:0.3,&quot;min&quot;:0,&quot;max&quot;:1,&quot;step&quot;:0.02,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Brochure scan&quot;},&quot;handlingWear&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:0.28,&quot;min&quot;:0,&quot;max&quot;:1,&quot;step&quot;:0.02,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Brochure scan&quot;}}">
+class Component extends DCLogic {
+  componentDidMount() {
+    this._check = () => {
+      const icon = this._iconEl, txt = this._txtEl;
+      if (!icon || !txt) return;
+      const gap = icon.getBoundingClientRect().top - txt.getBoundingClientRect().bottom;
+      icon.style.opacity = gap < 24 ? '0' : '1';
+    };
+    this._posters = this._posters || [];
+    this._stack = () => {
+      const wrap = this._wrapEl;
+      if (!wrap) return;
+      const sticky = wrap.firstElementChild;
+      if (!sticky) return;
+      // start rising as soon as the stack area enters view, so there is no empty screen
+      const lead = sticky.offsetHeight * 0.8;
+      const runway = wrap.offsetHeight - sticky.offsetHeight + lead;
+      const raw = -wrap.getBoundingClientRect().top + lead;
+      const passed = Math.min(Math.max(raw, 0), Math.max(runway, 1));
+      const p = runway > 0 ? passed / runway : 1;
+      const live = this._posters.filter(Boolean);
+      const n = live.length || 1;
+      live.forEach((el, i) => {
+        // each poster finishes its rise before the next one starts stacking
+        let l = (p * n - i) / 0.7;
+        l = l < 0 ? 0 : l > 1 ? 1 : l;
+        const e = 1 - Math.pow(1 - l, 3);
+        el.style.transform = 'translate3d(0,' + ((1 - e) * 118).toFixed(2) + '%,0)';
+      });
+    };
+    this._onScroll = () => {
+      if (this._raf) return;
+      this._raf = requestAnimationFrame(() => { this._raf = 0; this._check(); this._stack(); });
+    };
+    window.addEventListener('scroll', this._onScroll, { passive: true });
+    window.addEventListener('resize', this._onScroll);
+    this._check();
+    this._stack();
+  }
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this._onScroll);
+    window.removeEventListener('resize', this._onScroll);
+    if (this._raf) cancelAnimationFrame(this._raf);
+  }
+  posterRef(i) {
+    return (el) => {
+      this._posters = this._posters || [];
+      this._posters[i] = el;
+      if (el && this._stack) this._stack();
+    };
+  }
+  renderVals() {
+    const p = this.props || {};
+    const num = (v, d) => (typeof v === 'number' ? v : d);
+    return {
+      grainOp: num(p.paperGrain, 0.38),
+      toneOp: num(p.toneVariation, 0.42),
+      foldOp: num(p.foldIntensity, 0.55),
+      inkOp: num(p.inkTexture, 0.3),
+      wearOp: num(p.handlingWear, 0.28),
+      stackWrap: (el) => { this._wrapEl = el; if (el && this._stack) this._stack(); },
+      p0: this.posterRef(0),
+      p1: this.posterRef(1),
+      p2: this.posterRef(2),
+      p3: this.posterRef(3),
+      p4: this.posterRef(4),
+      p5: this.posterRef(5),
+      p6: this.posterRef(6),
+      lineIcon: (el) => { this._iconEl = el; if (el && this._check) this._check(); },
+      textBlock: (el) => { this._txtEl = el; if (el && this._check) this._check(); },
+      scrollTop: (e) => {
+        if (e && e.target && e.target.closest && e.target.closest('a')) return;
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    };
+  }
+}
+</script>
+</body>
+</html>

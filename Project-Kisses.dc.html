@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+@font-face { font-family: 'Authentic Sans 90'; src: url("uploads/authentic-sans-condensed-90.otf") format("opentype"); font-display: block; }
+@font-face { font-family: 'Authentic Sans 130'; src: url("uploads/AUTHENTICSans-Condensed-130.otf") format("opentype"); font-display: block; }
+@font-face { font-family: 'Sloop Script'; src: url("uploads/Sloop Script Medium One.ttf") format("truetype"); font-display: block; }
+html, body { margin: 0; background: #F8F8F6; overflow-x: hidden; }
+body { cursor: url("assets/cursor.svg") 2 2, auto; }
+a, button, [role="button"] { cursor: url("assets/cursor.svg") 2 2, pointer; }
+a { color: inherit; text-decoration: none; }
+.hopp-textcol { scrollbar-width: none; -ms-overflow-style: none; }
+.hopp-textcol::-webkit-scrollbar { width: 0; height: 0; display: none; }
+.hopp-row-scroll { scrollbar-width: none; -ms-overflow-style: none; }
+.hopp-row-scroll::-webkit-scrollbar { width: 0; height: 0; display: none; }
+.hopp-ast { transform-box: fill-box; transform-origin: center; opacity: 0; animation: hoppAst 4.6s cubic-bezier(.33,.02,.28,1) infinite; }
+.hopp-ast-2 { animation-delay: .22s; }
+.hopp-ast-3 { animation-delay: .44s; }
+.hopp-ast-4 { animation-delay: .66s; }
+.hopp-bell { transform-box: view-box; transform-origin: 100.6px 21px; animation: hoppBell 2.2s cubic-bezier(.36,.07,.19,.97) infinite; }
+.hopp-env { transform-box: view-box; transform-origin: 37.44px 27.97px; animation: hoppEnv 3.2s cubic-bezier(.36,.07,.19,.97) infinite; }
+.hopp-tel { transform-box: view-box; transform-origin: 38px 44.9px; animation: hoppTel 3.2s cubic-bezier(.36,.07,.19,.97) .38s infinite; }
+.hopp-coin { transform-box: view-box; transform-origin: 67.6px 36.7px; animation: hoppCoin 3.2s cubic-bezier(.36,.07,.19,.97) infinite; }
+.hopp-dollar { transform-box: view-box; transform-origin: 67.8px 37px; animation: hoppDollar 3.2s cubic-bezier(.36,.07,.19,.97) .12s infinite; }
+@keyframes hoppCoin {
+  0%, 6%    { transform: translateY(0) scale(1) rotate(0deg); }
+  15%       { transform: translateY(-1.4px) scale(1.04) rotate(-2.5deg); }
+  26%       { transform: translateY(0.3px) scale(0.995) rotate(1deg); }
+  34%, 100% { transform: translateY(0) scale(1) rotate(0deg); }
+}
+@keyframes hoppDollar {
+  0%, 6%    { transform: scale(1); }
+  16%       { transform: scale(1.09); }
+  27%       { transform: scale(0.985); }
+  35%, 100% { transform: scale(1); }
+}
+@keyframes hoppEnv {
+  0%, 6%    { transform: translateY(0) scale(1); }
+  14%       { transform: translateY(-1.1px) scale(1.05); }
+  24%       { transform: translateY(0.3px) scale(0.99); }
+  32%, 100% { transform: translateY(0) scale(1); }
+}
+@keyframes hoppTel {
+  0%, 6%    { transform: rotate(0deg); }
+  12%       { transform: rotate(7deg); }
+  18%       { transform: rotate(-6deg); }
+  24%       { transform: rotate(3.5deg); }
+  30%       { transform: rotate(-2deg); }
+  36%, 100% { transform: rotate(0deg); }
+}
+@keyframes hoppBell {
+  0%       { transform: rotate(0deg); }
+  8%       { transform: rotate(13deg); }
+  17%      { transform: rotate(-11deg); }
+  26%      { transform: rotate(7.5deg); }
+  35%      { transform: rotate(-5deg); }
+  44%      { transform: rotate(2.5deg); }
+  52%, 100%{ transform: rotate(0deg); }
+}
+@keyframes hoppAst {
+  0%   { opacity: 0; transform: scale(.88); }
+  10%  { opacity: 1; transform: scale(1); }
+  74%  { opacity: 1; transform: scale(1); }
+  88%  { opacity: 0; transform: scale(.94); }
+  100% { opacity: 0; transform: scale(.88); }
+}
+</style>
+<script src="image-slot.js"></script>
+<script src="drift.js"></script>
+<script src="preload.js"></script>
+</helmet>
+<div data-screen-label="Project – Hopp by Wix" style="min-height:100vh;display:flex;flex-direction:column;background:#F8F8F6;font-family:'Authentic Sans 90',sans-serif;color:#0D2565">
+  <div ref="{{ headRef }}" style="position:sticky;top:0;z-index:20;background:#F8F8F6;border-bottom:2px solid #0D2565;display:flex;justify-content:space-between;align-items:center;height:min(80px,7.5vh);box-sizing:border-box;padding:0 24px;cursor:pointer" onClick="{{ scrollTop }}">
+    <a href="Home.dc.html" style="font-family:'Sloop Script',cursive;font-size:29px;display:inline-block;transition:transform .3s cubic-bezier(.22,.61,.36,1)">Liya Kedar</a>
+    <a href="About.dc.html" style-hover="font-family:'Sloop Script', cursive;font-size:29px;letter-spacing:0;text-transform:none" style-active="font-family:'Sloop Script', cursive;font-size:29px;letter-spacing:0;text-transform:none" style-focus="font-family:'Sloop Script', cursive;font-size:29px;letter-spacing:0;text-transform:none" style="font-family:'Authentic Sans 90',sans-serif;font-size:20px;letter-spacing:1px;text-transform:uppercase;display:inline-block;transition:transform .3s cubic-bezier(.22,.61,.36,1)">About</a>
+  </div>
+  <div style="flex:1;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));padding:28px 0 64px">
+    <div ref="{{ textBlock }}" class="hopp-textcol" style="grid-column:1 / span 2;grid-row:1;align-self:start;padding:12px 32px 0 24px;min-width:0;display:flex;flex-direction:column">
+      <div ref="{{ introRef }}" style="flex:none;height:{{ introZone }}">
+      <div style="height:calc(100% - 300px);min-height:0">
+      <div ref="{{ introInner }}" style="position:sticky;top:var(--hopp-texttop, 88px)">
+        <div style="font-family:'Authentic Sans 130',sans-serif;font-size:26px;text-transform:uppercase;line-height:1.15">Hopp by Wix</div>
+        <div style="font-family:'Authentic Sans 90',sans-serif;font-size:17px;margin-top:4px">Product Design</div>
+        <div style="margin-top:20px;font-family:'Authentic Sans 90',sans-serif;font-size:18px;line-height:1.5;text-wrap:pretty">
+          Hopp is Wix’s link-in-bio tool, designed to help creators and small businesses build personalized, well-designed pages quickly and easily.<br><br>
+          Being a Product Designer on Hopp taught me to move between product thinking and visual design - improving the experience of building a page while also shaping what users could create with it. I worked on making the product clearer and easier to use, expanding its design possibilities without overwhelming users, and designing a wide range of templates for different creators, businesses, and needs. I also explored new ways to create visual content with AI tools.
+        </div>
+      </div>
+      </div>
+      </div>
+      <div ref="{{ addZoneRef }}" style="flex:none;height:{{ addZone }}">
+      <div style="height:calc(100% - 300px);min-height:0">
+      <div ref="{{ addInner }}" style="position:sticky;top:var(--hopp-texttop, 88px)">
+        <div style="font-family:'Authentic Sans 130',sans-serif;font-size:26px;text-transform:uppercase;line-height:1.15">Add Blocks Panel</div>
+        <div style="font-family:'Authentic Sans 90',sans-serif;font-size:17px;margin-top:4px">Redesign &amp; Illustration System</div>
+        <div style="margin-top:20px;font-family:'Authentic Sans 90',sans-serif;font-size:18px;line-height:1.5;text-wrap:pretty">
+          This project focused on redesigning the “Add Blocks” panel to improve clarity, usability, and visual organization. The goal was to create a more intuitive and accessible experience when adding new blocks. The redesign included restructuring the layout and creating over 200 custom illustrations to visually represent each block, making the system clearer, more friendly, and easier to navigate.
+        </div>
+        <div style="margin-top:24px;display:flex;flex-direction:column">
+          <div onClick="{{ toggle0 }}" style="display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 0;border-bottom:1px solid #0D2565;cursor:pointer">
+            <div style="font-family:'Authentic Sans 130',sans-serif;font-size:18px">01 - The Challenge</div>
+            <svg viewBox="0 0 14 8" style="{{ chev0 }}"><path d="M1 1 L7 7 L13 1" fill="none" stroke="#0D2565" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+          </div>
+          <sc-if value="{{ open0 }}" hint-placeholder-val="{{ false }}">
+            <div style="font-family:'Authentic Sans 90',sans-serif;font-size:18px;line-height:1.5;padding:14px 0 4px;text-wrap:pretty">The original Add Blocks panel wasn’t clear enough. The illustrations didn’t always communicate what each block actually did, while the amount of visual information created unnecessary noise and confusion.<br><span style="display:block;height:8px"></span>
+            With over 200 blocks, many of them closely related, it was important to create clear distinctions between them. How do you distinguish a physical product block from a digital one? Or a booking block for a class, a course, or an appointment?</div>
+          </sc-if>
+          <div onClick="{{ toggle1 }}" style="display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 0;border-bottom:1px solid #0D2565;cursor:pointer">
+            <div style="font-family:'Authentic Sans 130',sans-serif;font-size:18px">02 - The Vision</div>
+            <svg viewBox="0 0 14 8" style="{{ chev1 }}"><path d="M1 1 L7 7 L13 1" fill="none" stroke="#0D2565" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+          </div>
+          <sc-if value="{{ open1 }}" hint-placeholder-val="{{ false }}">
+            <div style="font-family:'Authentic Sans 90',sans-serif;font-size:18px;line-height:1.5;padding:14px 0 4px;text-wrap:pretty">Make adding a new block feel simple and intuitive - creating a clear, coherent visual system that users could understand within seconds.<br><span style="display:block;height:8px"></span>
+            Similar blocks needed to feel like part of the same family, while each block still had to be recognizable on its own.</div>
+          </sc-if>
+          <div onClick="{{ toggle2 }}" style="display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 0;border-bottom:1px solid #0D2565;cursor:pointer">
+            <div style="font-family:'Authentic Sans 130',sans-serif;font-size:18px">03 - The Solution</div>
+            <svg viewBox="0 0 14 8" style="{{ chev2 }}"><path d="M1 1 L7 7 L13 1" fill="none" stroke="#0D2565" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+          </div>
+          <sc-if value="{{ open2 }}" hint-placeholder-val="{{ false }}">
+            <div style="font-family:'Authentic Sans 90',sans-serif;font-size:18px;line-height:1.5;padding:14px 0 4px;text-wrap:pretty">I redesigned the structure of the Add Blocks panel and created over 200 custom illustrations, developing a visual language that connects related blocks while giving each one its own recognizable identity.<br><span style="display:block;height:8px"></span>
+            The result is a cleaner, friendlier system that makes it easier to scan, understand, and navigate between blocks.</div>
+          </sc-if>
+        </div>
+      </div>
+      </div>
+      </div>
+      <div ref="{{ lockZoneRef }}" style="flex:none;height:{{ lockZone }}">
+      <div ref="{{ lockInner }}" style="position:sticky;top:var(--hopp-texttop, 88px)">
+        <div style="font-family:'Authentic Sans 130',sans-serif;font-size:26px;text-transform:uppercase;line-height:1.15">Lock Panel</div>
+        <div style="font-family:'Authentic Sans 90',sans-serif;font-size:17px;margin-top:4px">Redesign &amp; illustrations</div>
+        <div style="margin-top:20px;font-family:'Authentic Sans 90',sans-serif;font-size:18px;line-height:1.5;text-wrap:pretty">
+          The Lock Panel allows users to control access to their content by choosing how visitors can unlock it. I redesigned the experience to make the available options clearer, more consistent, and easier to scan.
+        </div>
+      </div>
+      </div>
+      <div style="flex:none;height:200px"></div>
+      <div ref="{{ visualZoneRef }}" style="flex:none;height:{{ visualZone }}">
+      <div ref="{{ visualInner }}" style="position:sticky;top:var(--hopp-texttop, 88px)">
+        <div style="font-family:'Authentic Sans 130',sans-serif;font-size:26px;text-transform:uppercase;line-height:1.15">Visual Content</div>
+        <div style="font-family:'Authentic Sans 90',sans-serif;font-size:17px;margin-top:4px">Image Making &amp; Default Content</div>
+        <div style="margin-top:20px;font-family:'Authentic Sans 90',sans-serif;font-size:18px;line-height:1.5;text-wrap:pretty">
+          Alongside product design, I used AI tools like Weavy and Midjourney to create default content and imagery for Hopp.
+        </div>
+      </div>
+      </div>
+    </div>
+    <div style="grid-column:3 / span 3;grid-row:1;padding:0 24px 0 0;min-width:0;display:flex;flex-direction:column;gap:20px">
+      <div style="position:relative;display:flex;flex-direction:column;container-type:inline-size">
+      <div ref="{{ phoneRowRef }}" style="position:sticky;top:var(--hopp-head, 48px);z-index:1;height:var(--hopp-frame, calc(100vh - 108px));padding:40px 0 0;box-sizing:border-box;display:flex;justify-content:center;align-items:flex-start;clip-path:inset(0px -100vw);container-type:inline-size">
+        <div ref="{{ carouselRef }}" style="position:relative;width:100%;height:min(625px, calc((100vh - 220px) * 0.8925), 76cqw)">
+          <div key="luna-{{ resetGen }}" onClick="{{ go0 }}" style="{{ card0 }}">
+            <dc-import name="Luna-Hopp-Page" hint-size="100%,100%" style="width:100%;height:100%"></dc-import>
+            <div style="{{ shield0 }}"></div>
+          </div>
+          <div key="skater-{{ resetGen }}" onClick="{{ go1 }}" style="{{ card1 }}">
+            <dc-import name="Skater-Hopp-Page" hint-size="100%,100%" style="width:100%;height:100%"></dc-import>
+            <div style="{{ shield1 }}"></div>
+          </div>
+          <div key="ramen-{{ resetGen }}" onClick="{{ go2 }}" style="{{ card2 }}">
+            <dc-import name="Ramen-Republic-Hopp-Page" hint-size="100%,100%" style="width:100%;height:100%"></dc-import>
+            <div style="{{ shield2 }}"></div>
+          </div>
+          <div key="doula-{{ resetGen }}" onClick="{{ go3 }}" style="{{ card3 }}">
+            <dc-import name="Amelia-Rose-Doula-Hopp-Page" hint-size="100%,100%" style="width:100%;height:100%"></dc-import>
+            <div style="{{ shield3 }}"></div>
+          </div>
+        </div>
+      </div>
+      <div onClick="{{ zoom9 }}" style="position:relative;z-index:2;margin:0;padding:0;height:min(var(--hopp-frame, calc(100vh - 108px)), calc(76.6cqw + 18px));width:calc(100% + 24px);margin-right:-24px;background:#F8F8F6;overflow:hidden;cursor:zoom-in">
+        <img src="assets/hopp-style-modal.webp" data-zoom="1" alt="Style It Your Way customization modal" style="width:100%;height:100%;object-fit:cover;object-position:center center;display:block">
+      </div>
+      </div>
+      <div ref="{{ addPanelBlock }}" style="display:flex;flex-direction:column;gap:20px;margin-top:280px">
+        <div style="display:flex;gap:20px;align-items:flex-start;width:100%">
+          <img data-rev="0" src="assets/hopp-add-blog-hq.webp" alt="Blog gallery block" ref="{{ rev0 }}" style="flex:1568 1 0;min-width:0;width:auto;height:auto;display:block;transition:opacity .9s cubic-bezier(.22,.61,.36,1),transform .9s cubic-bezier(.22,.61,.36,1);opacity:{{ op0 }};transform:translateY({{ ty0 }})">
+          <img data-rev="1" src="assets/hopp-add-ticket-hq.webp" alt="Ticketed event block" ref="{{ rev1 }}" style="flex:1568 1 0;min-width:0;width:auto;height:auto;display:block;transition:opacity .9s cubic-bezier(.22,.61,.36,1),transform .9s cubic-bezier(.22,.61,.36,1);opacity:{{ op1 }};transform:translateY({{ ty1 }})">
+        </div>
+        <div style="display:flex;gap:20px;align-items:flex-start;width:100%">
+          <img data-rev="2" src="assets/hopp-add-youtube-hq.webp" alt="Youtube video block" ref="{{ rev2 }}" style="flex:2718 1 0;min-width:0;width:auto;height:auto;display:block;transition:opacity .9s cubic-bezier(.22,.61,.36,1),transform .9s cubic-bezier(.22,.61,.36,1);opacity:{{ op2 }};transform:translateY({{ ty2 }})">
+          <img data-rev="3" src="assets/hopp-add-music-hq.webp" alt="Apple Music block" ref="{{ rev3 }}" style="flex:1755 1 0;min-width:0;width:auto;height:auto;display:block;transition:opacity .9s cubic-bezier(.22,.61,.36,1),transform .9s cubic-bezier(.22,.61,.36,1);opacity:{{ op3 }};transform:translateY({{ ty3 }})">
+        </div>
+        <img data-rev="4" ref="{{ rev4 }}" src="assets/hopp-custom-modal.webp" onClick="{{ zoom10 }}" alt="Link preview modal - preview block types" style="margin-top:20px;width:100%;height:auto;display:block;background:#FFFFFF;border-radius:20px;cursor:zoom-in;transition:opacity 1.1s cubic-bezier(.22,.61,.36,1),transform 1.1s cubic-bezier(.22,.61,.36,1);opacity:{{ op4 }};transform:translateY({{ ty4 }})">
+        <div data-rev="5" ref="{{ reelRef }}" onClick="{{ zoomReel }}" style="margin-top:20px;transition:opacity 1.1s cubic-bezier(.22,.61,.36,1),transform 1.1s cubic-bezier(.22,.61,.36,1);opacity:{{ op5 }};transform:translateY({{ ty5 }});position:relative;z-index:0;isolation:isolate;width:100%;aspect-ratio:3440 / 1902;overflow:hidden;background:#F8F8F6;cursor:zoom-in">
+          <img data-reel="0" src="assets/hopp-panel-1.webp" data-zoom="1" alt="Add Blocks panel - Links" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;opacity:1;transition:opacity .75s ease">
+          <img data-reel="1" src="assets/hopp-panel-2.webp" alt="Add Blocks panel - Forms and Contact" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;opacity:0;transition:opacity .75s ease">
+          <img data-reel="2" src="assets/hopp-panel-3.webp" alt="Add Blocks panel - Store and Products" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;opacity:0;transition:opacity .75s ease">
+          <img data-reel="3" src="assets/hopp-panel-4.webp" alt="Add Blocks panel - Bookings" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;opacity:0;transition:opacity .75s ease">
+          <img data-reel="4" src="assets/hopp-panel-5.webp" alt="Add Blocks panel - Events and Tickets" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;opacity:0;transition:opacity .75s ease">
+          <img data-reel="5" src="assets/hopp-panel-6.webp" alt="Add Blocks panel - Blog" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;opacity:0;transition:opacity .75s ease">
+          <img data-reel="6" src="assets/hopp-panel-7.webp" alt="Add Blocks panel - Social commerce" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;opacity:0;transition:opacity .75s ease">
+          <img data-reel="7" src="assets/hopp-panel-8.webp" alt="Add Blocks panel - YouTube blocks" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;opacity:0;transition:opacity .75s ease">
+        </div>
+        <div ref="{{ dotsRef }}" onClick="{{ pickFrame }}" style="display:flex;gap:6px;margin-top:-6px">
+          <div data-reeldot="0" style="flex:1;height:3px;background:#0D2565;transition:background .3s ease;cursor:pointer"></div>
+          <div data-reeldot="1" style="flex:1;height:3px;background:rgba(13,37,101,0.18);transition:background .3s ease;cursor:pointer"></div>
+          <div data-reeldot="2" style="flex:1;height:3px;background:rgba(13,37,101,0.18);transition:background .3s ease;cursor:pointer"></div>
+          <div data-reeldot="3" style="flex:1;height:3px;background:rgba(13,37,101,0.18);transition:background .3s ease;cursor:pointer"></div>
+          <div data-reeldot="4" style="flex:1;height:3px;background:rgba(13,37,101,0.18);transition:background .3s ease;cursor:pointer"></div>
+          <div data-reeldot="5" style="flex:1;height:3px;background:rgba(13,37,101,0.18);transition:background .3s ease;cursor:pointer"></div>
+          <div data-reeldot="6" style="flex:1;height:3px;background:rgba(13,37,101,0.18);transition:background .3s ease;cursor:pointer"></div>
+          <div data-reeldot="7" style="flex:1;height:3px;background:rgba(13,37,101,0.18);transition:background .3s ease;cursor:pointer"></div>
+        </div>
+        <div style="display:flex;gap:20px;align-items:flex-start;width:100%">
+          <img data-rev="6" ref="{{ rev6 }}" src="assets/hopp-block-tiktok-full.webp" onClick="{{ zoom12 }}" alt="TikTok video block illustration" style="flex:767 1 0;min-width:0;width:auto;height:auto;display:block;border-radius:20px;cursor:zoom-in;transition:opacity 1.1s cubic-bezier(.22,.61,.36,1),transform 1.1s cubic-bezier(.22,.61,.36,1);opacity:{{ op6 }};transform:translateY({{ ty6 }})">
+          <img data-rev="7" ref="{{ rev7 }}" src="assets/hopp-block-appointment.webp" onClick="{{ zoom13 }}" alt="Appointment block illustration" style="flex:1031 1 0;min-width:0;width:auto;height:auto;display:block;border-radius:20px;cursor:zoom-in;transition:opacity 1.1s cubic-bezier(.22,.61,.36,1),transform 1.1s cubic-bezier(.22,.61,.36,1);opacity:{{ op7 }};transform:translateY({{ ty7 }})">
+        </div>
+        <div style="display:flex;gap:20px;align-items:flex-start;width:100%">
+          <img data-rev="8" ref="{{ rev8 }}" src="assets/hopp-block-course.webp" onClick="{{ zoom14 }}" alt="Course block illustration" style="flex:1031 1 0;min-width:0;width:auto;height:auto;display:block;border-radius:20px;cursor:zoom-in;transition:opacity 1.1s cubic-bezier(.22,.61,.36,1),transform 1.1s cubic-bezier(.22,.61,.36,1);opacity:{{ op8 }};transform:translateY({{ ty8 }})">
+          <img data-rev="9" ref="{{ rev9 }}" src="assets/hopp-block-insta-full.webp" onClick="{{ zoom11 }}" alt="Instagram Feed block illustration" style="flex:767 1 0;min-width:0;width:auto;height:auto;display:block;border-radius:20px;cursor:zoom-in;transition:opacity 1.1s cubic-bezier(.22,.61,.36,1),transform 1.1s cubic-bezier(.22,.61,.36,1);opacity:{{ op9 }};transform:translateY({{ ty9 }})">
+        </div>
+      </div>
+      <div ref="{{ lockPanelBlock }}" style="display:flex;flex-direction:column;gap:20px;margin-top:280px">
+        <div style="display:flex;gap:20px;align-items:flex-start;width:100%">
+          <div data-rev="10" ref="{{ rev10 }}" style="flex:7 1 0;min-width:0;display:flex;flex-direction:column;gap:10px;transition:opacity 1.1s cubic-bezier(.22,.61,.36,1),transform 1.1s cubic-bezier(.22,.61,.36,1);opacity:{{ op10 }};transform:translateY({{ ty10 }})">
+            <div style="font-family:'Authentic Sans 130',sans-serif;font-size:16px;text-transform:uppercase;letter-spacing:1px">Before</div>
+            <img src="assets/hopp-lock-before.png" onClick="{{ zoom15 }}" alt="Lock panel before the redesign" style="width:100%;height:auto;display:block;border-radius:20px;cursor:zoom-in">
+          </div>
+          <div data-rev="11" ref="{{ rev11 }}" style="flex:10 1 0;min-width:0;display:flex;flex-direction:column;gap:10px;transition:opacity 1.1s cubic-bezier(.22,.61,.36,1),transform 1.1s cubic-bezier(.22,.61,.36,1);opacity:{{ op11 }};transform:translateY({{ ty11 }})">
+            <div style="font-family:'Authentic Sans 130',sans-serif;font-size:16px;text-transform:uppercase;letter-spacing:1px">After</div>
+            <div style="position:relative;width:100%">
+              <img src="assets/hopp-lock-after.png" onClick="{{ zoom16 }}" alt="Lock panel after the redesign" style="width:100%;height:auto;display:block;border-radius:20px;cursor:zoom-in">
+        <div style="position:absolute;left:9.27%;top:25.43%;width:39.99%;height:17.18%;pointer-events:none"><div style="position:relative;width:100%;height:100%">
+        <img src="assets/hopp-lock-password-card.svg" alt="Password lock option card" style="width:100%;height:auto;display:block">
+        <svg viewBox="0 0 136 115" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none">
+          <path class="hopp-ast" d="M49.5142 37.5112L48.8069 38.7457L46.5044 37.4141C46.3472 37.3124 46.1992 37.2107 46.0605 37.109C45.9218 37.0073 45.8016 36.8917 45.6999 36.7622C45.8294 37.0489 45.8941 37.3818 45.8941 37.7609V40.4101H44.4516V37.7886C44.4516 37.391 44.5024 37.0581 44.6041 36.79C44.4285 37.0211 44.1742 37.2292 43.8413 37.4141L41.5527 38.7318L40.8453 37.4974L43.12 36.1797C43.4529 35.9855 43.7812 35.8607 44.1048 35.8052C43.7812 35.7682 43.4529 35.6434 43.12 35.4307L40.8314 34.0991L41.5388 32.8647L43.8413 34.1962C43.9985 34.2979 44.1418 34.4043 44.2713 34.5152C44.41 34.617 44.5302 34.7325 44.6319 34.862C44.5117 34.5661 44.4516 34.2286 44.4516 33.8495V31.2141H45.8941V33.8356C45.8941 34.0205 45.8802 34.1962 45.8525 34.3627C45.834 34.5291 45.7924 34.6863 45.7276 34.8343C45.9403 34.5846 46.1992 34.3719 46.5044 34.1962L48.793 32.8785L49.5004 34.113L47.2256 35.4307C47.0684 35.5232 46.9112 35.6064 46.754 35.6804C46.5968 35.7451 46.4397 35.7867 46.2825 35.8052C46.4397 35.8329 46.5968 35.8792 46.754 35.9439C46.9112 35.9994 47.0684 36.078 47.2256 36.1797L49.5142 37.5112Z" fill="#2563EB"></path>
+          <path class="hopp-ast hopp-ast-2" d="M64.3991 37.5112L63.6917 38.7457L61.3893 37.4141C61.2321 37.3124 61.0841 37.2107 60.9454 37.109C60.8067 37.0073 60.6865 36.8917 60.5848 36.7622C60.7142 37.0489 60.779 37.3818 60.779 37.7609V40.4101H59.3365V37.7886C59.3365 37.391 59.3873 37.0581 59.489 36.79C59.3133 37.0211 59.0591 37.2292 58.7262 37.4141L56.4376 38.7318L55.7302 37.4974L58.0049 36.1797C58.3378 35.9855 58.6661 35.8607 58.9897 35.8052C58.6661 35.7682 58.3378 35.6434 58.0049 35.4307L55.7163 34.0991L56.4237 32.8647L58.7262 34.1962C58.8834 34.2979 59.0267 34.4043 59.1561 34.5152C59.2948 34.617 59.4151 34.7325 59.5168 34.862C59.3966 34.5661 59.3365 34.2286 59.3365 33.8495V31.2141H60.779V33.8356C60.779 34.0205 60.7651 34.1962 60.7374 34.3627C60.7189 34.5291 60.6773 34.6863 60.6125 34.8343C60.8252 34.5846 61.0841 34.3719 61.3893 34.1962L63.6779 32.8785L64.3853 34.113L62.1105 35.4307C61.9533 35.5232 61.7961 35.6064 61.6389 35.6804C61.4817 35.7451 61.3245 35.7867 61.1673 35.8052C61.3245 35.8329 61.4817 35.8792 61.6389 35.9439C61.7961 35.9994 61.9533 36.078 62.1105 36.1797L64.3991 37.5112Z" fill="#2563EB"></path>
+          <path class="hopp-ast hopp-ast-3" d="M79.2839 37.5112L78.5765 38.7457L76.274 37.4141C76.1168 37.3124 75.9689 37.2107 75.8302 37.109C75.6915 37.0073 75.5713 36.8917 75.4696 36.7622C75.599 37.0489 75.6637 37.3818 75.6637 37.7609V40.4101H74.2212V37.7886C74.2212 37.391 74.2721 37.0581 74.3738 36.79C74.1981 37.0211 73.9438 37.2292 73.6109 37.4141L71.3223 38.7318L70.6149 37.4974L72.8897 36.1797C73.2226 35.9855 73.5508 35.8607 73.8745 35.8052C73.5508 35.7682 73.2226 35.6434 72.8897 35.4307L70.6011 34.0991L71.3085 32.8647L73.6109 34.1962C73.7681 34.2979 73.9115 34.4043 74.0409 34.5152C74.1796 34.617 74.2998 34.7325 74.4015 34.862C74.2813 34.5661 74.2212 34.2286 74.2212 33.8495V31.2141H75.6637V33.8356C75.6637 34.0205 75.6499 34.1962 75.6221 34.3627C75.6036 34.5291 75.562 34.6863 75.4973 34.8343C75.71 34.5846 75.9689 34.3719 76.274 34.1962L78.5626 32.8785L79.27 34.113L76.9953 35.4307C76.8381 35.5232 76.6809 35.6064 76.5237 35.6804C76.3665 35.7451 76.2093 35.7867 76.0521 35.8052C76.2093 35.8329 76.3665 35.8792 76.5237 35.9439C76.6809 35.9994 76.8381 36.078 76.9953 36.1797L79.2839 37.5112Z" fill="#2563EB"></path>
+          <path class="hopp-ast hopp-ast-4" d="M94.1686 37.5112L93.4612 38.7457L91.1587 37.4141C91.0015 37.3124 90.8536 37.2107 90.7149 37.109C90.5762 37.0073 90.456 36.8917 90.3543 36.7622C90.4837 37.0489 90.5484 37.3818 90.5484 37.7609V40.4101H89.1059V37.7886C89.1059 37.391 89.1568 37.0581 89.2585 36.79C89.0828 37.0211 88.8285 37.2292 88.4956 37.4141L86.207 38.7318L85.4996 37.4974L87.7744 36.1797C88.1073 35.9855 88.4355 35.8607 88.7592 35.8052C88.4355 35.7682 88.1073 35.6434 87.7744 35.4307L85.4858 34.0991L86.1932 32.8647L88.4956 34.1962C88.6528 34.2979 88.7962 34.4043 88.9256 34.5152C89.0643 34.617 89.1845 34.7325 89.2862 34.862C89.166 34.5661 89.1059 34.2286 89.1059 33.8495V31.2141H90.5484V33.8356C90.5484 34.0205 90.5346 34.1962 90.5068 34.3627C90.4883 34.5291 90.4467 34.6863 90.382 34.8343C90.5947 34.5846 90.8536 34.3719 91.1587 34.1962L93.4473 32.8785L94.1547 34.113L91.88 35.4307C91.7228 35.5232 91.5656 35.6064 91.4084 35.6804C91.2512 35.7451 91.094 35.7867 90.9368 35.8052C91.094 35.8329 91.2512 35.8792 91.4084 35.9439C91.5656 35.9994 91.7228 36.078 91.88 36.1797L94.1686 37.5112Z" fill="#2563EB"></path>
+        </svg>
+      </div>
+        </div>
+        <div style="position:absolute;left:9.27%;top:45.66%;width:39.99%;height:17.18%;pointer-events:none"><div style="position:relative;width:100%;height:100%">
+        <img src="assets/hopp-lock-subscribe-card.svg" alt="Subscribe form lock option card" style="width:100%;height:auto;display:block">
+        <svg viewBox="0 0 136 115" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none">
+          <g class="hopp-bell">
+            <path d="M101.532 31.397C101.532 31.5188 101.508 31.6395 101.461 31.7521C101.415 31.8645 101.346 31.9667 101.26 32.0528C101.174 32.1389 101.072 32.2073 100.959 32.2539C100.847 32.3004 100.726 32.3245 100.605 32.3246C100.483 32.3246 100.362 32.3005 100.249 32.2539C100.137 32.2073 100.035 32.1389 99.9487 32.0528C99.8626 31.9667 99.7942 31.8645 99.7476 31.7521C99.701 31.6395 99.6769 31.5188 99.6769 31.397H101.532Z" fill="#2563EB"></path>
+            <path d="M100.605 20.8844C100.946 20.8845 101.223 21.1613 101.223 21.5028C101.223 21.522 101.221 21.5408 101.219 21.5596C103.014 21.8922 104.314 23.6561 104.314 25.6769V27.5321C104.314 27.8072 104.383 28.0725 104.507 28.2972L104.563 28.3908L105.212 29.3794C105.44 29.7279 105.442 30.143 105.3 30.4676C105.158 30.7922 104.839 31.0877 104.391 31.0878H96.8175C96.3697 31.0877 96.0505 30.7922 95.9086 30.4676C95.7669 30.1431 95.7693 29.7278 95.9974 29.3794L96.646 28.3908L96.7028 28.2972C96.8264 28.0728 96.8948 27.8074 96.8948 27.5321V25.6769C96.8948 23.6563 98.1945 21.8925 99.9885 21.5596C99.9868 21.5409 99.9861 21.5219 99.9861 21.5028C99.9861 21.1613 100.263 20.8844 100.605 20.8844Z" fill="#2563EB"></path>
+          </g>
+        </svg>
+      </div>
+        </div>
+        <div style="position:absolute;left:54.85%;top:25.43%;width:39.99%;height:17.18%;pointer-events:none"><div style="position:relative;width:100%;height:100%">
+        <img src="assets/hopp-lock-contact-card.svg" alt="Contact form lock option card" style="width:100%;height:auto;display:block">
+        <svg viewBox="0 0 136 115" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none">
+          <path class="hopp-env" fill-rule="evenodd" clip-rule="evenodd" d="M34.1727 24.2927C33.2696 24.2927 32.5375 24.9987 32.5375 25.8696V30.0745C32.5375 30.9454 33.2696 31.6513 34.1727 31.6513H40.7137C41.6168 31.6513 42.349 30.9454 42.349 30.0745V25.8696C42.349 24.9987 41.6168 24.2927 40.7137 24.2927H34.1727ZM34.4475 25.4156C34.1874 25.2693 33.8537 25.354 33.702 25.6047C33.5503 25.8555 33.6381 26.1773 33.8982 26.3236L36.6194 27.8543C37.1285 28.1407 37.7581 28.1407 38.2673 27.8543L40.9885 26.3236C41.2485 26.1773 41.3363 25.8555 41.1846 25.6047C41.033 25.354 40.6992 25.2693 40.4392 25.4156L37.718 26.9462C37.5482 27.0417 37.3384 27.0417 37.1687 26.9462L34.4475 25.4156Z" fill="#2563EB"></path>
+          <path class="hopp-tel" d="M39.8314 45.9485C39.9472 45.8244 40.107 45.7962 40.2537 45.8642L41.7705 46.5683C41.912 46.6338 41.9839 46.7599 41.9853 46.9161C41.989 47.3214 41.852 47.7058 41.5438 47.9819C41.3084 48.1928 41.0194 48.4034 40.693 48.4508C39.8526 48.5732 39.0169 48.4232 38.2359 48.1021C36.4708 47.3763 34.983 45.6681 34.209 43.9602C33.7588 42.967 34.0229 41.9804 34.8402 41.345C34.9166 41.2856 35.0098 41.2507 35.1069 41.2479C35.4226 41.239 35.7824 41.169 35.904 41.4504L36.501 42.8339C36.6003 43.064 36.5665 43.4225 36.4259 43.63L36.1417 44.0495C36.0561 44.1759 36.0552 44.315 36.125 44.4509C36.6683 45.5097 37.7093 46.2402 38.7815 46.6963C38.9358 46.7618 39.0939 46.739 39.2086 46.616L39.8314 45.9485Z" fill="#2563EB" stroke="#2563EB" stroke-width="0.872133"></path>
+        </svg>
+      </div>
+        </div>
+        <div style="position:absolute;left:9.27%;top:65.89%;width:39.99%;height:17.18%;pointer-events:none"><div style="position:relative;width:100%;height:100%">
+        <img src="assets/hopp-lock-pay-card.svg" alt="Pay lock option card" style="width:100%;height:auto;display:block">
+        <img src="assets/hopp-lock-pay-photo.png" alt="" style="position:absolute;left:22.41%;top:17.09%;width:54.44%;height:29.57%;border-radius:1.7%;display:block;pointer-events:none">
+        <svg viewBox="0 0 136 115" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none">
+          <g class="hopp-coin">
+            <path opacity="0.9" d="M61.8323 27.3497C67.382 23.948 74.54 26.0245 77.5003 31.7062C80.4404 37.3508 78.0223 44.4311 72.0384 46.9972C65.8994 49.6296 58.909 46.3015 57.014 40.0519C55.5363 35.1889 57.5269 29.9895 61.8323 27.3497Z" fill="#F8F8F8" stroke="#F4F4F4" stroke-width="0.1"></path>
+            <path class="hopp-dollar" d="M68.5972 43.1561L66.9544 43.1576V41.7149C66.2194 41.6862 65.5089 41.5643 64.8159 41.3473C64.5734 41.2652 64.35 41.1797 64.1203 41.0603L64.6213 39.2767C65.6094 39.7579 66.7342 40.026 67.8383 39.9201C68.2137 39.8691 68.6493 39.7298 68.8562 39.4248C69.0955 39.0723 68.9939 38.6313 68.6631 38.355C68.2308 37.9942 67.5995 37.8097 67.0459 37.6339C66.5826 37.4868 66.1455 37.3178 65.7237 37.0925C65.0021 36.7069 64.4357 36.1786 64.2729 35.4046C64.1496 34.817 64.2426 34.2158 64.5484 33.689C64.784 33.3044 65.0989 32.9985 65.5004 32.7542C65.9641 32.4711 66.48 32.2997 67.0373 32.1992L67.0384 30.7574H68.6796L68.6807 32.0914C69.2253 32.1171 69.7422 32.1749 70.2597 32.3084C70.5527 32.3852 70.8266 32.4721 71.093 32.5998L70.6075 34.3193C69.7938 33.9837 69.045 33.7808 68.1552 33.8123C67.6399 33.79 66.9395 33.9463 66.8018 34.4635C66.7385 34.7019 66.8018 34.9287 66.9879 35.1035C67.1639 35.2691 67.3729 35.3905 67.6027 35.4954C68.001 35.678 68.4015 35.8246 68.8216 35.9645C70.0719 36.3811 71.2909 36.9692 71.5169 38.2822C71.6637 39.1344 71.4419 39.9449 70.8043 40.5893C70.4697 40.9219 70.064 41.1589 69.6108 41.341C69.2816 41.4653 68.9514 41.5517 68.5977 41.6095L68.5972 43.1561Z" fill="#2563EB"></path>
+          </g>
+        </svg>
+      </div>
+        </div>
+        <div style="position:absolute;left:54.85%;top:45.66%;width:39.99%;height:17.18%;pointer-events:none"><div style="position:relative;width:100%;height:100%">
+        <img src="assets/hopp-lock-video-card.svg" alt="Video lock option card" style="width:100%;height:auto;display:block">
+        <video src="assets/skater/hero.mp4" autoPlay="{{ true }}" loop="{{ true }}" muted="{{ true }}" playsInline="{{ true }}" style="position:absolute;left:22.37%;top:16.49%;width:54.52%;height:30.30%;border-radius:1.7%;object-fit:cover;display:block;pointer-events:none"></video>
+        <svg viewBox="0 0 136 115" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none">
+          <path d="M57.33 36.3836C57.33 30.767 61.8832 26.2137 67.4999 26.2137C73.1166 26.2137 77.6698 30.767 77.6698 36.3836C77.6698 42.0003 73.1166 46.5535 67.4999 46.5535C61.8832 46.5535 57.33 42.0003 57.33 36.3836Z" fill="black" fill-opacity="0.3"></path>
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M66.191 32.6537C65.8319 32.4168 65.381 32.7098 65.381 33.1799V39.5872C65.381 40.0573 65.8319 40.3502 66.191 40.1133L71.0463 36.9097C71.4025 36.6747 71.4025 36.0924 71.0463 35.8573L66.191 32.6537Z" fill="white"></path>
+        </svg>
+      </div>
+        </div>
+            </div>
+          </div>
+        </div>
+        
+    <div data-rev="12" ref="{{ rev12 }}" style="margin-top:60px;position:relative;width:100%;container-type:inline-size;transition:opacity 1.1s cubic-bezier(.22,.61,.36,1),transform 1.1s cubic-bezier(.22,.61,.36,1);opacity:{{ op12 }};transform:translateY({{ ty12 }})">
+      <img src="assets/hopp-lock-screen.png" onClick="{{ zoom17 }}" alt="Lock panel inside the Hopp editor" style="width:100%;height:auto;display:block;border-radius:16px;cursor:zoom-in">
+      <div style="position:absolute;left:13.5%;top:17%;width:42.9%;display:flex;flex-wrap:wrap;gap:1.5cqw;pointer-events:none">
+
+      <div style="position:relative;flex:0 0 calc(33.333% - 1.0cqw);min-width:0;aspect-ratio:272 / 230">
+        <img src="assets/hopp-lock-password-card.svg" alt="Password lock option card" style="width:100%;height:auto;display:block">
+        <svg viewBox="0 0 136 115" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none">
+          <path class="hopp-ast" d="M49.5142 37.5112L48.8069 38.7457L46.5044 37.4141C46.3472 37.3124 46.1992 37.2107 46.0605 37.109C45.9218 37.0073 45.8016 36.8917 45.6999 36.7622C45.8294 37.0489 45.8941 37.3818 45.8941 37.7609V40.4101H44.4516V37.7886C44.4516 37.391 44.5024 37.0581 44.6041 36.79C44.4285 37.0211 44.1742 37.2292 43.8413 37.4141L41.5527 38.7318L40.8453 37.4974L43.12 36.1797C43.4529 35.9855 43.7812 35.8607 44.1048 35.8052C43.7812 35.7682 43.4529 35.6434 43.12 35.4307L40.8314 34.0991L41.5388 32.8647L43.8413 34.1962C43.9985 34.2979 44.1418 34.4043 44.2713 34.5152C44.41 34.617 44.5302 34.7325 44.6319 34.862C44.5117 34.5661 44.4516 34.2286 44.4516 33.8495V31.2141H45.8941V33.8356C45.8941 34.0205 45.8802 34.1962 45.8525 34.3627C45.834 34.5291 45.7924 34.6863 45.7276 34.8343C45.9403 34.5846 46.1992 34.3719 46.5044 34.1962L48.793 32.8785L49.5004 34.113L47.2256 35.4307C47.0684 35.5232 46.9112 35.6064 46.754 35.6804C46.5968 35.7451 46.4397 35.7867 46.2825 35.8052C46.4397 35.8329 46.5968 35.8792 46.754 35.9439C46.9112 35.9994 47.0684 36.078 47.2256 36.1797L49.5142 37.5112Z" fill="#2563EB"></path>
+          <path class="hopp-ast hopp-ast-2" d="M64.3991 37.5112L63.6917 38.7457L61.3893 37.4141C61.2321 37.3124 61.0841 37.2107 60.9454 37.109C60.8067 37.0073 60.6865 36.8917 60.5848 36.7622C60.7142 37.0489 60.779 37.3818 60.779 37.7609V40.4101H59.3365V37.7886C59.3365 37.391 59.3873 37.0581 59.489 36.79C59.3133 37.0211 59.0591 37.2292 58.7262 37.4141L56.4376 38.7318L55.7302 37.4974L58.0049 36.1797C58.3378 35.9855 58.6661 35.8607 58.9897 35.8052C58.6661 35.7682 58.3378 35.6434 58.0049 35.4307L55.7163 34.0991L56.4237 32.8647L58.7262 34.1962C58.8834 34.2979 59.0267 34.4043 59.1561 34.5152C59.2948 34.617 59.4151 34.7325 59.5168 34.862C59.3966 34.5661 59.3365 34.2286 59.3365 33.8495V31.2141H60.779V33.8356C60.779 34.0205 60.7651 34.1962 60.7374 34.3627C60.7189 34.5291 60.6773 34.6863 60.6125 34.8343C60.8252 34.5846 61.0841 34.3719 61.3893 34.1962L63.6779 32.8785L64.3853 34.113L62.1105 35.4307C61.9533 35.5232 61.7961 35.6064 61.6389 35.6804C61.4817 35.7451 61.3245 35.7867 61.1673 35.8052C61.3245 35.8329 61.4817 35.8792 61.6389 35.9439C61.7961 35.9994 61.9533 36.078 62.1105 36.1797L64.3991 37.5112Z" fill="#2563EB"></path>
+          <path class="hopp-ast hopp-ast-3" d="M79.2839 37.5112L78.5765 38.7457L76.274 37.4141C76.1168 37.3124 75.9689 37.2107 75.8302 37.109C75.6915 37.0073 75.5713 36.8917 75.4696 36.7622C75.599 37.0489 75.6637 37.3818 75.6637 37.7609V40.4101H74.2212V37.7886C74.2212 37.391 74.2721 37.0581 74.3738 36.79C74.1981 37.0211 73.9438 37.2292 73.6109 37.4141L71.3223 38.7318L70.6149 37.4974L72.8897 36.1797C73.2226 35.9855 73.5508 35.8607 73.8745 35.8052C73.5508 35.7682 73.2226 35.6434 72.8897 35.4307L70.6011 34.0991L71.3085 32.8647L73.6109 34.1962C73.7681 34.2979 73.9115 34.4043 74.0409 34.5152C74.1796 34.617 74.2998 34.7325 74.4015 34.862C74.2813 34.5661 74.2212 34.2286 74.2212 33.8495V31.2141H75.6637V33.8356C75.6637 34.0205 75.6499 34.1962 75.6221 34.3627C75.6036 34.5291 75.562 34.6863 75.4973 34.8343C75.71 34.5846 75.9689 34.3719 76.274 34.1962L78.5626 32.8785L79.27 34.113L76.9953 35.4307C76.8381 35.5232 76.6809 35.6064 76.5237 35.6804C76.3665 35.7451 76.2093 35.7867 76.0521 35.8052C76.2093 35.8329 76.3665 35.8792 76.5237 35.9439C76.6809 35.9994 76.8381 36.078 76.9953 36.1797L79.2839 37.5112Z" fill="#2563EB"></path>
+          <path class="hopp-ast hopp-ast-4" d="M94.1686 37.5112L93.4612 38.7457L91.1587 37.4141C91.0015 37.3124 90.8536 37.2107 90.7149 37.109C90.5762 37.0073 90.456 36.8917 90.3543 36.7622C90.4837 37.0489 90.5484 37.3818 90.5484 37.7609V40.4101H89.1059V37.7886C89.1059 37.391 89.1568 37.0581 89.2585 36.79C89.0828 37.0211 88.8285 37.2292 88.4956 37.4141L86.207 38.7318L85.4996 37.4974L87.7744 36.1797C88.1073 35.9855 88.4355 35.8607 88.7592 35.8052C88.4355 35.7682 88.1073 35.6434 87.7744 35.4307L85.4858 34.0991L86.1932 32.8647L88.4956 34.1962C88.6528 34.2979 88.7962 34.4043 88.9256 34.5152C89.0643 34.617 89.1845 34.7325 89.2862 34.862C89.166 34.5661 89.1059 34.2286 89.1059 33.8495V31.2141H90.5484V33.8356C90.5484 34.0205 90.5346 34.1962 90.5068 34.3627C90.4883 34.5291 90.4467 34.6863 90.382 34.8343C90.5947 34.5846 90.8536 34.3719 91.1587 34.1962L93.4473 32.8785L94.1547 34.113L91.88 35.4307C91.7228 35.5232 91.5656 35.6064 91.4084 35.6804C91.2512 35.7451 91.094 35.7867 90.9368 35.8052C91.094 35.8329 91.2512 35.8792 91.4084 35.9439C91.5656 35.9994 91.7228 36.078 91.88 36.1797L94.1686 37.5112Z" fill="#2563EB"></path>
+        </svg>
+      </div>
+      <div style="position:relative;flex:0 0 calc(33.333% - 1.0cqw);min-width:0;aspect-ratio:272 / 230">
+        <img src="assets/hopp-lock-subscribe-card.svg" alt="Subscribe form lock option card" style="width:100%;height:auto;display:block">
+        <svg viewBox="0 0 136 115" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none">
+          <g class="hopp-bell">
+            <path d="M101.532 31.397C101.532 31.5188 101.508 31.6395 101.461 31.7521C101.415 31.8645 101.346 31.9667 101.26 32.0528C101.174 32.1389 101.072 32.2073 100.959 32.2539C100.847 32.3004 100.726 32.3245 100.605 32.3246C100.483 32.3246 100.362 32.3005 100.249 32.2539C100.137 32.2073 100.035 32.1389 99.9487 32.0528C99.8626 31.9667 99.7942 31.8645 99.7476 31.7521C99.701 31.6395 99.6769 31.5188 99.6769 31.397H101.532Z" fill="#2563EB"></path>
+            <path d="M100.605 20.8844C100.946 20.8845 101.223 21.1613 101.223 21.5028C101.223 21.522 101.221 21.5408 101.219 21.5596C103.014 21.8922 104.314 23.6561 104.314 25.6769V27.5321C104.314 27.8072 104.383 28.0725 104.507 28.2972L104.563 28.3908L105.212 29.3794C105.44 29.7279 105.442 30.143 105.3 30.4676C105.158 30.7922 104.839 31.0877 104.391 31.0878H96.8175C96.3697 31.0877 96.0505 30.7922 95.9086 30.4676C95.7669 30.1431 95.7693 29.7278 95.9974 29.3794L96.646 28.3908L96.7028 28.2972C96.8264 28.0728 96.8948 27.8074 96.8948 27.5321V25.6769C96.8948 23.6563 98.1945 21.8925 99.9885 21.5596C99.9868 21.5409 99.9861 21.5219 99.9861 21.5028C99.9861 21.1613 100.263 20.8844 100.605 20.8844Z" fill="#2563EB"></path>
+          </g>
+        </svg>
+      </div>
+      <div style="position:relative;flex:0 0 calc(33.333% - 1.0cqw);min-width:0;aspect-ratio:272 / 230">
+        <img src="assets/hopp-lock-contact-card.svg" alt="Contact form lock option card" style="width:100%;height:auto;display:block">
+        <svg viewBox="0 0 136 115" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none">
+          <path class="hopp-env" fill-rule="evenodd" clip-rule="evenodd" d="M34.1727 24.2927C33.2696 24.2927 32.5375 24.9987 32.5375 25.8696V30.0745C32.5375 30.9454 33.2696 31.6513 34.1727 31.6513H40.7137C41.6168 31.6513 42.349 30.9454 42.349 30.0745V25.8696C42.349 24.9987 41.6168 24.2927 40.7137 24.2927H34.1727ZM34.4475 25.4156C34.1874 25.2693 33.8537 25.354 33.702 25.6047C33.5503 25.8555 33.6381 26.1773 33.8982 26.3236L36.6194 27.8543C37.1285 28.1407 37.7581 28.1407 38.2673 27.8543L40.9885 26.3236C41.2485 26.1773 41.3363 25.8555 41.1846 25.6047C41.033 25.354 40.6992 25.2693 40.4392 25.4156L37.718 26.9462C37.5482 27.0417 37.3384 27.0417 37.1687 26.9462L34.4475 25.4156Z" fill="#2563EB"></path>
+          <path class="hopp-tel" d="M39.8314 45.9485C39.9472 45.8244 40.107 45.7962 40.2537 45.8642L41.7705 46.5683C41.912 46.6338 41.9839 46.7599 41.9853 46.9161C41.989 47.3214 41.852 47.7058 41.5438 47.9819C41.3084 48.1928 41.0194 48.4034 40.693 48.4508C39.8526 48.5732 39.0169 48.4232 38.2359 48.1021C36.4708 47.3763 34.983 45.6681 34.209 43.9602C33.7588 42.967 34.0229 41.9804 34.8402 41.345C34.9166 41.2856 35.0098 41.2507 35.1069 41.2479C35.4226 41.239 35.7824 41.169 35.904 41.4504L36.501 42.8339C36.6003 43.064 36.5665 43.4225 36.4259 43.63L36.1417 44.0495C36.0561 44.1759 36.0552 44.315 36.125 44.4509C36.6683 45.5097 37.7093 46.2402 38.7815 46.6963C38.9358 46.7618 39.0939 46.739 39.2086 46.616L39.8314 45.9485Z" fill="#2563EB" stroke="#2563EB" stroke-width="0.872133"></path>
+        </svg>
+      </div>
+      <div style="position:relative;flex:0 0 calc(33.333% - 1.0cqw);min-width:0;aspect-ratio:272 / 230">
+        <img src="assets/hopp-lock-pay-card.svg" alt="Pay lock option card" style="width:100%;height:auto;display:block">
+        <img src="assets/hopp-lock-pay-photo.png" alt="" style="position:absolute;left:22.41%;top:17.09%;width:54.44%;height:29.57%;border-radius:1.7%;display:block;pointer-events:none">
+        <svg viewBox="0 0 136 115" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none">
+          <g class="hopp-coin">
+            <path opacity="0.9" d="M61.8323 27.3497C67.382 23.948 74.54 26.0245 77.5003 31.7062C80.4404 37.3508 78.0223 44.4311 72.0384 46.9972C65.8994 49.6296 58.909 46.3015 57.014 40.0519C55.5363 35.1889 57.5269 29.9895 61.8323 27.3497Z" fill="#F8F8F8" stroke="#F4F4F4" stroke-width="0.1"></path>
+            <path class="hopp-dollar" d="M68.5972 43.1561L66.9544 43.1576V41.7149C66.2194 41.6862 65.5089 41.5643 64.8159 41.3473C64.5734 41.2652 64.35 41.1797 64.1203 41.0603L64.6213 39.2767C65.6094 39.7579 66.7342 40.026 67.8383 39.9201C68.2137 39.8691 68.6493 39.7298 68.8562 39.4248C69.0955 39.0723 68.9939 38.6313 68.6631 38.355C68.2308 37.9942 67.5995 37.8097 67.0459 37.6339C66.5826 37.4868 66.1455 37.3178 65.7237 37.0925C65.0021 36.7069 64.4357 36.1786 64.2729 35.4046C64.1496 34.817 64.2426 34.2158 64.5484 33.689C64.784 33.3044 65.0989 32.9985 65.5004 32.7542C65.9641 32.4711 66.48 32.2997 67.0373 32.1992L67.0384 30.7574H68.6796L68.6807 32.0914C69.2253 32.1171 69.7422 32.1749 70.2597 32.3084C70.5527 32.3852 70.8266 32.4721 71.093 32.5998L70.6075 34.3193C69.7938 33.9837 69.045 33.7808 68.1552 33.8123C67.6399 33.79 66.9395 33.9463 66.8018 34.4635C66.7385 34.7019 66.8018 34.9287 66.9879 35.1035C67.1639 35.2691 67.3729 35.3905 67.6027 35.4954C68.001 35.678 68.4015 35.8246 68.8216 35.9645C70.0719 36.3811 71.2909 36.9692 71.5169 38.2822C71.6637 39.1344 71.4419 39.9449 70.8043 40.5893C70.4697 40.9219 70.064 41.1589 69.6108 41.341C69.2816 41.4653 68.9514 41.5517 68.5977 41.6095L68.5972 43.1561Z" fill="#2563EB"></path>
+          </g>
+        </svg>
+      </div>
+      <div style="position:relative;flex:0 0 calc(33.333% - 1.0cqw);min-width:0;aspect-ratio:272 / 230">
+        <img src="assets/hopp-lock-video-card.svg" alt="Video lock option card" style="width:100%;height:auto;display:block">
+        <video src="assets/skater/hero.mp4" autoPlay="{{ true }}" loop="{{ true }}" muted="{{ true }}" playsInline="{{ true }}" style="position:absolute;left:22.37%;top:16.49%;width:54.52%;height:30.30%;border-radius:1.7%;object-fit:cover;display:block;pointer-events:none"></video>
+        <svg viewBox="0 0 136 115" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none">
+          <path d="M57.33 36.3836C57.33 30.767 61.8832 26.2137 67.4999 26.2137C73.1166 26.2137 77.6698 30.767 77.6698 36.3836C77.6698 42.0003 73.1166 46.5535 67.4999 46.5535C61.8832 46.5535 57.33 42.0003 57.33 36.3836Z" fill="black" fill-opacity="0.3"></path>
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M66.191 32.6537C65.8319 32.4168 65.381 32.7098 65.381 33.1799V39.5872C65.381 40.0573 65.8319 40.3502 66.191 40.1133L71.0463 36.9097C71.4025 36.6747 71.4025 36.0924 71.0463 35.8573L66.191 32.6537Z" fill="white"></path>
+        </svg>
+      </div>
+      </div>
+    </div>
+      </div>
+      <div ref="{{ visualBlock }}" style="display:flex;gap:12px;align-items:flex-start;width:100%;margin-top:200px">
+          <img src="assets/hopp-visual-category.webp" onClick="{{ zoom19 }}" alt="Lumi store template - default content" style="width:50%;height:auto;display:block;margin:0 auto;border-radius:14px;cursor:zoom-in">
+      </div>
+      <div style="flex:none;height:{{ tailZone }}"></div>
+    </div>
+  </div>
+  <sc-if value="{{ lightboxOpen }}" hint-placeholder-val="{{ false }}">
+    <div onClick="{{ closeZoom }}" style="position:fixed;inset:0;z-index:60;background:rgba(248,248,246,0.72);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);display:flex;align-items:center;justify-content:center;padding:40px;cursor:zoom-out">
+      <img src="{{ lightboxSrc }}" alt="" style="max-width:100%;max-height:100%;width:auto;height:auto;display:block;object-fit:contain">
+      <sc-if value="{{ showArrows }}" hint-placeholder-val="{{ false }}">
+        <div onClick="{{ prevFrame }}" style-hover="background:#F1B8FF" style="position:fixed;left:24px;top:50%;transform:translateY(-50%);width:52px;height:52px;border-radius:50%;border:2px solid #0D2565;background:#F8F8F6;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .2s ease">
+          <svg viewBox="0 0 14 8" style="width:18px;height:11px;transform:rotate(90deg)"><path d="M1 1 L7 7 L13 1" fill="none" stroke="#0D2565" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+        </div>
+        <div onClick="{{ nextFrame }}" style-hover="background:#F1B8FF" style="position:fixed;right:24px;top:50%;transform:translateY(-50%);width:52px;height:52px;border-radius:50%;border:2px solid #0D2565;background:#F8F8F6;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .2s ease">
+          <svg viewBox="0 0 14 8" style="width:18px;height:11px;transform:rotate(-90deg)"><path d="M1 1 L7 7 L13 1" fill="none" stroke="#0D2565" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+        </div>
+        <div style="position:fixed;left:50%;bottom:28px;transform:translateX(-50%);font-family:'Authentic Sans 130',sans-serif;font-size:16px;letter-spacing:1px;color:#0D2565">{{ frameLabel }}</div>
+      </sc-if>
+    </div>
+  </sc-if>
+  <div ref="{{ lineIcon }}" style="position:fixed;left:12px;bottom:74px;z-index:6;padding:10px 12px;box-sizing:content-box;width:104px;height:21px;background:#F8F8F6;border-radius:6px;pointer-events:none;transition:opacity .25s ease">
+    <img src="assets/hopp-icon.svg" alt="" style="width:100%;height:100%;object-fit:contain;display:block">
+  </div>
+  <div style="position:sticky;bottom:0;z-index:20;display:flex;flex:none;height:60px;box-sizing:border-box;background:#F8F8F6;border-top:2px solid #0D2565">
+    <a href="Project-Fetch.dc.html" style-hover="background:#F1B8FF" style="flex:1;min-width:0;display:block;line-height:58px;padding:0 16px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;border-right:2px solid #0D2565;font-family:'Authentic Sans 130',sans-serif;font-size:clamp(13px,1.3vw,18px)">FETCH / GUILTY PLEASURES</a>
+    <a href="Project-Kisses.dc.html" style-hover="background:#F1B8FF" style="flex:1;min-width:0;display:block;line-height:58px;padding:0 16px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;border-right:2px solid #0D2565;background:#F1B8FF;font-family:'Authentic Sans 130',sans-serif;font-size:clamp(13px,1.3vw,18px)">HOPP BY WIX</a>
+    <a href="Project-Happened.dc.html" style-hover="background:#F1B8FF" style="flex:1;min-width:0;display:block;line-height:58px;padding:0 16px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;border-right:2px solid #0D2565;font-family:'Authentic Sans 130',sans-serif;font-size:clamp(13px,1.3vw,18px)">HERE'S HOW IT HAPPENED</a>
+    <a href="Project-Hibi.dc.html" style-hover="background:#F1B8FF" style="flex:1;min-width:0;display:block;line-height:58px;padding:0 16px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;border-right:2px solid #0D2565;font-family:'Authentic Sans 130',sans-serif;font-size:clamp(13px,1.3vw,18px)">HIBI</a>
+    <a href="Project-Eden.dc.html" style-hover="background:#F1B8FF" style="flex:1;min-width:0;display:block;line-height:58px;padding:0 16px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-family:'Authentic Sans 130',sans-serif;font-size:clamp(13px,1.3vw,18px)">EDEN CINEMA</a>
+  </div>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { section: 0, open: null };
+  _chev(isOpen) {
+    return 'width:14px;height:8px;flex:none;transition:transform .25s ease;transform:rotate(' + (isOpen ? '180deg' : '0deg') + ')';
+  }
+  _toggle(i) {
+    return () => this.setState((s) => ({ open: s.open === i ? null : i }));
+  }
+  _syncMetrics() {
+    const h = this._headEl ? Math.round(this._headEl.getBoundingClientRect().height) : 0;
+    if (!h || h === this._headH) return;
+    this._headH = h;
+    const root = document.documentElement.style;
+    root.setProperty('--hopp-head', h + 'px');
+    root.setProperty('--hopp-frame', 'calc(100vh - ' + (h + 60) + 'px)');
+    root.setProperty('--hopp-texttop', (h + 40) + 'px');
+  }
+  _panelIndexOf(src) {
+    const m = /hopp-panel-(\d+)\.webp$/.exec(src || '');
+    return m ? +m[1] - 1 : 0;
+  }
+  _stepFrame(dir) {
+    const cur = this._panelIndexOf(this.state.lightbox);
+    const next = ((cur + dir) + 8) % 8;
+    this._reelPrev = cur;
+    this._reelIdx = next;
+    this._paintReel();
+    this.setState({ lightbox: 'assets/hopp-panel-' + (next + 1) + '.webp' });
+  }
+  _paintReel(instant) {
+    if (this._reelEl) {
+      const imgs = this._reelEl.querySelectorAll('img[data-reel]');
+      const prev = this._reelPrev;
+      imgs.forEach((el, i) => {
+        if (i !== this._reelIdx) {
+          el.style.transition = 'none';
+          el.style.opacity = '1';
+          el.style.zIndex = i === prev ? '2' : '1';
+          return;
+        }
+        el.style.zIndex = '3';
+        if (instant) { el.style.transition = 'none'; el.style.opacity = '1'; return; }
+        el.style.transition = 'none';
+        el.style.opacity = '0';
+        requestAnimationFrame(() => requestAnimationFrame(() => {
+          el.style.transition = 'opacity 1.4s cubic-bezier(.4,0,.2,1)';
+          el.style.opacity = '1';
+        }));
+      });
+    }
+    if (this._dotsEl) {
+      this._dotsEl.querySelectorAll('[data-reeldot]').forEach((el, i) => {
+        el.style.background = i === this._reelIdx ? '#0D2565' : 'rgba(13,37,101,0.18)';
+      });
+    }
+  }
+  _restartCar() {
+    clearInterval(this._carTimer);
+    this._startCar();
+  }
+  _startCar() {
+    this._carTimer = setInterval(() => {
+      if (this.state.lightbox) return;
+      // any interaction with the templates (hover, pointer, wheel, inner scroll) holds the rotation
+      if (this._carIdleUntil && Date.now() < this._carIdleUntil) return;
+      const el = this._carEl;
+      if (el) {
+        const r = el.getBoundingClientRect();
+        if (r.bottom < 60 || r.top > window.innerHeight - 60) return;
+        if (el.matches(':hover')) return;
+      }
+      this.setState({ active: ((this.state.active || 0) + 1) % 4 });
+    }, 4200);
+  }
+  _bindCarInteraction(node) {
+    const el = node || this._carEl;
+    if (!el || this._carBound) return;
+    this._carBound = true;
+    const hold = () => { this._carIdleUntil = Date.now() + 4000; };
+    this._carHold = hold;
+    ['pointerenter', 'pointerdown', 'pointerup', 'pointermove', 'wheel', 'touchstart', 'touchmove', 'keydown'].forEach(t =>
+      el.addEventListener(t, hold, { passive: true }));
+    el.addEventListener('scroll', hold, true);
+  }
+  componentDidMount() {
+    this._startCar();
+    this._bindCarInteraction();
+    requestAnimationFrame(() => this._bindCarInteraction());
+    this._reelIdx = this._reelIdx || 0;
+    this._reelTimer = setInterval(() => {
+      if (!this._reelEl) return;
+      const r = this._reelEl.getBoundingClientRect();
+      if (r.bottom < 40 || r.top > window.innerHeight - 40) return;
+      this._reelPrev = this._reelIdx;
+      this._reelIdx = (this._reelIdx + 1) % 8;
+      this._paintReel();
+    }, 3400);
+    this._onKey = (e) => {
+      if (!/hopp-panel-\d+\.webp$/.test(this.state.lightbox || '')) return;
+      if (e.key === 'ArrowRight') this._stepFrame(1);
+      else if (e.key === 'ArrowLeft') this._stepFrame(-1);
+      else if (e.key === 'Escape') this.setState({ lightbox: null });
+    };
+    window.addEventListener('keydown', this._onKey);
+    this._revEls = this._revEls || [];
+    this._revealTimer = setInterval(() => {
+      const shown = this.state.shown || [];
+      let next = null;
+      document.querySelectorAll('[data-rev]').forEach((el) => {
+        const i = +el.getAttribute('data-rev');
+        if (shown[i]) return;
+        const r = el.getBoundingClientRect();
+        if (r.top < window.innerHeight * 0.88) {
+          next = next || shown.slice();
+          next[i] = true;
+        }
+      });
+      if (next) this.setState({ shown: next });
+    }, 140);
+    this._onScroll = () => {
+      const panel = this._panelEl;
+      if (panel) {
+        const top = panel.getBoundingClientRect().top;
+        const next = top < window.innerHeight * 0.45 ? 1 : 0;
+        if (next !== this.state.section) this.setState({ section: next });
+      }
+      const intro = this._introEl, panelEl = this._panelEl;
+      if (intro && panelEl) {
+        const raw = Math.round(panelEl.getBoundingClientRect().top - intro.getBoundingClientRect().top);
+        const innerH = this._introInnerEl ? this._introInnerEl.offsetHeight : 0;
+        const zone = Math.max(innerH + 348, raw);
+        if (Math.abs(zone - (this.state.panelGap || 0)) > 1) this.setState({ panelGap: zone });
+        const addInnerH = this._addInnerEl ? this._addInnerEl.offsetHeight : 0;
+        const addZone = Math.max(addInnerH, panelEl.offsetHeight + 280);
+        if (Math.abs(addZone - (this.state.addH || 0)) > 1) this.setState({ addH: addZone });
+        if (this._lockInnerEl && this._lockEl) {
+          const lockZone = Math.max(this._lockInnerEl.offsetHeight, this._lockEl.offsetHeight);
+          if (Math.abs(lockZone - (this.state.lockH || 0)) > 1) this.setState({ lockH: lockZone });
+        }
+        if (this._visualInnerEl && this._visualEl) {
+          const visualZone = Math.max(this._visualInnerEl.offsetHeight, this._visualEl.offsetHeight);
+          if (Math.abs(visualZone - (this.state.visualH || 0)) > 1) this.setState({ visualH: visualZone });
+          // the last sticky zone needs scroll headroom after it, or its heading never reaches the top
+          const tail = Math.max(0, (window.innerHeight - 88) - visualZone - 24);
+          if (Math.abs(tail - (this.state.tailH || 0)) > 1) this.setState({ tailH: tail });
+        }
+      }
+      if (this._iconEl) this._iconEl.style.opacity = '1';
+      this._syncMetrics();
+    };
+    window.addEventListener('scroll', this._onScroll, { passive: true });
+    window.addEventListener('resize', this._onScroll);
+    window.addEventListener('load', this._onScroll);
+    this._onScroll();
+    requestAnimationFrame(() => requestAnimationFrame(() => this._onScroll()));
+    this._settleObserver = new ResizeObserver(() => this._onScroll());
+    if (this._panelEl) this._settleObserver.observe(this._panelEl);
+    if (this._introEl) this._settleObserver.observe(this._introEl);
+    this._wasRowVisible = false;
+    this._rowObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          this._wasRowVisible = true;
+        } else if (this._wasRowVisible) {
+          this._wasRowVisible = false;
+          this.setState((s) => ({ resetGen: (s.resetGen || 0) + 1 }));
+        }
+      });
+    }, { threshold: 0 });
+  }
+  componentWillUnmount() {
+    clearInterval(this._carTimer);
+    if (this._carEl && this._carHold) {
+      ['pointerdown', 'pointerup', 'pointermove', 'wheel', 'touchstart', 'touchmove', 'keydown'].forEach(t =>
+        this._carEl.removeEventListener(t, this._carHold));
+      this._carEl.removeEventListener('scroll', this._carHold, true);
+    }
+    clearInterval(this._reelTimer);
+    window.removeEventListener('keydown', this._onKey);
+    clearInterval(this._revealTimer);
+    window.removeEventListener('scroll', this._onScroll);
+    window.removeEventListener('resize', this._onScroll);
+    window.removeEventListener('load', this._onScroll);
+    if (this._settleObserver) this._settleObserver.disconnect();
+    if (this._rowObserver) this._rowObserver.disconnect();
+  }
+  renderVals() {
+    const shown = this.state.shown || [];
+    const zooms = {};
+    for (let i = 0; i < 13; i++) {
+      zooms['op' + i] = '1';
+      zooms['ty' + i] = shown[i] ? '0px' : '60px';
+      zooms['rev' + i] = ((idx) => (el) => { this._revEls = this._revEls || []; this._revEls[idx] = el; })(i);
+    }
+    for (let i = 1; i <= 8; i++) {
+      const src = 'assets/hopp-panel-' + i + '.webp';
+      zooms['zoom' + i] = () => this.setState({ lightbox: src });
+    }
+    zooms.zoom9 = () => this.setState({ lightbox: 'assets/hopp-style-modal.webp' });
+    zooms.zoom10 = () => this.setState({ lightbox: 'assets/hopp-custom-modal.webp' });
+    zooms.zoom11 = () => this.setState({ lightbox: 'assets/hopp-block-insta-full.webp' });
+    zooms.zoom12 = () => this.setState({ lightbox: 'assets/hopp-block-tiktok-full.webp' });
+    zooms.zoom13 = () => this.setState({ lightbox: 'assets/hopp-block-appointment.webp' });
+    zooms.zoom14 = () => this.setState({ lightbox: 'assets/hopp-block-course.webp' });
+    zooms.zoom15 = () => this.setState({ lightbox: 'assets/hopp-lock-before.png' });
+    zooms.zoom16 = () => this.setState({ lightbox: 'assets/hopp-lock-after.png' });
+    zooms.zoom17 = () => this.setState({ lightbox: 'assets/hopp-lock-screen-zoom.png' });
+    zooms.zoom18 = () => this.setState({ lightbox: 'assets/hopp-visual-services.webp' });
+    zooms.zoom19 = () => this.setState({ lightbox: 'assets/hopp-visual-category.webp' });
+    zooms.zoom20 = () => this.setState({ lightbox: 'assets/hopp-visual-a.webp' });
+    zooms.zoom21 = () => this.setState({ lightbox: 'assets/hopp-visual-b.webp' });
+    zooms.zoom22 = () => this.setState({ lightbox: 'assets/hopp-visual-mobile.webp' });
+    const active = this.state.active || 0;
+    const cards = {};
+    for (let i = 0; i < 4; i++) {
+      let rel = (i - active + 4) % 4;
+      if (rel > 2) rel -= 4;
+      const far = Math.abs(rel) > 1;
+      const scale = rel === 0 ? 1 : 0.84;
+      // the hidden card parks in the left slot: leaving it is a pure fade-out, and a card
+      // arriving from hidden re-enters on the right without visibly travelling across
+      this._prevRel = this._prevRel || {};
+      const fromFar = this._prevRel[i] === 2;
+      const x = far ? -66 : rel * 66;
+      cards['card' + i] = 'position:absolute;top:50%;left:50%;height:100%;aspect-ratio:390 / 700;border-radius:20px;overflow:hidden;background:#FFFFFF;transform-origin:center center;cursor:pointer;'
+        + (far
+            ? 'transition:opacity .5s ease;box-shadow:none;'
+            : (fromFar
+                ? 'transition:opacity .5s ease;box-shadow:0 18px 50px rgba(13,37,101,0.14);'
+                : 'transition:transform .7s cubic-bezier(.22,.61,.36,1),opacity .5s ease;box-shadow:0 18px 50px rgba(13,37,101,0.14);'))
+        + 'transform:translate(-50%,-50%) translateX(' + x + '%) scale(' + (far ? 0.84 : scale) + ');'
+        + 'z-index:' + (far ? 1 : 10 - Math.abs(rel)) + ';'
+        + 'opacity:' + (far ? 0 : 1) + ';'
+        + 'pointer-events:' + (far ? 'none' : 'auto');
+      this._prevRel[i] = rel;
+      cards['go' + i] = () => { this._carIdleUntil = Date.now() + 4000; this._restartCar(); this.setState({ active: i }); };
+      cards['shield' + i] = rel === 0
+        ? 'display:none'
+        : 'position:absolute;inset:0;z-index:5;background:transparent;cursor:pointer';
+    }
+    Object.assign(zooms, cards);
+    return Object.assign(zooms, {
+      showArrows: /hopp-panel-\d+\.webp$/.test(this.state.lightbox || ''),
+      frameLabel: (this._panelIndexOf(this.state.lightbox) + 1) + ' / 8',
+      prevFrame: (e) => { if (e) e.stopPropagation(); this._stepFrame(-1); },
+      nextFrame: (e) => { if (e) e.stopPropagation(); this._stepFrame(1); },
+      lightboxOpen: !!this.state.lightbox,
+      lightboxSrc: this.state.lightbox || 'data:image/gif;base64,R0lGODlhAQABAAAAACw=',
+      closeZoom: () => this.setState({ lightbox: null }),
+      open0: this.state.open === 0, open1: this.state.open === 1, open2: this.state.open === 2,
+      chev0: this._chev(this.state.open === 0), chev1: this._chev(this.state.open === 1), chev2: this._chev(this.state.open === 2),
+      toggle0: this._toggle(0), toggle1: this._toggle(1), toggle2: this._toggle(2),
+      showIntro: this.state.section === 0,
+      showAddPanel: this.state.section === 1,
+      resetGen: this.state.resetGen || 0,
+      reelRef: (el) => { this._reelEl = el; if (el) this._paintReel(true); },
+      dotsRef: (el) => { this._dotsEl = el; if (el) this._paintReel(true); },
+      pickFrame: (e) => {
+        const hit = e.target && e.target.closest ? e.target.closest('[data-reeldot]') : null;
+        if (!hit) return;
+        this._reelPrev = this._reelIdx;
+        this._reelIdx = +hit.getAttribute('data-reeldot');
+        this._paintReel();
+      },
+      zoomReel: () => {
+        this.setState({ lightbox: 'assets/hopp-panel-' + ((this._reelIdx || 0) + 1) + '.webp' });
+      },
+      headRef: (el) => {
+        this._headEl = el;
+        if (el) {
+          this._syncMetrics();
+          if (this._settleObserver) this._settleObserver.observe(el);
+        }
+      },
+      carouselRef: (el) => {
+        if (!el || el === this._carEl) return;
+        this._carEl = el;
+        this._bindCarInteraction(el);
+        const step = (dir) => {
+          const now = Date.now();
+          if (now - (this._lastStep || 0) < 420) return;
+          this._lastStep = now;
+          this.setState((s) => ({ active: (((s.active || 0) + dir) + 4) % 4 }));
+        };
+        el.addEventListener('wheel', (e) => {
+          if (Math.abs(e.deltaX) <= Math.abs(e.deltaY) || Math.abs(e.deltaX) < 6) return;
+          e.preventDefault();
+          step(e.deltaX > 0 ? 1 : -1);
+        }, { passive: false });
+        let startX = null;
+        el.addEventListener('touchstart', (e) => { startX = e.touches[0].clientX; }, { passive: true });
+        el.addEventListener('touchmove', (e) => {
+          if (startX === null) return;
+          const dx = e.touches[0].clientX - startX;
+          if (Math.abs(dx) > 50) { step(dx < 0 ? 1 : -1); startX = null; }
+        }, { passive: true });
+        el.addEventListener('touchend', () => { startX = null; }, { passive: true });
+      },
+      phoneRowRef: (el) => { if (el && this._rowObserver) this._rowObserver.observe(el); },
+      addPanelBlock: (el) => { this._panelEl = el; if (el && this._settleObserver) this._settleObserver.observe(el); if (el && this._onScroll) this._onScroll(); },
+      textBlock: (el) => { this._txtEl = el; if (el && this._onScroll) this._onScroll(); },
+      introRef: (el) => { this._introEl = el; if (el && this._settleObserver) this._settleObserver.observe(el); if (el && this._onScroll) this._onScroll(); },
+      introInner: (el) => { this._introInnerEl = el; if (el && this._settleObserver) this._settleObserver.observe(el); if (el && this._onScroll) this._onScroll(); },
+
+      introZone: (this.state.panelGap || 0) + 'px',
+      addZone: (this.state.addH || 0) + 'px',
+      addZoneRef: (el) => { this._addZoneEl = el; if (el && this._onScroll) this._onScroll(); },
+      addInner: (el) => { this._addInnerEl = el; if (el && this._settleObserver) this._settleObserver.observe(el); if (el && this._onScroll) this._onScroll(); },
+      lockZone: (this.state.lockH || 0) + 'px',
+      visualZone: (this.state.visualH || 0) + 'px',
+      visualZoneRef: this._setVisualZone = this._setVisualZone || ((el) => { this._visualZoneEl = el; }),
+      visualInner: this._setVisualInner = this._setVisualInner || ((el) => { this._visualInnerEl = el; if (el && this._settleObserver) this._settleObserver.observe(el); if (el && this._onScroll) this._onScroll(); }),
+      visualBlock: this._setVisualBlock = this._setVisualBlock || ((el) => { this._visualEl = el; if (el && this._settleObserver) this._settleObserver.observe(el); if (el && this._onScroll) this._onScroll(); }),
+      tailZone: (this.state.tailH || 0) + 'px',
+      lockZoneRef: this._setLockZone = this._setLockZone || ((el) => { this._lockZoneEl = el; }),
+      lockInner: this._setLockInner = this._setLockInner || ((el) => { this._lockInnerEl = el; if (el && this._settleObserver) this._settleObserver.observe(el); if (el && this._onScroll) this._onScroll(); }),
+      lockPanelBlock: this._setLockBlock = this._setLockBlock || ((el) => { this._lockEl = el; if (el && this._settleObserver) this._settleObserver.observe(el); if (el && this._onScroll) this._onScroll(); }),
+      lineIcon: (el) => { this._iconEl = el; if (el && this._onScroll) this._onScroll(); },
+      scrollTop: (e) => {
+        if (e && e.target && e.target.closest && e.target.closest('a')) return;
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    });
+  }
+}
+
+</script>
+</body>
+</html>

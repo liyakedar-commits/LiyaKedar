@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+@font-face { font-family: 'Authentic Sans 90'; src: url("uploads/authentic-sans-condensed-90.otf") format("opentype"); font-display: block; }
+@font-face { font-family: 'Authentic Sans 130'; src: url("uploads/AUTHENTICSans-Condensed-130.otf") format("opentype"); font-display: block; }
+@font-face { font-family: 'Sloop Script'; src: url("uploads/Sloop Script Medium One.ttf") format("truetype"); font-display: block; }
+html, body { margin: 0; background: #F8F8F6; }
+body { cursor: url("assets/cursor.svg") 2 2, auto; }
+a, button, [role="button"] { cursor: url("assets/cursor.svg") 2 2, pointer; }
+a { color: inherit; text-decoration: none; }
+</style>
+<script src="image-slot.js"></script>
+<script src="drift.js"></script>
+<script src="preload.js"></script>
+</helmet>
+<div data-screen-label="Project – Hibi" style="min-height:100vh;display:flex;flex-direction:column;background:#F8F8F6;font-family:'Authentic Sans 90',sans-serif;color:#0D2565">
+  <div style="position:sticky;top:0;z-index:20;background:#F8F8F6;border-bottom:2px solid #0D2565;display:flex;justify-content:space-between;align-items:center;height:min(80px,7.5vh);box-sizing:border-box;padding:0 24px;cursor:pointer" onClick="{{ scrollTop }}">
+    <a href="Home.dc.html" style="font-family:'Sloop Script',cursive;font-size:29px;display:inline-block;transition:transform .3s cubic-bezier(.22,.61,.36,1)">Liya Kedar</a>
+    <a href="About.dc.html" style-hover="font-family:'Sloop Script', cursive;font-size:29px;letter-spacing:0;text-transform:none" style-active="font-family:'Sloop Script', cursive;font-size:29px;letter-spacing:0;text-transform:none" style-focus="font-family:'Sloop Script', cursive;font-size:29px;letter-spacing:0;text-transform:none" style="font-family:'Authentic Sans 90',sans-serif;font-size:20px;letter-spacing:1px;text-transform:uppercase;display:inline-block;transition:transform .3s cubic-bezier(.22,.61,.36,1)">About</a>
+  </div>
+  <div style="position:relative;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));padding:28px 0 0">
+    <div style="grid-column:1 / span 2;grid-row:1 / span 3;padding:0 32px 0 24px;position:sticky;top:87px;align-self:start;max-width:30vw" ref="{{ textBlock }}">
+      <div style="font-family:'Authentic Sans 130',sans-serif;font-size:30px;text-transform:uppercase;line-height:1.1">Hibi</div>
+      <div style="font-family:'Authentic Sans 90',sans-serif;font-size:17px;margin-top:4px">Mobile App</div>
+      <div style="font-family:'Authentic Sans 90',sans-serif;font-size:18px;line-height:1.5;margin-top:20px">
+        A weather app inspired by Ikko Tanaka, built around Japan's 72 micro-seasons. It offers a unique way to experience forecasts, weaving together weather insights with traditions, festivals, and the subtle shifts in nature. Visualizing time, nature &amp; tradition.
+      </div>
+      <div style="font-family:'Authentic Sans 90',sans-serif;font-size:18px;line-height:1.5;margin-top:20px">
+        I made a set of icons for the seasons and the small things that mark them. Working on them I kept coming back to Ikko Tanaka - simple, basic geometric shapes, and how much they can hold.
+      </div>
+    </div>
+    <div ref="{{ sunIcon }}" style="grid-column:1;grid-row:1 / span 3;align-self:end;justify-self:start;margin-left:24px;position:sticky;bottom:84px;width:57px;height:57px;transition:opacity .25s ease">
+      <img src="assets/hibi-icon.svg" alt="" style="width:100%;height:100%;object-fit:contain;display:block" />
+    </div>
+    <div style="grid-column:3 / span 3;grid-row:1;padding-right:24px;display:flex;align-items:flex-start;gap:20px;min-width:0;overflow:hidden">
+      <div style="flex:1;min-width:0;display:flex;align-items:flex-start;justify-content:center">
+        <video src="assets/hibi-1.webm" autoPlay="{{ true }}" loop="{{ true }}" muted="{{ true }}" playsInline="{{ true }}" style="width:100%;height:auto;display:block;clip-path:inset(2px)"></video>
+      </div>
+      <div style="flex:1;min-width:0;display:flex;align-items:flex-start;justify-content:center">
+        <video src="assets/hibi-2.webm" autoPlay="{{ true }}" loop="{{ true }}" muted="{{ true }}" playsInline="{{ true }}" style="width:100%;height:auto;display:block;clip-path:inset(2px)"></video>
+      </div>
+      <div style="flex:1;min-width:0;display:flex;align-items:flex-start;justify-content:center">
+        <video src="assets/hibi-3.webm" autoPlay="{{ true }}" loop="{{ true }}" muted="{{ true }}" playsInline="{{ true }}" style="width:100%;height:auto;display:block;clip-path:inset(2px)"></video>
+      </div>
+    </div>
+    <div style="grid-column:3 / span 3;grid-row:2;padding-right:24px;margin-top:130px;min-width:0">
+      <div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));column-gap:36px;row-gap:64px;width:100%">
+        <div style="display:flex;align-items:center;justify-content:center;height:116px">
+          <img data-drift="7" src="assets/icons/fan-red.svg" alt="" style="height:98%;width:auto;max-width:100%;object-fit:contain;display:block;transition:transform .35s cubic-bezier(.22,.61,.36,1)" />
+        </div>
+        <div style="display:flex;align-items:center;justify-content:center;height:116px">
+          <img data-drift="7" src="assets/icons/drop-blue.svg" alt="" style="height:70%;width:auto;max-width:100%;object-fit:contain;display:block;transition:transform .35s cubic-bezier(.22,.61,.36,1)" />
+        </div>
+        <div style="display:flex;align-items:center;justify-content:center;height:116px">
+          <img data-drift="7" src="assets/icons/bowl.svg" alt="" style="height:100%;width:auto;max-width:100%;object-fit:contain;display:block;transition:transform .35s cubic-bezier(.22,.61,.36,1)" />
+        </div>
+        <div style="display:flex;align-items:center;justify-content:center;height:116px">
+          <img data-drift="7" src="assets/icons/flower-purple.svg" alt="" style="height:66%;width:auto;max-width:100%;object-fit:contain;display:block;transition:transform .35s cubic-bezier(.22,.61,.36,1)" />
+        </div>
+        <div style="display:flex;align-items:center;justify-content:center;height:116px">
+          <img data-drift="7" src="assets/icons/fish.svg" alt="" style="height:70%;width:auto;max-width:100%;object-fit:contain;display:block;transition:transform .35s cubic-bezier(.22,.61,.36,1)" />
+        </div>
+        <div style="display:flex;align-items:center;justify-content:center;height:116px">
+          <img data-drift="7" src="assets/icons/plum-purple.svg" alt="" style="height:68%;width:auto;max-width:100%;object-fit:contain;display:block;transition:transform .35s cubic-bezier(.22,.61,.36,1)" />
+        </div>
+        <div style="display:flex;align-items:center;justify-content:center;height:116px">
+          <img data-drift="7" src="assets/icons/sun.svg" alt="" style="height:66%;width:auto;max-width:100%;object-fit:contain;display:block;transition:transform .35s cubic-bezier(.22,.61,.36,1)" />
+        </div>
+        <div style="display:flex;align-items:center;justify-content:center;height:116px">
+          <img data-drift="7" src="assets/icons/ladybug.svg" alt="" style="height:81%;width:auto;max-width:100%;object-fit:contain;display:block;transition:transform .35s cubic-bezier(.22,.61,.36,1)" />
+        </div>
+        <div style="display:flex;align-items:center;justify-content:center;height:116px">
+          <img data-drift="7" src="assets/icons/sword.svg" alt="" style="height:53%;width:auto;max-width:100%;object-fit:contain;display:block;transition:transform .35s cubic-bezier(.22,.61,.36,1)" />
+        </div>
+        <div style="display:flex;align-items:center;justify-content:center;height:116px">
+          <img data-drift="7" src="assets/icons/flower-cloud.svg" alt="" style="height:68%;width:auto;max-width:100%;object-fit:contain;display:block;transition:transform .35s cubic-bezier(.22,.61,.36,1)" />
+        </div>
+        <div style="display:flex;align-items:center;justify-content:center;height:116px">
+          <img data-drift="7" src="assets/icons/fan-blue.svg" alt="" style="height:95%;width:auto;max-width:100%;object-fit:contain;display:block;transition:transform .35s cubic-bezier(.22,.61,.36,1)" />
+        </div>
+        <div style="display:flex;align-items:center;justify-content:center;height:116px">
+          <img data-drift="7" src="assets/icons/plum-pink.svg" alt="" style="height:63%;width:auto;max-width:100%;object-fit:contain;display:block;transition:transform .35s cubic-bezier(.22,.61,.36,1)" />
+        </div>
+      </div>
+    </div>
+    <div style="grid-column:4;grid-row:3;margin-top:130px;min-width:0;display:flex;justify-content:center">
+      <video src="assets/hibi-flow.webm" autoPlay="{{ true }}" loop="{{ true }}" muted="{{ true }}" playsInline="{{ true }}" style="width:132%;height:auto;display:block"></video>
+    </div>
+  </div>
+  <div style="box-sizing:border-box;min-height:calc(100vh - 78px);display:flex;align-items:center;padding:75px 24px 20px;min-width:0">
+    <div ref="{{ phonesRow }}" style="width:100%;display:flex;align-items:center;gap:34px;padding:0 2%;transform-origin:center center;will-change:transform">
+      <img src="assets/hibi-s1.avif" alt="" style="flex:1;min-width:0;width:100%;height:auto;max-height:calc(100vh - 178px);object-fit:contain;display:block" />
+      <img src="assets/hibi-s4.avif" alt="" style="flex:1;min-width:0;width:100%;height:auto;max-height:calc(100vh - 178px);object-fit:contain;display:block" />
+      <img src="assets/hibi-s3.avif" alt="" style="flex:1;min-width:0;width:100%;height:auto;max-height:calc(100vh - 178px);object-fit:contain;display:block" />
+      <img src="assets/hibi-s5.avif" alt="" style="flex:1;min-width:0;width:100%;height:auto;max-height:calc(100vh - 178px);object-fit:contain;display:block" />
+    </div>
+  </div>
+  <div style="position:sticky;bottom:0;z-index:20;display:flex;flex:none;height:60px;box-sizing:border-box;background:#F8F8F6;border-top:2px solid #0D2565">
+    <a href="Project-Fetch.dc.html" style-hover="background:#F1B8FF" style="flex:1;min-width:0;display:block;line-height:58px;padding:0 16px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;border-right:2px solid #0D2565;font-family:'Authentic Sans 130',sans-serif;font-size:clamp(13px,1.3vw,18px)">FETCH / GUILTY PLEASURES</a>
+    <a href="Project-Kisses.dc.html" style-hover="background:#F1B8FF" style="flex:1;min-width:0;display:block;line-height:58px;padding:0 16px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;border-right:2px solid #0D2565;font-family:'Authentic Sans 130',sans-serif;font-size:clamp(13px,1.3vw,18px)">HOPP BY WIX</a>
+    <a href="Project-Happened.dc.html" style-hover="background:#F1B8FF" style="flex:1;min-width:0;display:block;line-height:58px;padding:0 16px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;border-right:2px solid #0D2565;font-family:'Authentic Sans 130',sans-serif;font-size:clamp(13px,1.3vw,18px)">HERE'S HOW IT HAPPENED</a>
+    <a href="Project-Hibi.dc.html" style-hover="background:#F1B8FF" style="flex:1;min-width:0;display:block;line-height:58px;padding:0 16px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;border-right:2px solid #0D2565;background:#F1B8FF;font-family:'Authentic Sans 130',sans-serif;font-size:clamp(13px,1.3vw,18px)">HIBI</a>
+    <a href="Project-Eden.dc.html" style-hover="background:#F1B8FF" style="flex:1;min-width:0;display:block;line-height:58px;padding:0 16px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-family:'Authentic Sans 130',sans-serif;font-size:clamp(13px,1.3vw,18px)">EDEN CINEMA</a>
+  </div>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  componentDidMount() {
+    this._muteAll = () => {
+      document.querySelectorAll('video').forEach((v) => { v.muted = true; v.defaultMuted = true; v.volume = 0; });
+    };
+    this._muteAll();
+    this._muteTimer = setInterval(this._muteAll, 1000);
+    this._onScroll = () => {
+      const el = this._phonesEl;
+      if (!el) return;
+      const r = el.getBoundingClientRect();
+      const vh = window.innerHeight;
+      const p = Math.min(1, Math.max(0, (vh - r.top) / (vh * 0.85)));
+      const e = 1 - Math.pow(1 - p, 3);
+      el.style.transform = 'scale(' + (0.62 + 0.38 * e).toFixed(4) + ')';
+      const sun = this._sunEl, txt = this._txtEl;
+      if (sun && txt) {
+        const gap = sun.getBoundingClientRect().top - txt.getBoundingClientRect().bottom;
+        sun.style.opacity = gap < 90 ? '0' : '1';
+      }
+    };
+    window.addEventListener('scroll', this._onScroll, { passive: true });
+    window.addEventListener('resize', this._onScroll);
+    this._onScroll();
+  }
+  componentWillUnmount() {
+    clearInterval(this._muteTimer);
+    window.removeEventListener('scroll', this._onScroll);
+    window.removeEventListener('resize', this._onScroll);
+  }
+  renderVals() {
+    return {
+      phonesRow: (el) => { this._phonesEl = el; if (el && this._onScroll) this._onScroll(); },
+      sunIcon: (el) => { this._sunEl = el; if (el && this._onScroll) this._onScroll(); },
+      textBlock: (el) => { this._txtEl = el; if (el && this._onScroll) this._onScroll(); },
+      scrollTop: (e) => {
+        if (e && e.target && e.target.closest && e.target.closest('a')) return;
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    };
+  }
+}
+</script>
+</body>
+</html>

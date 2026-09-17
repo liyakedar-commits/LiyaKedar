@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+@font-face { font-family: 'Authentic Sans 90'; src: url("uploads/authentic-sans-condensed-90.otf") format("opentype"); font-display: block; }
+@font-face { font-family: 'Authentic Sans 130'; src: url("uploads/AUTHENTICSans-Condensed-130.otf") format("opentype"); font-display: block; }
+@font-face { font-family: 'Sloop Script'; src: url("uploads/Sloop Script Medium One.ttf") format("truetype"); font-display: block; }
+html, body { margin: 0; background: #F8F8F6; }
+body { cursor: url("assets/cursor.svg") 2 2, auto; }
+a, button, [role="button"] { cursor: url("assets/cursor.svg") 2 2, pointer; }
+a { color: inherit; text-decoration: none; }
+</style>
+<script src="image-slot.js"></script>
+<script src="drift.js"></script>
+<script src="preload.js"></script>
+</helmet>
+<div data-screen-label="Project – Here's How It Happened" style="min-height:100vh;display:flex;flex-direction:column;background:#F8F8F6;font-family:'Authentic Sans 90',sans-serif;color:#0D2565">
+  <div style="position:sticky;top:0;z-index:20;background:#F8F8F6;border-bottom:2px solid #0D2565;display:flex;justify-content:space-between;align-items:center;height:min(80px,7.5vh);box-sizing:border-box;padding:0 24px;cursor:pointer" onClick="{{ scrollTop }}">
+    <a href="Home.dc.html" style="font-family:'Sloop Script',cursive;font-size:29px;display:inline-block;transition:transform .3s cubic-bezier(.22,.61,.36,1)">Liya Kedar</a>
+    <a href="About.dc.html" style-hover="font-family:'Sloop Script', cursive;font-size:29px;letter-spacing:0;text-transform:none" style-active="font-family:'Sloop Script', cursive;font-size:29px;letter-spacing:0;text-transform:none" style-focus="font-family:'Sloop Script', cursive;font-size:29px;letter-spacing:0;text-transform:none" style="font-family:'Authentic Sans 90',sans-serif;font-size:20px;letter-spacing:1px;text-transform:uppercase;display:inline-block;transition:transform .3s cubic-bezier(.22,.61,.36,1)">About</a>
+  </div>
+  <div style="flex:1;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));padding:28px 0 24px">
+    <div ref="{{ introText }}" style="grid-column:1 / span 2;grid-row:1 / span 2;padding:0 32px 0 24px;position:fixed;top:87px;left:0;width:30vw;max-width:30vw;z-index:6;display:flex;flex-direction:column;transition:opacity .3s ease">
+      <div style="font-family:'Authentic Sans 130',sans-serif;font-size:26px;text-transform:uppercase;line-height:1.15">Here's How It Happened</div>
+      <div style="font-family:'Authentic Sans 90',sans-serif;font-size:17px;margin-top:4px">Title Sequence</div>
+      <div style="margin-top:20px;font-family:'Authentic Sans 90',sans-serif;font-size:18px;line-height:1.5">
+        A title sequence for a series based on Meir Shalev's book. Here's What Happened is a witty collection of short stories about family life in Nahalal during Israel's pioneering days. Full of secrets and charm, the stories are told with warmth and humor, celebrating the art of storytelling itself - where every tale has more than one version, and the truth? That depends on who's telling it.
+      </div>
+    </div>
+    <div style="{{ playerCellStyle }}">
+      <div onClick="{{ togglePlay }}" onMouseEnter="{{ showControls }}" onMouseLeave="{{ hideControls }}" style="{{ boxStyle }}">
+        <div style="{{ frameStyle }}">
+          <iframe id="happened-player" src="https://player.vimeo.com/video/1221082520?background=1&amp;autoplay=1&amp;loop=1&amp;muted=1&amp;autopause=0" frameBorder="0" allow="autoplay; fullscreen" title="Here's How It Happened" style="position:absolute;inset:0;width:100%;height:100%;border:0;display:block;pointer-events:none"></iframe>
+          <div style="{{ overlayStyle }}">
+          <div style="position:absolute;left:0;right:0;bottom:0;height:12cqw;max-height:96px;background:linear-gradient(to top,rgba(0,0,0,0.3),rgba(0,0,0,0));pointer-events:none"></div>
+          <div style="position:absolute;left:1.6cqw;right:1.6cqw;bottom:1.6cqw;display:flex;align-items:center;gap:1.4em">
+          <div ref="{{ scrubBar }}" onClick="{{ seekTo }}" onMouseDown="{{ scrubStart }}" style="flex:1;min-width:0;height:0.28em;background:rgba(255,255,255,0.35);cursor:pointer;pointer-events:auto;border-radius:0.14em">
+            <div ref="{{ scrubFill }}" style="width:0%;height:100%;background:#FFFFFF;border-radius:0.14em"></div>
+          </div>
+          <div style="flex:none;display:flex;align-items:center;gap:0.55em">
+          <div onClick="{{ toggleSound }}" style-hover="opacity:1" style="display:flex;align-items:center;justify-content:center;width:1em;height:1em;color:#FFFFFF;opacity:.9;cursor:pointer;pointer-events:auto">
+            <svg viewBox="0 0 32 26" width="100%" height="100%" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M2 9.5h4L13 3.5v19L6 16.5H2z" fill="currentColor"></path>
+              <sc-if value="{{ soundOn }}" hint-placeholder-val="{{ false }}">
+                <path d="M18 9.5a7 7 0 0 1 0 7"></path>
+                <path d="M22.5 6a11.5 11.5 0 0 1 0 14"></path>
+                <path d="M27 2.5a16 16 0 0 1 0 21"></path>
+              </sc-if>
+              <sc-if value="{{ soundOff }}" hint-placeholder-val="{{ true }}">
+                <path d="M18 9.5a7 7 0 0 1 0 7"></path>
+                <path d="M22.5 6a11.5 11.5 0 0 1 0 14"></path>
+                <path d="M27 2.5a16 16 0 0 1 0 21"></path>
+                <path d="M16.5 1.5 30.5 24.5"></path>
+              </sc-if>
+            </svg>
+          </div>
+          <div onClick="{{ goFullscreen }}" style-hover="opacity:1" style="display:flex;align-items:center;justify-content:center;width:0.88em;height:0.88em;color:#FFFFFF;opacity:.9;cursor:pointer;pointer-events:auto">
+            <svg viewBox="0 0 24 24" width="100%" height="100%" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 9V3h6"></path>
+              <path d="M21 9V3h-6"></path>
+              <path d="M3 15v6h6"></path>
+              <path d="M21 15v6h-6"></path>
+            </svg>
+            </div>
+          </div>
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>
+    <div style="grid-column:3 / span 3;grid-row:2;padding:130px 24px 130px 0;z-index:1">
+      <div style="position:sticky;top:70px">
+        <img ref="{{ stillImg }}" src="assets/happened-still.webp" alt="" style="width:100%;height:auto;display:block;transform-origin:center center;will-change:transform">
+      </div>
+    </div>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:20px;align-items:start;padding:0 24px;position:relative;z-index:2;background:#F8F8F6">
+    <div style="grid-column:3 / span 3;grid-row:1">
+      <video ref="{{ muteVideo }}" src="assets/happened-anemones.webm" autoPlay="{{ true }}" loop="{{ true }}" muted="{{ true }}" playsInline="{{ true }}" style="width:100%;height:auto;display:block"></video>
+    </div>
+    <div ref="{{ tinBlock }}" style="grid-column:3 / span 3;grid-row:2;margin-top:64px">
+      <video src="assets/happened-tin.webm" autoPlay="{{ true }}" loop="{{ true }}" muted="{{ true }}" playsInline="{{ true }}" style="width:100%;height:auto;display:block"></video>
+    </div>
+  </div>
+  <div style="position:relative;height:62vh;overflow:hidden">
+    <img ref="{{ vespaImg }}" src="assets/happened-vespa.png" alt="" style="position:absolute;top:38%;left:0;width:21vw;height:auto;display:block;will-change:transform">
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(5,minmax(0,1fr));padding:64px 24px 40px;position:relative;z-index:2;background:#F8F8F6">
+    <div style="grid-column:3 / span 3;display:flex;flex-direction:column;gap:20px">
+      <img src="assets/happened-frame-1.webp" alt="" style="width:100%;height:auto;display:block">
+      <img src="assets/happened-frame-2.webp" alt="" style="width:100%;height:auto;display:block">
+      
+      <img src="assets/happened-frame-4.webp" alt="" style="width:100%;height:auto;display:block">
+      <img src="assets/happened-frame-5.webp" alt="" style="width:100%;height:auto;display:block">
+      <img src="assets/happened-frame-6.webp" alt="" style="width:100%;height:auto;display:block"><img src="assets/happened-frame-7.webp" alt="" style="width:100%;height:auto;display:block">
+      
+    </div>
+  </div>
+  <div ref="{{ sunIcon }}" style="position:fixed;left:24px;bottom:84px;z-index:6;width:74px;height:43px;pointer-events:none;transition:opacity .3s ease">
+    <img src="assets/happened-icon.svg" alt="" style="width:100%;height:100%;object-fit:contain;display:block">
+  </div>
+  <div style="position:sticky;bottom:0;z-index:20;display:flex;flex:none;height:60px;box-sizing:border-box;background:#F8F8F6;border-top:2px solid #0D2565">
+    <a href="Project-Fetch.dc.html" style-hover="background:#F1B8FF" style="flex:1;min-width:0;display:block;line-height:58px;padding:0 16px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;border-right:2px solid #0D2565;font-family:'Authentic Sans 130',sans-serif;font-size:clamp(13px,1.3vw,18px)">FETCH / GUILTY PLEASURES</a>
+    <a href="Project-Kisses.dc.html" style-hover="background:#F1B8FF" style="flex:1;min-width:0;display:block;line-height:58px;padding:0 16px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;border-right:2px solid #0D2565;font-family:'Authentic Sans 130',sans-serif;font-size:clamp(13px,1.3vw,18px)">HOPP BY WIX</a>
+    <a href="Project-Happened.dc.html" style-hover="background:#F1B8FF" style="flex:1;min-width:0;display:block;line-height:58px;padding:0 16px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;border-right:2px solid #0D2565;background:#F1B8FF;font-family:'Authentic Sans 130',sans-serif;font-size:clamp(13px,1.3vw,18px)">HERE'S HOW IT HAPPENED</a>
+    <a href="Project-Hibi.dc.html" style-hover="background:#F1B8FF" style="flex:1;min-width:0;display:block;line-height:58px;padding:0 16px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;border-right:2px solid #0D2565;font-family:'Authentic Sans 130',sans-serif;font-size:clamp(13px,1.3vw,18px)">HIBI</a>
+    <a href="Project-Eden.dc.html" style-hover="background:#F1B8FF" style="flex:1;min-width:0;display:block;line-height:58px;padding:0 16px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-family:'Authentic Sans 130',sans-serif;font-size:clamp(13px,1.3vw,18px)">EDEN CINEMA</a>
+  </div>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { soundOn: false, expanded: false, playing: true, hover: false };
+  _post(method, value) {
+    const f = document.getElementById('happened-player');
+    if (!f || !f.contentWindow) return;
+    const msg = value === undefined ? { method } : { method, value };
+    f.contentWindow.postMessage(JSON.stringify(msg), '*');
+  }
+  componentDidMount() {
+    this._time = 0;
+    this._onVimeoMsg = (e) => {
+      if (typeof e.data !== 'string') return;
+      let d; try { d = JSON.parse(e.data); } catch (err) { return; }
+      if (d && d.event === 'playProgress' && d.data) {
+        this._time = d.data.seconds || 0;
+        this._dur = d.data.duration || this._dur || 0;
+        if (this._fillEl && this._dur) this._fillEl.style.width = ((this._time / this._dur) * 100).toFixed(2) + '%';
+      }
+      if (d && d.event === 'ready') this._post('addEventListener', 'playProgress');
+    };
+    window.addEventListener('message', this._onVimeoMsg);
+    setTimeout(() => this._post('addEventListener', 'playProgress'), 800);
+    this._outer = React.createRef ? this._outer : null;
+    this._x = 0; this._target = 0;
+    this._onScroll = () => {
+      const vespa = this._vespaEl;
+      if (vespa) {
+        const vr = vespa.parentElement.getBoundingClientRect();
+        const t = Math.min(1, Math.max(0, (window.innerHeight - vr.top) / (window.innerHeight + vr.height)));
+        vespa.style.transform = 'translateX(' + (t * (window.innerWidth * 0.9)) + 'px)';
+      }
+      const intro = this._introEl, tin = this._tinEl;
+      if (intro && tin) {
+        const a = intro.getBoundingClientRect(), b = tin.getBoundingClientRect();
+        intro.style.opacity = (b.top < a.bottom + 24 && b.bottom > a.top - 24 && b.left < a.right + 24 && b.right > a.left - 24) ? '0' : '1';
+      }
+      const sun = this._sunEl;
+      if (sun) {
+        const s = sun.getBoundingClientRect();
+        let hit = false;
+        if (intro) {
+          const a = intro.getBoundingClientRect();
+          if (a.top < s.bottom + 24 && a.bottom > s.top - 24 && a.left < s.right + 24 && a.right > s.left - 24) hit = true;
+        }
+        if (tin) {
+          const b = tin.getBoundingClientRect();
+          hit = b.top < s.bottom + 24 && b.bottom > s.top - 24 && b.left < s.right + 24 && b.right > s.left - 24;
+        }
+        sun.style.opacity = hit ? '0' : '1';
+      }
+      const still = this._stillEl;
+      if (still) {
+        const r = still.getBoundingClientRect();
+        const q = Math.min(1, Math.max(0, (window.innerHeight - r.top) / (window.innerHeight + r.height)));
+        still.style.transform = 'scale(' + (0.72 + q * 0.28).toFixed(4) + ')';
+      }
+    };
+    window.addEventListener('scroll', this._onScroll, { passive: true });
+    window.addEventListener('resize', this._onScroll);
+    this._onScroll();
+    this._x = this._target;
+  }
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState && prevState.expanded !== this.state.expanded) this._setScrollLock(this.state.expanded);
+  }
+  _setScrollLock(on) {
+    document.documentElement.style.overflow = on ? 'hidden' : '';
+    document.body.style.overflow = on ? 'hidden' : '';
+  }
+  componentWillUnmount() {
+    this._setScrollLock(false);
+    window.removeEventListener('message', this._onVimeoMsg);
+    window.removeEventListener('scroll', this._onScroll);
+    window.removeEventListener('resize', this._onScroll);
+    if (this._raf) cancelAnimationFrame(this._raf);
+  }
+  renderVals() {
+    return {
+      scrollTop: (e) => {
+        if (e && e.target && e.target.closest && e.target.closest('a')) return;
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      },
+      introText: (el) => { this._introEl = el; if (el && this._onScroll) this._onScroll(); },
+      sunIcon: (el) => { this._sunEl = el; if (el && this._onScroll) this._onScroll(); },
+      tinBlock: (el) => { this._tinEl = el; if (el && this._onScroll) this._onScroll(); },
+      stillImg: (el) => { this._stillEl = el; if (el && this._onScroll) this._onScroll(); },
+      vespaImg: (el) => { this._vespaEl = el; if (el && this._onScroll) this._onScroll(); },
+      muteVideo: (el) => { if (el) { el.muted = true; el.defaultMuted = true; el.volume = 0; } },
+      showControls: () => { if (!this.state.hover) this.setState({ hover: true }); },
+      hideControls: () => { if (this.state.hover) this.setState({ hover: false }); },
+      overlayStyle: 'position:absolute;inset:0;pointer-events:none;transition:opacity .3s ease;opacity:' + ((this.state.expanded || this.state.hover) ? '1' : '0'),
+      playerCellStyle: 'grid-column:3 / span 3;grid-row:1;padding-right:24px;margin-top:4px;z-index:' + (this.state.expanded ? '80' : '1'),
+      soundOn: this.state.soundOn,
+      soundOff: !this.state.soundOn,
+      expanded: this.state.expanded,
+      boxStyle: this.state.expanded
+        ? 'position:fixed;inset:0;z-index:40;width:100%;padding-top:0;background:#F8F8F6;cursor:pointer;display:flex;align-items:center;justify-content:center;overflow:hidden'
+        : 'position:relative;width:100%;padding-top:56.25%;cursor:pointer',
+      frameStyle: this.state.expanded
+        ? 'position:relative;width:100%;aspect-ratio:16/9;container-type:inline-size;font-size:clamp(18px,2.2cqw,28px)'
+        : 'position:absolute;inset:0;container-type:inline-size;font-size:clamp(18px,2.2cqw,28px)',
+      goFullscreen: (e) => {
+        if (e) { e.stopPropagation(); e.preventDefault(); }
+        this.setState(s => {
+          this._setScrollLock(!s.expanded);
+          return { expanded: !s.expanded, hover: false };
+        });
+      },
+      togglePlay: (e) => {
+        if (e && e.target && e.target.closest && e.target.closest('[data-ctrl]')) return;
+        const playing = !this.state.playing;
+        this.setState({ playing: playing });
+        this._post(playing ? 'play' : 'pause');
+      },
+      scrubBar: (el) => { this._barEl = el; },
+      scrubFill: (el) => { this._fillEl = el; },
+      seekTo: (e) => {
+        if (e) { e.stopPropagation(); e.preventDefault(); }
+        const bar = this._barEl;
+        if (!bar || !this._dur) return;
+        const r = bar.getBoundingClientRect();
+        const ratio = Math.min(1, Math.max(0, (e.clientX - r.left) / r.width));
+        this._post('setCurrentTime', ratio * this._dur);
+        if (this._fillEl) this._fillEl.style.width = (ratio * 100).toFixed(2) + '%';
+      },
+      scrubStart: (e) => {
+        if (e) { e.stopPropagation(); e.preventDefault(); }
+        const bar = this._barEl;
+        if (!bar) return;
+        const move = (ev) => {
+          if (!this._dur) return;
+          const r = bar.getBoundingClientRect();
+          const ratio = Math.min(1, Math.max(0, (ev.clientX - r.left) / r.width));
+          if (this._fillEl) this._fillEl.style.width = (ratio * 100).toFixed(2) + '%';
+          this._post('setCurrentTime', ratio * this._dur);
+        };
+        const up = () => {
+          window.removeEventListener('mousemove', move);
+          window.removeEventListener('mouseup', up);
+        };
+        window.addEventListener('mousemove', move);
+        window.addEventListener('mouseup', up);
+      },
+      toggleSound: (e) => {
+        if (e) { e.stopPropagation(); e.preventDefault(); }
+        const on = !this.state.soundOn;
+        this.setState({ soundOn: on });
+        const f = document.getElementById('happened-player');
+        if (!f || !f.contentWindow) return;
+        f.contentWindow.postMessage(JSON.stringify({ method: 'setVolume', value: on ? 1 : 0 }), '*');
+        f.contentWindow.postMessage(JSON.stringify({ method: 'play' }), '*');
+      }
+    };
+  }
+}
+</script>
+</body>
+</html>

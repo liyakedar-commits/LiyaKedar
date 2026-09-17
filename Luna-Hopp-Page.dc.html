@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Lora:wght@400;500;600&display=block" rel="stylesheet" />
+<style>
+@font-face { font-family: 'Hepta Slab'; src: url("assets/luna/HeptaSlab-Variable.ttf") format("truetype-variations"); font-weight: 100 900; font-display: block; }
+body { margin: 0; }
+a { color: inherit; text-decoration: none; }
+.luna-in::placeholder { color: #8A90A3; }
+.luna-scroll { scrollbar-width: none; -ms-overflow-style: none; }
+.luna-scroll::-webkit-scrollbar { width: 0; height: 0; display: none; }
+</style>
+</helmet>
+<div style="container-type:inline-size;width:100%;height:100%;overflow:hidden;position:relative;background:#EAEAF3">
+  <div class="luna-scroll" style="position:absolute;inset:0;overflow-y:auto;overflow-x:hidden;background:{{ pageBg }}">
+    <div style="padding:7cqw 4.6cqw 0;display:flex;flex-direction:column;align-items:center">
+      <div style="font-family:{{ fontStack }};font-weight:600;color:{{ accent }};font-size:12.4cqw;line-height:1.06;text-align:center;letter-spacing:-0.01em">Luna&rsquo;s<br />Ceramics</div>
+      <div style="width:98%;aspect-ratio:719 / 752;margin-top:2cqw;-webkit-mask-image:url(assets/luna/hero-cut.png);mask-image:url(assets/luna/hero-cut.png);-webkit-mask-size:100% 100%;mask-size:100% 100%;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat">
+        <video src="assets/luna/hero.webm" autoPlay="{{ true }}" loop="{{ true }}" muted="{{ true }}" playsInline="{{ true }}" style="width:100%;height:100%;object-fit:cover;display:block"></video>
+      </div>
+      <div style="font-family:{{ fontStack }};font-weight:400;color:{{ accent }};font-size:4.4cqw;line-height:1.3;text-align:center;margin-top:1cqw">Handmade Ceramics by Luna Sol</div>
+      <img src="assets/luna/social.png" alt="Social links" style="width:62%;height:auto;display:block;margin-top:3.4cqw" />
+    </div>
+    <div style="padding:9cqw 4.6cqw 0;display:flex;flex-direction:column;align-items:center">
+      <div style="font-family:{{ fontStack }};font-weight:600;color:{{ accent }};font-size:3.9cqw;text-align:center">Welcome to my studio!</div>
+      <img src="assets/luna/a8.avif" alt="Luna at the wheel" style="width:100%;height:auto;display:block;margin-top:3cqw;border-radius:2.4cqw" />
+      <div style="font-family:{{ fontStack }};color:{{ accent }};font-size:3.5cqw;line-height:1.5;margin-top:3.4cqw;text-wrap:pretty">I&rsquo;m Luna. My journey with clay started as a way to find balance in a fast-paced world. Today, I create functional art designed to turn daily rituals, like your morning coffee, into moments of beauty.</div>
+    </div>
+    <div style="height:1px;background:{{ divider }};margin:7cqw 0 0"></div>
+    <div style="padding:7cqw 4.6cqw 0">
+      <div style="background:{{ panel }};border-radius:2.6cqw;padding:4cqw">
+        <div style="font-family:{{ fontStack }};font-weight:600;color:{{ panelText }};font-size:4cqw;text-align:center">My Products</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:3.4cqw;margin-top:3.4cqw">
+          <div>
+            <div style="position:relative;border-radius:1.8cqw;overflow:hidden">
+              <img src="assets/luna/a4.avif" alt="Candy Column Vase" style="width:100%;height:auto;display:block" />
+              <div style="position:absolute;top:1.6cqw;left:1.6cqw;background:#000000;color:#FFFFFF;font-family:{{ fontStack }};font-weight:500;font-size:2.9cqw;padding:0.9cqw 2.4cqw;border-radius:10cqw">NEW</div>
+              <div style="position:absolute;bottom:1.6cqw;right:1.6cqw;background:#000000;color:#FFFFFF;font-family:{{ fontStack }};font-weight:500;font-size:2.9cqw;padding:0.9cqw 2.2cqw;border-radius:10cqw">$44.99</div>
+            </div>
+            <div style="font-family:{{ fontStack }};font-weight:500;color:{{ panelText }};font-size:3.5cqw;line-height:1.25;text-align:center;margin-top:1.8cqw">Candy Column Vase</div>
+          </div>
+          <div>
+            <div style="position:relative;border-radius:1.8cqw;overflow:hidden">
+              <img src="assets/luna/a7.avif" alt="The Marshmallow Mug" style="width:100%;height:auto;display:block" />
+              <div style="position:absolute;bottom:1.6cqw;right:1.6cqw;background:#000000;color:#FFFFFF;font-family:{{ fontStack }};font-weight:500;font-size:2.9cqw;padding:0.9cqw 2.2cqw;border-radius:10cqw">$29.99</div>
+            </div>
+            <div style="font-family:{{ fontStack }};font-weight:500;color:{{ panelText }};font-size:3.5cqw;line-height:1.25;text-align:center;margin-top:1.8cqw">The Marshmallow Mug</div>
+          </div>
+          <div>
+            <div style="position:relative;border-radius:1.8cqw;overflow:hidden">
+              <img src="assets/luna/a5.avif" alt="Ribbon Handle Mug" style="width:100%;height:auto;display:block" />
+              <div style="position:absolute;bottom:1.6cqw;right:1.6cqw;background:#000000;color:#FFFFFF;font-family:{{ fontStack }};font-weight:500;font-size:2.9cqw;padding:0.9cqw 2.2cqw;border-radius:10cqw">$29.99</div>
+            </div>
+            <div style="font-family:{{ fontStack }};font-weight:500;color:{{ panelText }};font-size:3.5cqw;line-height:1.25;text-align:center;margin-top:1.8cqw">Ribbon Handle Mug</div>
+          </div>
+          <div>
+            <div style="position:relative;border-radius:1.8cqw;overflow:hidden">
+              <img src="assets/luna/a6.avif" alt="Sunset Check Bowl" style="width:100%;height:auto;display:block" />
+              <div style="position:absolute;bottom:1.6cqw;right:1.6cqw;background:#000000;color:#FFFFFF;font-family:{{ fontStack }};font-weight:500;font-size:2.9cqw;padding:0.9cqw 2.2cqw;border-radius:10cqw">$34.99</div>
+            </div>
+            <div style="font-family:{{ fontStack }};font-weight:500;color:{{ panelText }};font-size:3.5cqw;line-height:1.25;text-align:center;margin-top:1.8cqw">Sunset Check Bowl</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="height:1px;background:{{ divider }};margin:7cqw 0 0"></div>
+    <div style="padding:6cqw 4.6cqw 0">
+      <div style="font-family:{{ fontStack }};font-weight:600;color:{{ accent }};font-size:4cqw;text-align:center">Gallery</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:2.4cqw;margin-top:3.4cqw">
+        <img src="assets/luna/a9.avif" alt="" style="width:100%;height:auto;display:block;border-radius:1.2cqw" />
+        <img src="assets/luna/a2.avif" alt="" style="width:100%;height:auto;display:block;border-radius:1.2cqw" />
+        <img src="assets/luna/a1.avif" alt="" style="width:100%;height:auto;display:block;border-radius:1.2cqw" />
+        <img src="assets/luna/a3.avif" alt="" style="width:100%;height:auto;display:block;border-radius:1.2cqw" />
+      </div>
+    </div>
+    <div style="height:1px;background:{{ divider }};margin:7cqw 0 0"></div>
+    <div style="padding:6cqw 4.6cqw 8cqw;display:flex;flex-direction:column;gap:3cqw">
+      <div style="font-family:{{ fontStack }};font-weight:600;color:{{ accent }};font-size:4cqw;text-align:center">Inquire for Custom Work</div>
+      <input class="luna-in" type="text" placeholder="Name" style="width:100%;box-sizing:border-box;background:{{ inputBg }};border:1px solid {{ inputBorder }};border-radius:2cqw;padding:3.4cqw 3.4cqw;font-family:{{ fontStack }};font-size:3.6cqw;color:{{ panelText }};outline:none" />
+      <input class="luna-in" type="email" placeholder="Email" style="width:100%;box-sizing:border-box;background:{{ inputBg }};border:1px solid {{ inputBorder }};border-radius:2cqw;padding:3.4cqw 3.4cqw;font-family:{{ fontStack }};font-size:3.6cqw;color:{{ panelText }};outline:none" />
+      <input class="luna-in" type="tel" placeholder="Phone" style="width:100%;box-sizing:border-box;background:{{ inputBg }};border:1px solid {{ inputBorder }};border-radius:2cqw;padding:3.4cqw 3.4cqw;font-family:{{ fontStack }};font-size:3.6cqw;color:{{ panelText }};outline:none" />
+      <textarea class="luna-in" placeholder="Message" rows="5" style="width:100%;box-sizing:border-box;background:{{ inputBg }};border:1px solid {{ inputBorder }};border-radius:2cqw;padding:3.4cqw 3.4cqw;font-family:{{ fontStack }};font-size:3.6cqw;color:{{ panelText }};outline:none;resize:none"></textarea>
+      <div style="font-family:{{ fontStack }};color:{{ accent }};font-size:3.2cqw;line-height:1.45">By submitting your contact details, you are providing your data to liya, who may contact you for marketing purposes.</div>
+      <div onClick="{{ submit }}" style="background:{{ accent }};color:#FFFFFF;font-family:{{ fontStack }};font-weight:400;font-size:4cqw;text-align:center;padding:3.6cqw;border-radius:{{ btnRadius }};border:{{ btnBorder }};cursor:pointer">{{ submitLabel }}</div>
+    </div>
+  </div>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:390,&quot;height&quot;:760},&quot;scheme&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:0,&quot;tsType&quot;:&quot;number&quot;,&quot;min&quot;:0,&quot;max&quot;:4,&quot;section&quot;:&quot;Style&quot;},&quot;font&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:0,&quot;tsType&quot;:&quot;number&quot;,&quot;min&quot;:0,&quot;max&quot;:2,&quot;section&quot;:&quot;Style&quot;},&quot;buttonStyle&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:1,&quot;tsType&quot;:&quot;number&quot;,&quot;min&quot;:0,&quot;max&quot;:3,&quot;section&quot;:&quot;Style&quot;}}">
+const SCHEMES = [
+  { accent: '#063DBF', panel: '#FF99DC', panelText: '#0F1A4F', bg: 'linear-gradient(180deg,#EAEAF3 0%,#EFE9E4 30%,#F6EFD6 62%,#FAF8B9 100%)', inputBg: '#D9E3FF', inputBorder: '#C4D2FF' },
+  { accent: '#141414', panel: '#E4E4E1', panelText: '#141414', bg: 'linear-gradient(180deg,#F5F5F3 0%,#EDEDEA 60%,#E6E6E2 100%)', inputBg: '#ECECE8', inputBorder: '#D8D8D3' },
+  { accent: '#0B4B8F', panel: '#FFE94D', panelText: '#0B2E52', bg: 'linear-gradient(180deg,#EAF7FF 0%,#F2FBFF 45%,#E7F6EF 100%)', inputBg: '#DCEEFB', inputBorder: '#C3E0F5' },
+  { accent: '#5B2D91', panel: '#CBA6F2', panelText: '#2F1650', bg: 'linear-gradient(180deg,#F4EEFB 0%,#F3F6EC 60%,#E9F2DF 100%)', inputBg: '#EADFF9', inputBorder: '#D8C6EE' },
+  { accent: '#C3362A', panel: '#F3D9D2', panelText: '#4A1A14', bg: 'linear-gradient(180deg,#FBF3F1 0%,#F8EDE9 55%,#F4E4DE 100%)', inputBg: '#F7E3DE', inputBorder: '#EDCFC8' }
+];
+const FONTS = ["'Hepta Slab',serif", "'DM Sans',sans-serif", "'Lora',serif"];
+const BUTTONS = [
+  { radius: '1cqw', border: 'none' },
+  { radius: '2.4cqw', border: 'none' },
+  { radius: '10cqw', border: 'none' },
+  { radius: '2.4cqw', border: '0.5cqw solid currentColor' }
+];
+class Component extends DCLogic {
+  state = { sent: false };
+  renderVals() {
+    const sc = SCHEMES[this.props.scheme ?? 0] || SCHEMES[0];
+    const btn = BUTTONS[this.props.buttonStyle ?? 1] || BUTTONS[1];
+    return {
+      accent: sc.accent,
+      panel: sc.panel,
+      panelText: sc.panelText,
+      pageBg: sc.bg,
+      inputBg: sc.inputBg,
+      inputBorder: sc.inputBorder,
+      divider: 'rgba(0,0,0,0.14)',
+      fontStack: FONTS[this.props.font ?? 0] || FONTS[0],
+      btnRadius: btn.radius,
+      btnBorder: btn.border,
+      submitLabel: this.state.sent ? 'Thanks!' : 'Submit',
+      submit: () => {
+        this.setState({ sent: true });
+        setTimeout(() => this.setState({ sent: false }), 1800);
+      }
+    };
+  }
+}
+
+</script>
+</body>
+</html>

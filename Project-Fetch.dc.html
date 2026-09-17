@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+@font-face { font-family: 'Authentic Sans 90'; src: url("uploads/authentic-sans-condensed-90.otf") format("opentype"); font-display: block; }
+@font-face { font-family: 'Authentic Sans 130'; src: url("uploads/AUTHENTICSans-Condensed-130.otf") format("opentype"); font-display: block; }
+@font-face { font-family: 'Sloop Script'; src: url("uploads/Sloop Script Medium One.ttf") format("truetype"); font-display: block; }
+html, body { margin: 0; background: #F8F8F6; }
+body { cursor: url("assets/cursor.svg") 2 2, auto; }
+a, button, [role="button"] { cursor: url("assets/cursor.svg") 2 2, pointer; }
+a { color: inherit; text-decoration: none; }
+</style>
+<script src="image-slot.js"></script>
+<script src="drift.js"></script>
+<script src="preload.js"></script>
+</helmet>
+<div data-screen-label="Project – Fetch" style="min-height:100vh;display:flex;flex-direction:column;background:#F8F8F6;font-family:'Authentic Sans 90',sans-serif;color:#0D2565">
+  <div ref="{{ pageHeader }}" style="position:sticky;top:0;z-index:20;background:#F8F8F6;border-bottom:2px solid #0D2565;display:flex;justify-content:space-between;align-items:center;height:min(80px,7.5vh);box-sizing:border-box;padding:0 24px;cursor:pointer" onClick="{{ scrollTop }}">
+    <a href="Home.dc.html" style="font-family:'Sloop Script',cursive;font-size:29px;display:inline-block;transition:transform .3s cubic-bezier(.22,.61,.36,1)">Liya Kedar</a>
+    <a href="About.dc.html" style-hover="font-family:'Sloop Script', cursive;font-size:29px;letter-spacing:0;text-transform:none" style-active="font-family:'Sloop Script', cursive;font-size:29px;letter-spacing:0;text-transform:none" style-focus="font-family:'Sloop Script', cursive;font-size:29px;letter-spacing:0;text-transform:none" style="font-family:'Authentic Sans 90',sans-serif;font-size:20px;letter-spacing:1px;text-transform:uppercase;display:inline-block;transition:transform .3s cubic-bezier(.22,.61,.36,1)">About</a>
+  </div>
+  <div style="flex:1;position:relative;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));padding:28px 0 24px">
+    <div ref="{{ textBlock }}" style="grid-column:1 / span 2;padding:0 32px 0 24px;position:fixed;top:87px;left:0;width:30vw;max-width:30vw;z-index:6;display:flex;flex-direction:column">
+      <div style="font-family:'Authentic Sans 130',sans-serif;font-size:30px;text-transform:uppercase;line-height:1.1">Fetch / Guilty Pleasures</div>
+      <div style="font-family:'Authentic Sans 90',sans-serif;font-size:17px;margin-top:4px">Magazine</div>
+      <div style="margin-top:20px;font-family:'Authentic Sans 90',sans-serif;font-size:18px;line-height:1.5">
+        Fetch is a magazine inspired by the 2000s, exploring the quirks of popular culture. The “Guilty Pleasures” issue dives into the tension between temptation, joy, and shame, offering a playful yet critical take on the things we secretly love but hesitate to admit. Blending fun and with sharp reflection, it celebrates the contradictions and complexities of our hidden indulgences.
+      </div>
+    </div>
+    <div ref="{{ lineIcon }}" style="position:fixed;left:24px;bottom:84px;z-index:6;width:66px;height:48px;pointer-events:none;transition:opacity .25s ease">
+      <img src="assets/fetch-icon.svg" alt="" style="width:100%;height:100%;object-fit:contain;display:block">
+    </div>
+    <div style="grid-column:3 / span 3;margin:-8px 0 0 0;padding-right:24px">
+      <div style="position:relative;width:100%;aspect-ratio:1332 / 884;overflow:hidden">
+        <video src="assets/fetch-mag.webm" autoPlay="{{ true }}" loop="{{ true }}" muted="{{ true }}" playsInline="{{ true }}" style="position:absolute;left:50%;top:50%;width:144.9%;height:auto;transform:translate(-50%,-50%);display:block"></video>
+      </div>
+    </div>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(5,minmax(0,1fr));padding:64px 24px 0">
+    <div style="grid-column:3 / span 3;display:flex;flex-direction:column;gap:0">
+      <div style="position:sticky;top:calc(55px + 48px);z-index:1;width:100%;aspect-ratio:1.45;background:#F8F8F6;overflow:hidden">
+        <img src="assets/fetch-n1.webp" alt="Fetch spread" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block">
+      </div>
+      <div style="position:sticky;top:calc(55px + 48px);z-index:2;width:100%;aspect-ratio:1.45;background:#F8F8F6;overflow:hidden">
+        <img src="assets/fetch-n2.webp" alt="Fetch spread" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block">
+      </div>
+      <div style="position:sticky;top:calc(55px + 48px);z-index:3;width:100%;aspect-ratio:1.45;background:#F8F8F6;overflow:hidden">
+        <img src="assets/fetch-n3.webp" alt="Fetch spread" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block">
+      </div>
+      <div style="position:sticky;top:calc(55px + 48px);z-index:4;width:100%;aspect-ratio:1.45;background:#F8F8F6;overflow:hidden">
+        <img src="assets/fetch-n4.webp" alt="Fetch spread" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block">
+      </div>
+      <div style="position:sticky;top:calc(55px + 48px);z-index:5;width:100%;aspect-ratio:1.45;background:#F8F8F6;overflow:hidden">
+        <img src="assets/fetch-n5.webp" alt="Fetch spread" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block">
+      </div>
+      <div style="position:sticky;top:calc(55px + 48px);z-index:6;width:100%;aspect-ratio:1.45;background:#F8F8F6;overflow:hidden">
+        <img src="assets/fetch-n6.webp" alt="Fetch spread" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block">
+      </div>
+      <div style="position:sticky;top:calc(55px + 48px);z-index:7;width:100%;aspect-ratio:1.45;background:#F8F8F6;overflow:hidden">
+        <img src="assets/fetch-n7.webp" alt="Fetch spread" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block">
+      </div>
+      <div style="position:sticky;top:calc(55px + 48px);z-index:8;width:100%;aspect-ratio:1.45;background:#F8F8F6;overflow:hidden">
+        <img src="assets/fetch-n8.webp" alt="Fetch spread" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block">
+      </div>
+      <div style="position:sticky;top:calc(55px + 48px);z-index:9;width:100%;aspect-ratio:1.45;background:#F8F8F6;overflow:hidden">
+        <img src="assets/fetch-n9.webp" alt="Fetch spread" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block">
+      </div>
+      
+      <div style="position:sticky;top:calc(55px + 48px);z-index:11;width:100%;aspect-ratio:1.45;background:#F8F8F6;overflow:hidden">
+        <img src="assets/fetch-n11.webp" alt="Fetch spread" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block">
+      </div>
+    </div>
+    <div ref="{{ coverCell }}" style="grid-column:3 / span 3;margin:80px -24px 0 -6px;height:calc(100vh - 133px);overflow:hidden">
+      <img src="assets/fetch-cover-shot-2k.webp" alt="Fetch issue no.01 cover" style="width:100%;height:100%;object-fit:cover;display:block">
+    </div>
+  </div>
+  <div ref="{{ pageFooter }}" style="position:sticky;bottom:0;z-index:20;display:flex;flex:none;height:60px;box-sizing:border-box;background:#F8F8F6;border-top:2px solid #0D2565">
+    <a href="Project-Fetch.dc.html" style-hover="background:#F1B8FF" style="flex:1;min-width:0;display:block;line-height:58px;padding:0 16px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;border-right:2px solid #0D2565;background:#F1B8FF;font-family:'Authentic Sans 130',sans-serif;font-size:clamp(13px,1.3vw,18px)">FETCH / GUILTY PLEASURES</a>
+    <a href="Project-Kisses.dc.html" style-hover="background:#F1B8FF" style="flex:1;min-width:0;display:block;line-height:58px;padding:0 16px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;border-right:2px solid #0D2565;font-family:'Authentic Sans 130',sans-serif;font-size:clamp(13px,1.3vw,18px)">HOPP BY WIX</a>
+    <a href="Project-Happened.dc.html" style-hover="background:#F1B8FF" style="flex:1;min-width:0;display:block;line-height:58px;padding:0 16px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;border-right:2px solid #0D2565;font-family:'Authentic Sans 130',sans-serif;font-size:clamp(13px,1.3vw,18px)">HERE'S HOW IT HAPPENED</a>
+    <a href="Project-Hibi.dc.html" style-hover="background:#F1B8FF" style="flex:1;min-width:0;display:block;line-height:58px;padding:0 16px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;border-right:2px solid #0D2565;font-family:'Authentic Sans 130',sans-serif;font-size:clamp(13px,1.3vw,18px)">HIBI</a>
+    <a href="Project-Eden.dc.html" style-hover="background:#F1B8FF" style="flex:1;min-width:0;display:block;line-height:58px;padding:0 16px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-family:'Authentic Sans 130',sans-serif;font-size:clamp(13px,1.3vw,18px)">EDEN CINEMA</a>
+  </div>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  componentDidMount() {
+    this._check = () => {
+      const icon = this._iconEl, txt = this._txtEl;
+      if (!icon || !txt) return;
+      const gap = icon.getBoundingClientRect().top - txt.getBoundingClientRect().bottom;
+      icon.style.opacity = gap < 24 ? '0' : '1';
+    };
+    this._fit = () => {
+      const cell = this._coverEl, h = this._hdrEl, f = this._footEl;
+      if (!cell || !h || !f) return;
+      cell.style.height = (window.innerHeight - h.getBoundingClientRect().height - f.getBoundingClientRect().height) + 'px';
+    };
+    window.addEventListener('resize', this._check);
+    window.addEventListener('resize', this._fit);
+    window.addEventListener('scroll', this._check, { passive: true });
+    this._check();
+    this._fit();
+  }
+  componentWillUnmount() {
+    window.removeEventListener('resize', this._check);
+    window.removeEventListener('resize', this._fit);
+    window.removeEventListener('scroll', this._check);
+  }
+  renderVals() {
+    return {
+      lineIcon: (el) => { this._iconEl = el; if (el && this._check) this._check(); },
+      pageHeader: (el) => { this._hdrEl = el; if (el && this._fit) this._fit(); },
+      pageFooter: (el) => { this._footEl = el; if (el && this._fit) this._fit(); },
+      coverCell: (el) => { this._coverEl = el; if (el && this._fit) this._fit(); },
+      textBlock: (el) => { this._txtEl = el; if (el && this._check) this._check(); },
+      scrollTop: (e) => {
+        if (e && e.target && e.target.closest && e.target.closest('a')) return;
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    };
+  }
+}
+</script>
+</body>
+</html>

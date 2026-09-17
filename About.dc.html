@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+@font-face { font-family: 'Authentic Sans 90'; src: url("uploads/authentic-sans-condensed-90.otf") format("opentype"); font-display: block; }
+@font-face { font-family: 'Authentic Sans 130'; src: url("uploads/AUTHENTICSans-Condensed-130.otf") format("opentype"); font-display: block; }
+@font-face { font-family: 'Sloop Script'; src: url("uploads/Sloop Script Medium One.ttf") format("truetype"); font-display: block; }
+html, body { margin: 0; background: #F8F8F6; }
+body { cursor: url("assets/cursor.svg") 2 2, auto; }
+a, button, [role="button"] { cursor: url("assets/cursor.svg") 2 2, pointer; }
+a { color: inherit; text-decoration: none; }
+</style>
+<script src="image-slot.js"></script>
+<script src="drift.js"></script>
+<script src="preload.js"></script>
+<script src="assets/cv-data.js"></script>
+</helmet>
+<div data-screen-label="About" style="min-height:100vh;display:flex;flex-direction:column;background:#F8F8F6;font-family:'Authentic Sans 90',sans-serif;color:#0D2565">
+  <div style="flex:0 0 min(80px,7.5vh);display:flex;justify-content:space-between;align-items:center;padding:0 {{ sidePad }}px;background:{{ headerBg }}">
+    <a href="Home.dc.html" style="font-family:'Sloop Script',cursive;font-size:{{ logoSize }};display:inline-block;transition:transform .3s cubic-bezier(.22,.61,.36,1)">Liya Kedar</a>
+    <a href="Home.dc.html" style-hover="font-family:'Sloop Script', cursive;font-size:29px;letter-spacing:0;text-transform:none" style-active="font-family:'Sloop Script', cursive;font-size:29px;letter-spacing:0;text-transform:none" style-focus="font-family:'Sloop Script', cursive;font-size:29px;letter-spacing:0;text-transform:none" style="font-family:{{ navFont }};font-size:{{ navSize }};letter-spacing:1px;text-transform:{{ capsTransform }};display:inline-block;transition:transform .3s cubic-bezier(.22,.61,.36,1)">{{ navLabel }}</a>
+  </div>
+  <div style="height:2px;background:#0D2565"></div>
+  <div style="flex:0 0 auto;box-sizing:border-box;display:flex;align-items:center;padding:14px {{ sidePad }}px;height:{{ heroHeight }};overflow:hidden;background:{{ heroBg }}">
+    <h1 style="font-family:{{ heroFont }};font-weight:400;font-size:{{ heroSize }};line-height:{{ heroLineHeight }};letter-spacing:.2px;margin:0;transform:{{ heroShift }};display:flex;flex-direction:column;text-transform:{{ capsTransform }}">
+      <span style="display:block;white-space:{{ heroNoWrap }}">I am a visual designer and image-maker. I value the power of observation.</span>
+      <span style="display:block;white-space:{{ heroNoWrap }}">Playing with <span onMouseEnter="{{ onHoverTypo }}" onMouseLeave="{{ onLeave }}" onClick="{{ onTapTypo }}" data-hover-trigger="1" style="font-family:{{ triggerFont }};text-decoration:underline;text-decoration-thickness:{{ underlineThickness }};text-underline-offset:.12em;cursor:pointer">typography</span>, <span onMouseEnter="{{ onHoverColor }}" onMouseLeave="{{ onLeave }}" onClick="{{ onTapColor }}" data-hover-trigger="1" style="font-family:{{ triggerFont }};text-decoration:underline;text-decoration-thickness:{{ underlineThickness }};text-underline-offset:.12em;cursor:pointer">color</span>, and all kinds of <span onMouseEnter="{{ onHoverTexture }}" onMouseLeave="{{ onLeave }}" onClick="{{ onTapTexture }}" data-hover-trigger="1" style="font-family:{{ triggerFont }};text-decoration:underline;text-decoration-thickness:{{ underlineThickness }};text-underline-offset:.12em;cursor:pointer">textures</span> is my thing.</span>
+    </h1>
+  </div>
+  <div style="height:2px;background:#0D2565"></div>
+  <div style="flex:1;position:relative;min-height:520px;background:{{ bodyBg }};overflow:hidden">
+    <sc-if value="{{ showBgLines }}" hint-placeholder-val="{{ false }}">
+      <img src="assets/about-bg-lines.svg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 50%;display:block;pointer-events:none">
+    </sc-if>
+    <video src="assets/about-video.mp4" autoPlay="{{ true }}" loop="{{ true }}" muted="{{ true }}" defaultMuted="{{ true }}" ref="{{ videoRef }}" playsInline="{{ true }}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:{{ videoOpacity }}"></video>
+    <div style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:88%;max-width:1180px">
+      
+    <div data-drift="6" style="display:block;position:relative;box-sizing:border-box;width:100%;aspect-ratio:2213/680;container-type:inline-size;border:{{ cardBorder }};background:{{ cardBg }};color:#0D2565;transition:transform .3s cubic-bezier(.22,.61,.36,1)">
+        <div style="position:absolute;left:1.717%;top:5.59%;width:28.56%;height:88.82%;background:{{ portraitBg }};border:{{ portraitBorder }};box-sizing:border-box;overflow:hidden">
+          <sc-if value="{{ showPortraitPhoto }}" hint-placeholder-val="{{ true }}">
+            <img src="assets/about-portrait.jpg" alt="Liya Kedar" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 30%;display:block">
+          </sc-if>
+          <sc-if value="{{ showPortraitLine }}" hint-placeholder-val="{{ false }}">
+            <img src="assets/about-portrait-line.svg" alt="Liya Kedar" style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;object-position:50% 50%;display:block">
+          </sc-if>
+        </div>
+        <div style="position:absolute;left:31.99%;top:5.59%;width:0.181%;min-width:2px;height:88.82%;background:{{ dividerBg }}"></div>
+        <div style="position: absolute; left: 33.85%; top: 10.0%; right: 18.0%; opacity: {{ cardTextOpacity }}; font-family: {{ bodyFont }}; font-size: {{ cardIntroSize }}; line-height: 1.2; text-wrap: pretty">Hi there! I’m Liya, a designer who loves bringing creativity and craft into digital experiences.</div>
+        <div style="position:absolute;left:33.85%;top:65.44%;right:2.0%;opacity:{{ cardTextOpacity }};font-size:1.807cqw;line-height:1.275">
+          <div style="position: absolute; left: {{ infoLeft }}; top: {{ infoTop }}; font-family: {{ bodyFont }}; width: {{ infoWidth }}">
+            
+            <div style="width: 100%">B.Des graduate in Visual Communication <span style="white-space:{{ schoolWrap }}">from {{ schoolLabel }}</span></div><div style="margin-top: .65em; white-space: nowrap">Based {{ locationLabel }}</div>
+          </div>
+          <div style="position:absolute;left:0;top:0;display:flex;flex-direction:column;gap:.42em;font-family:{{ bodyFont }};text-transform:{{ capsTransform }};white-space:nowrap">
+            <div style-hover="stroke-width:3.4;font-family:'Authentic Sans 130'" style="display:flex;align-items:center;width:max-content"><span style="width:2.98cqw;flex-shrink:0;display:flex;align-items:center;position:relative;top:-0.09em"><svg viewBox="0 0 38 34" style="width:1.672cqw;height:auto;flex-shrink:0;display:block;transition:stroke-width .2s ease"><path d="M0 16.5505H35M19.6289 1.38379L35 16.5505L19.6289 31.7171" stroke="#0D2565" stroke-width="2" vector-effect="non-scaling-stroke" fill="none"></path></svg></span><a href="assets/liya-kedar-cv.pdf" target="_blank" rel="noopener" onClick="{{ openCV }}" style-hover="font-family:'Authentic Sans 130'" style="color:inherit;text-decoration:none;cursor:pointer">CV_</a></div>
+            <div style-hover="stroke-width:3.4;font-family:'Authentic Sans 130'" style="display:flex;align-items:center;width:max-content"><span style="width:2.98cqw;flex-shrink:0;display:flex;align-items:center;position:relative;top:-0.09em"><svg viewBox="0 0 38 34" style="width:1.672cqw;height:auto;flex-shrink:0;display:block;transition:stroke-width .2s ease"><path d="M0 16.5505H35M19.6289 1.38379L35 16.5505L19.6289 31.7171" stroke="#0D2565" stroke-width="2" vector-effect="non-scaling-stroke" fill="none"></path></svg></span><span onMouseEnter="{{ emailIn }}" onMouseLeave="{{ emailOut }}" onClick="{{ copyEmail }}" style-hover="font-family:'Authentic Sans 130'" style="cursor:pointer;white-space:nowrap">{{ emailLabel }}</span></div>
+            <div style-hover="stroke-width:3.4;font-family:'Authentic Sans 130'" style="display:flex;align-items:center;width:max-content"><span style="width:2.98cqw;flex-shrink:0;display:flex;align-items:center;position:relative;top:-0.09em"><svg viewBox="0 0 38 34" style="width:1.672cqw;height:auto;flex-shrink:0;display:block;transition:stroke-width .2s ease"><path d="M0 16.5505H35M19.6289 1.38379L35 16.5505L19.6289 31.7171" stroke="#0D2565" stroke-width="2" vector-effect="non-scaling-stroke" fill="none"></path></svg></span><a href="https://www.linkedin.com/in/liya-kedar-b12814367/" target="_blank" rel="noopener" style-hover="font-family:'Authentic Sans 130'" style="color:inherit;text-decoration:none;cursor:pointer">Linkedin_</a></div>
+          </div>
+        </div>
+        <div style="position:absolute;left:84.05%;top:5.59%;width:0.181%;min-width:2px;height:88.82%;background:{{ dividerBg }}"></div>
+        <div style="position:absolute;left:86.22%;top:6.91%;width:11.70%;height:87.35%;background:{{ barcodeBlockBg }};border:{{ barcodeBorder }};box-sizing:border-box;overflow:hidden">
+          <sc-if value="{{ showBarcodeImage }}" hint-placeholder-val="{{ true }}">
+            <img src="assets/about-barcode-blue.png" alt="" style="width:100%;height:100%;object-fit:fill;display:block">
+          </sc-if>
+          <sc-if value="{{ showBarcodeLines }}" hint-placeholder-val="{{ false }}">
+            <img src="assets/about-barcode-lines.svg" alt="" style="width:100%;height:100%;object-fit:fill;display:block">
+          </sc-if>
+        </div>
+      </div></div>
+  </div>
+  <div style="flex:0 0 64px;display:flex;border-top:2px solid #0D2565">
+    <a href="Project-Fetch.dc.html" style-hover="background:#F1B8FF" style="flex:1;display:flex;align-items:center;padding:0 24px;overflow:hidden;background:{{ foot0Bg }};font-family:{{ headFont }};text-transform:{{ capsTransform }};border-right:2px solid #0D2565;font-size:{{ footSize }}">Fetch / Guilty Pleasures</a>
+    <a href="Project-Kisses.dc.html" style-hover="background:#F1B8FF" style="flex:1;display:flex;align-items:center;padding:0 24px;overflow:hidden;background:{{ foot1Bg }};font-family:{{ headFont }};text-transform:{{ capsTransform }};border-right:2px solid #0D2565;font-size:{{ footSize }}">Hopp by Wix</a>
+    <a href="Project-Happened.dc.html" style-hover="background:#F1B8FF" style="flex:1;display:flex;align-items:center;padding:0 24px;overflow:hidden;background:{{ foot2Bg }};font-family:{{ headFont }};text-transform:{{ capsTransform }};border-right:2px solid #0D2565;font-size:{{ footSize }}">Here's How It Happened</a>
+    <a href="Project-Hibi.dc.html" style-hover="background:#F1B8FF" style="flex:1;display:flex;align-items:center;padding:0 24px;overflow:hidden;background:{{ foot3Bg }};font-family:{{ headFont }};text-transform:{{ capsTransform }};border-right:2px solid #0D2565;font-size:{{ footSize }}">Hibi</a>
+    <a href="Project-Eden.dc.html" style-hover="background:#F1B8FF" style="flex:1;display:flex;align-items:center;padding:0 24px;overflow:hidden;background:{{ foot4Bg }};font-family:{{ headFont }};text-transform:{{ capsTransform }};font-size:{{ footSize }}">Eden Cinema</a>
+  </div>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  videoRef = React.createRef();
+  state = { hover: null, locked: null, width: typeof window !== 'undefined' ? window.innerWidth : 1440 };
+  tap(cat) {
+    return (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      const next = this.state.locked === cat ? null : cat;
+      this.setState({ locked: next, hover: next });
+    };
+  }
+  setHover(cat) { return () => { if (!this.state.locked) this.setState({ hover: cat }); }; }
+  clear = () => { if (!this.state.locked) this.setState({ hover: null }); };
+  componentDidMount() {
+    this.onResize = () => this.setState({ width: window.innerWidth });
+    window.addEventListener('resize', this.onResize);
+    this.onDocDown = (e) => {
+      if (this.state.locked && !(e.target.closest && e.target.closest('[data-hover-trigger]'))) {
+        this.setState({ locked: null, hover: null });
+      }
+    };
+    document.addEventListener('pointerdown', this.onDocDown);
+    const v = this.videoRef.current;
+    if (!v) return;
+    const silence = () => { v.muted = true; v.volume = 0; };
+    silence();
+    v.setAttribute('muted', '');
+    v.addEventListener('volumechange', silence);
+    v.addEventListener('play', silence);
+    v.addEventListener('loadeddata', silence);
+    this.silenceTimer = setInterval(silence, 500);
+    v.play().catch(() => {});
+  }
+  componentWillUnmount() {
+    clearInterval(this.silenceTimer);
+    window.removeEventListener('resize', this.onResize);
+    document.removeEventListener('pointerdown', this.onDocDown);
+  }
+  renderVals() {
+    const w = this.state.width;
+    const h = this.state.locked || this.state.hover;
+    const t = h === 'typography';
+    const cream = '#F8F8F6';
+    const scriptFont = "'Sloop Script', cursive";
+    const sans90 = "'Authentic Sans 90', sans-serif";
+    const sans130 = "'Authentic Sans 130', sans-serif";
+    const footBgs = ['#F08C82', '#C7ADEB', '#A9C23E', '#D8493A', '#7FBFB0'];
+    const fb = (i) => h === 'color' ? footBgs[i] : cream;
+    return {
+      openCV: (e) => { if (window.openLiyaCV) window.openLiyaCV(e); },
+      emailIn: () => this.setState({ emailHover: true }),
+      emailOut: () => this.setState({ emailHover: false, emailCopied: false }),
+      emailLabel: this.state.emailCopied ? 'Copied_' : (this.state.emailHover ? 'liyakedar@gmail.com' : 'E-mail_'),
+      copyEmail: (e) => {
+        if (e) e.preventDefault();
+        const done = () => { this.setState({ emailCopied: true }); setTimeout(() => this.setState({ emailCopied: false }), 1600); };
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText('liyakedar@gmail.com').then(done, done);
+        } else {
+          const ta = document.createElement('textarea');
+          ta.value = 'liyakedar@gmail.com';
+          document.body.appendChild(ta); ta.select();
+          try { document.execCommand('copy'); } catch (err) {}
+          document.body.removeChild(ta); done();
+        }
+      },
+      videoRef: this.videoRef,
+      sidePad: w < 700 ? 16 : 24,
+      heroHeight: w >= 1100 ? 'clamp(150px,8vw,166px)' : '132px',
+      heroNoWrap: w < 1100 ? 'normal' : 'nowrap',
+      heroFont: t ? scriptFont : sans90,
+      triggerFont: t ? scriptFont : sans90,
+      headFont: t ? scriptFont : sans130,
+      bodyFont: t ? scriptFont : sans90,
+      navFont: t ? scriptFont : sans90,
+      heroSize: t ? 'clamp(25px,3.88vw,78px)' : 'clamp(17px,2.62vw,54px)',
+      heroLineHeight: t ? '0.8em' : '1.2em',
+      heroShift: t ? 'translateY(-0.11em)' : 'none',
+      underlineThickness: t ? '.03em' : '.05em',
+      capsTransform: t ? 'none' : 'uppercase',
+      navLabel: 'Projects',
+      locationLabel: t ? 'in Tel Aviv' : 'In Tel Aviv',
+      schoolLabel: t ? 'Holon Institute of Technology' : 'H.I.T',
+      navSize: t ? '26px' : '20px',
+      logoSize: t ? '29px' : '29px',
+      cardSize: t ? 'clamp(17px,1.95vw,30px)' : 'clamp(13px,1.5vw,23px)',
+      cardSubSize: t ? 'clamp(15px,1.72vw,26px)' : 'clamp(12px,1.32vw,20px)',
+      footSize: t ? '21px' : '18px',
+      headerBg: h === 'color' ? '#F1B8FF' : cream,
+      heroBg: h === 'color' ? '#F6E23E' : cream,
+      bodyBg: h === 'color' ? '#A8D8F7' : cream,
+      cardBg: h === 'color' ? '#F3963D' : cream,
+      portraitBg: h === 'color' ? '#C7ADEB' : 'transparent',
+      portraitBorder: h === 'color' ? '2px solid #0D2565' : 'none',
+      cardBorder: h && !t ? '2px solid #0D2565' : 'none',
+      cardIntroSize: t ? '3.05cqw' : '2.37cqw',
+      infoLeft: t ? '24cqw' : '29cqw',
+      infoWidth: t ? '26.5cqw' : '20.6cqw',
+      infoTop: t ? '2px' : '1px',
+      schoolWrap: t ? 'nowrap' : 'normal',
+      barcodeBlockBg: h === 'color' ? '#4C6A82' : 'transparent',
+      barcodeBorder: h === 'color' ? '2px solid #0D2565' : 'none',
+      cardTextOpacity: h === 'color' ? 0 : 1,
+      dividerBg: h === 'color' ? 'transparent' : '#0D2565',
+      showBarcodeImage: h !== 'color' && h !== 'textures',
+      showBarcodeLines: h === 'textures',
+      showBgLines: h === 'textures',
+      showPortraitPhoto: h !== 'color' && h !== 'textures',
+      showPortraitLine: h === 'textures',
+      videoOpacity: h === 'color' || h === 'textures' ? 0 : 1,
+      foot0Bg: fb(0), foot1Bg: fb(1), foot2Bg: fb(2), foot3Bg: fb(3), foot4Bg: fb(4),
+      onHoverTypo: this.setHover('typography'),
+      onHoverColor: this.setHover('color'),
+      onHoverTexture: this.setHover('textures'),
+      onTapTypo: this.tap('typography'),
+      onTapColor: this.tap('color'),
+      onTapTexture: this.tap('textures'),
+      onLeave: this.clear,
+    };
+  }
+}
+</script>
+</body>
+</html>
