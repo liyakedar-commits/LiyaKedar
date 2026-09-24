@@ -17,6 +17,8 @@ body { cursor: url("/assets/cursor.svg") 2 2, auto; text-wrap: pretty; }
 a, button, [role="button"] { cursor: url("/assets/cursor.svg") 2 2, pointer; }
 a { color: inherit; text-decoration: none; }
 </style>
+<link rel="stylesheet" href="/mobile.css" />
+<script src="/mobile-nav.js"></script>
 <script src="/image-slot.js"></script>
 <script src="/drift.js"></script>
 <script src="/preload.js"></script>
@@ -27,14 +29,14 @@ a { color: inherit; text-decoration: none; }
     <a href="/about/" style-hover="font-family:'Sloop Script', cursive;font-size:29px;letter-spacing:0;text-transform:none" style-active="font-family:'Sloop Script', cursive;font-size:29px;letter-spacing:0;text-transform:none" style-focus="font-family:'Sloop Script', cursive;font-size:29px;letter-spacing:0;text-transform:none" style="font-family:{{ navFont }};font-size:{{ navSize }};letter-spacing:1px;color:#0D2565;display:inline-block;transition:transform .3s cubic-bezier(.22,.61,.36,1);text-transform:{{ capsTransform }}">{{ navLabel }}</a>
   </div>
   <div style="height:2px;background:#0D2565"></div>
-  <div style="flex:0 0 {{ heroHeight }};box-sizing:border-box;display:flex;align-items:center;padding:{{ heroPadY }}px {{ sidePad }}px;background:{{ heroBg }}">
+  <div data-hero="1" style="flex:0 0 {{ heroHeight }};box-sizing:border-box;display:flex;align-items:center;padding:{{ heroPadY }}px {{ sidePad }}px;background:{{ heroBg }}">
     <h1 style="font-family:{{ heroFont }};font-weight:400;font-size:{{ heroSize }};line-height:{{ heroLineHeight }};letter-spacing:.2px;margin:0;transform:{{ heroShift }};display:flex;flex-direction:column;text-transform:{{ capsTransform }}">
       <span style="display:block;white-space:{{ heroNoWrap }}">I am a visual designer and image-maker. I value the power of observation.</span>
       <span style="display:block;white-space:{{ heroNoWrap }}">Playing with <span onMouseEnter="{{ onHoverTypo }}" onMouseLeave="{{ onLeave }}" onClick="{{ onTapTypo }}" data-hover-trigger="1" style="font-family:{{ triggerFont }};text-decoration:underline;text-decoration-thickness:{{ underlineThickness }};text-underline-offset:.12em;cursor:pointer">typography</span>, <span onMouseEnter="{{ onHoverColor }}" onMouseLeave="{{ onLeave }}" onClick="{{ onTapColor }}" data-hover-trigger="1" style="font-family:{{ triggerFont }};text-decoration:underline;text-decoration-thickness:{{ underlineThickness }};text-underline-offset:.12em;cursor:pointer">color</span>, and all kinds of <span onMouseEnter="{{ onHoverTexture }}" onMouseLeave="{{ onLeave }}" onClick="{{ onTapTexture }}" data-hover-trigger="1" style="font-family:{{ triggerFont }};text-decoration:underline;text-decoration-thickness:{{ underlineThickness }};text-underline-offset:.12em;cursor:pointer">textures</span> is my thing.</span>
     </h1>
   </div>
   <div style="height:2px;background:#0D2565"></div>
-  <div style="display:grid;grid-template-columns:{{ gridCols }};grid-template-rows:{{ gridRows }};flex:{{ gridFlex }};min-height:0">
+  <div data-grid="1" data-slide="{{ slide }}" style="display:grid;grid-template-columns:{{ gridCols }};grid-template-rows:{{ gridRows }};flex:{{ gridFlex }};min-height:0">
 
     <a href="/fetch/" onMouseEnter="{{ onCard0 }}" onMouseMove="{{ onCardMove }}" onMouseLeave="{{ onCardLeave }}" style="display:flex;flex-direction:column;border-right:{{ cardBorderRight }};border-bottom:{{ cardBorderBottom }};min-height:0;height:{{ cardHeight }}">
       <div style="flex:{{ imgFlex }};min-height:{{ imgMinHeight }};aspect-ratio:{{ imgAspect }};position:relative;background:{{ card0Bg }};overflow:hidden">
@@ -204,13 +206,55 @@ a { color: inherit; text-decoration: none; }
     </sc-if>
 
   </div>
+  <div data-dots="1" data-slide="{{ slide }}" style="display:none;justify-content:center;align-items:center;gap:10px;padding:14px 0 16px;background:#F8F8F6">
+    <button type="button" aria-label="Hopp by Wix" onClick="{{ goSlide0 }}" style="width:9px;height:9px;padding:0;border-radius:50%;border:none;background:#0D2565;opacity:.28;cursor:pointer"></button>
+    <button type="button" aria-label="Eden Cinema" onClick="{{ goSlide1 }}" style="width:9px;height:9px;padding:0;border-radius:50%;border:none;background:#0D2565;opacity:.28;cursor:pointer"></button>
+    <button type="button" aria-label="Fetch / Guilty Pleasures" onClick="{{ goSlide2 }}" style="width:9px;height:9px;padding:0;border-radius:50%;border:none;background:#0D2565;opacity:.28;cursor:pointer"></button>
+    <button type="button" aria-label="Here's How It Happened" onClick="{{ goSlide3 }}" style="width:9px;height:9px;padding:0;border-radius:50%;border:none;background:#0D2565;opacity:.28;cursor:pointer"></button>
+    <button type="button" aria-label="Hibi" onClick="{{ goSlide4 }}" style="width:9px;height:9px;padding:0;border-radius:50%;border:none;background:#0D2565;opacity:.28;cursor:pointer"></button>
+  </div>
 </div>
 
 </x-dc>
 <script type="text/x-dc" data-dc-script>
 class Component extends DCLogic {
-  state = { hover: null, locked: null, card: null, width: typeof window !== 'undefined' ? window.innerWidth : 1440 };
+  state = { hover: null, locked: null, card: null, slide: 0, width: typeof window !== 'undefined' ? window.innerWidth : 1440 };
+  SLIDES = 5;
+  goSlide(i) { return () => { this.setState({ slide: i }); this.restartSlides(); }; }
+  restartSlides() {
+    clearInterval(this._slideTimer);
+    // phones show one project at a time; the deck advances on its own
+    this._slideTimer = setInterval(() => {
+      if (window.innerWidth <= 700 && !document.hidden) {
+        this.setState((s) => ({ slide: (s.slide + 1) % this.SLIDES }));
+      }
+    }, 4200);
+  }
+  step(dir) {
+    this.setState((s) => ({ slide: (s.slide + dir + this.SLIDES) % this.SLIDES }));
+    this.restartSlides();
+  }
   componentDidMount() {
+    this.restartSlides();
+    // the phone deck has no page scroll, so wheel and swipe move between projects
+    this._lastStep = 0;
+    this.onWheel = (e) => {
+      if (window.innerWidth > 700 || Math.abs(e.deltaY) < 4) return;
+      const now = Date.now();
+      if (now - this._lastStep < 420) return;
+      this._lastStep = now;
+      this.step(e.deltaY > 0 ? 1 : -1);
+    };
+    this.onTouchStart = (e) => { this._touchY = e.touches[0].clientY; };
+    this.onTouchEnd = (e) => {
+      if (window.innerWidth > 700 || this._touchY == null) return;
+      const dy = this._touchY - e.changedTouches[0].clientY;
+      this._touchY = null;
+      if (Math.abs(dy) > 40) this.step(dy > 0 ? 1 : -1);
+    };
+    window.addEventListener('wheel', this.onWheel, { passive: true });
+    window.addEventListener('touchstart', this.onTouchStart, { passive: true });
+    window.addEventListener('touchend', this.onTouchEnd, { passive: true });
     this.onResize = () => this.setState({ width: window.innerWidth });
     window.addEventListener('resize', this.onResize);
     this.onDocDown = (e) => {
@@ -221,6 +265,10 @@ class Component extends DCLogic {
     document.addEventListener('pointerdown', this.onDocDown);
   }
   componentWillUnmount() {
+    clearInterval(this._slideTimer);
+    window.removeEventListener('wheel', this.onWheel);
+    window.removeEventListener('touchstart', this.onTouchStart);
+    window.removeEventListener('touchend', this.onTouchEnd);
     window.removeEventListener('resize', this.onResize);
     document.removeEventListener('pointerdown', this.onDocDown);
   }
@@ -232,8 +280,9 @@ class Component extends DCLogic {
       this.setState({ locked: next, hover: next });
     };
   }
-  setHover(cat) { return () => { if (!this.state.locked) this.setState({ hover: cat }); }; }
-  setCard(i) { return () => this.setState({ card: i }); }
+  // on phones the emulated mouseenter would fight the tap, so hover is tap-only there
+  setHover(cat) { return () => { if (this.state.width <= 700) return; if (!this.state.locked) this.setState({ hover: cat }); }; }
+  setCard(i) { return () => { if (this.state.width <= 700) return; this.setState({ card: i }); }; }
   fetchOverlayRef = React.createRef();
   happenedOverlayRef = React.createRef();
   hoppOverlayRef = React.createRef();
@@ -256,7 +305,7 @@ class Component extends DCLogic {
     const base = el.dataset.fullbleed ? '' : 'translate(-50%,-50%) ';
     el.style.transform = base + 'translate(' + x.toFixed(1) + 'px,' + y.toFixed(1) + 'px)';
   };
-  clear = () => { if (!this.state.locked) this.setState({ hover: null }); };
+  clear = () => { if (this.state.width <= 700) return; if (!this.state.locked) this.setState({ hover: null }); };
   renderVals() {
     const h = this.state.locked || this.state.hover;
     const w = this.state.width;
@@ -271,15 +320,17 @@ class Component extends DCLogic {
     const ovEdenCW = (83 * ovScale).toFixed(2) + '%';
     const gridCols = isDesktop ? 'repeat(5,1fr)' : isTablet ? 'repeat(2,1fr)' : '1fr';
     const gridRows = isDesktop ? 'minmax(0,1fr)' : 'auto';
-    const gridFlex = isDesktop ? '1' : '0 0 auto';
-    const cardHeight = isDesktop ? '100%' : 'auto';
+    // phones show one card at a time, so the whole home page is sized to one screen
+    const isPhone = w <= 700;
+    const gridFlex = isDesktop || isPhone ? '1' : '0 0 auto';
+    const cardHeight = isDesktop || isPhone ? '100%' : 'auto';
     const imgHeight = isDesktop ? 'auto' : 'auto';
     // non-desktop: aspect-ratio sets the basis but the art still grows to fill the grid row,
     // so neighbouring columns can't end on different lines (border widths shift content width by 2px)
-    const imgFlex = isDesktop ? '1' : '1 0 auto';
+    const imgFlex = isDesktop || isPhone ? '1' : '1 0 auto';
     const headerHeight = isDesktop ? 'min(80px,7.5vh)' : '56px';
-    const rootHeight = isDesktop ? '100vh' : 'auto';
-    const rootOverflow = isDesktop ? 'hidden' : 'visible';
+    const rootHeight = isDesktop ? '100vh' : isPhone ? '100dvh' : 'auto';
+    const rootOverflow = isDesktop || isPhone ? 'hidden' : 'visible';
     const cardBorderRight = isDesktop || isTablet ? '2px solid #0D2565' : 'none';
     const cardBorderBottom = isDesktop ? 'none' : '2px solid #0D2565';
     const imgMinHeight = '0';
@@ -289,8 +340,8 @@ class Component extends DCLogic {
     const squareAt = 860;
     const tallAt = 1100;
     const squareProgress = Math.min(1, Math.max(0, (tallAt - w) / (tallAt - squareAt)));
-    const imgAspect = isDesktop ? 'auto' : (tallRatio + (1 - tallRatio) * squareProgress).toFixed(3);
-    const rootMinHeight = isDesktop ? '100vh' : 'auto';
+    const imgAspect = isDesktop || isPhone ? 'auto' : (tallRatio + (1 - tallRatio) * squareProgress).toFixed(3);
+    const rootMinHeight = isDesktop ? '100vh' : isPhone ? '0' : 'auto';
     const rowEndBorderRight = isDesktop ? '2px solid #0D2565' : 'none';
     // two-column layout leaves a hole beside Eden in the last row
     const showFiller = isTablet;
@@ -371,6 +422,12 @@ class Component extends DCLogic {
       onTapColor: this.tap('color'),
       onTapTexture: this.tap('textures'),
       onLeave: this.clear,
+      slide: String(this.state.slide),
+      goSlide0: this.goSlide(0),
+      goSlide1: this.goSlide(1),
+      goSlide2: this.goSlide(2),
+      goSlide3: this.goSlide(3),
+      goSlide4: this.goSlide(4),
     };
   }
 }

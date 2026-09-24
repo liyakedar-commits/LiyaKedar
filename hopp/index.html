@@ -72,6 +72,8 @@ a { color: inherit; text-decoration: none; }
   100% { opacity: 0; transform: scale(.88); }
 }
 </style>
+<link rel="stylesheet" href="/mobile.css" />
+<script src="/mobile-nav.js"></script>
 <script src="/image-slot.js"></script>
 <script src="/drift.js"></script>
 <script src="/preload.js"></script>
@@ -88,7 +90,7 @@ a { color: inherit; text-decoration: none; }
       <div ref="{{ introInner }}" style="position:sticky;top:var(--hopp-texttop, calc(min(80px,7.5vh) + 30px))">
         <div style="font-family:'Authentic Sans 130',sans-serif;font-size:26px;text-transform:uppercase;line-height:1.15">Hopp by Wix</div>
         <div style="font-family:'Authentic Sans 90',sans-serif;font-size:17px;margin-top:4px">Product Design</div>
-        <div style="margin-top:20px;font-family:'Authentic Sans 90',sans-serif;font-size:18px;line-height:1.5;text-wrap:pretty">
+        <div style="margin-top:20px;font-family:'Authentic Sans 90',sans-serif;font-size:16px;line-height:1.5;text-wrap:pretty">
           Hopp is Wix’s link-in-bio tool, designed to help creators and small businesses build personalized, well-designed pages quickly and easily.<br><br>
           Being a Product Designer on Hopp taught me to move between product thinking and visual design - improving the experience of building a page while also shaping what users could create with it. I worked on making the product clearer and easier to use, expanding its design possibilities without overwhelming users, and designing a wide range of templates for different creators, businesses, and needs. I also explored new ways to create visual content with AI tools.
         </div>
@@ -100,7 +102,7 @@ a { color: inherit; text-decoration: none; }
       <div ref="{{ addInner }}" style="position:sticky;top:var(--hopp-texttop, calc(min(80px,7.5vh) + 30px))">
         <div style="font-family:'Authentic Sans 130',sans-serif;font-size:26px;text-transform:uppercase;line-height:1.15">Add Blocks Panel</div>
         <div style="font-family:'Authentic Sans 90',sans-serif;font-size:17px;margin-top:4px">Redesign &amp; Illustration System</div>
-        <div style="margin-top:20px;font-family:'Authentic Sans 90',sans-serif;font-size:18px;line-height:1.5;text-wrap:pretty">
+        <div style="margin-top:20px;font-family:'Authentic Sans 90',sans-serif;font-size:16px;line-height:1.5;text-wrap:pretty">
           This project focused on redesigning the “Add Blocks” panel to improve clarity, usability, and visual organization. The goal was to create a more intuitive and accessible experience when adding new blocks. The redesign included restructuring the layout and creating over 200 custom illustrations to visually represent each block, making the system clearer, more friendly, and easier to navigate.
         </div>
         <div style="margin-top:24px;display:flex;flex-direction:column">
@@ -109,7 +111,7 @@ a { color: inherit; text-decoration: none; }
             <svg viewBox="0 0 14 8" style="{{ chev0 }}"><path d="M1 1 L7 7 L13 1" fill="none" stroke="#0D2565" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>
           </div>
           <sc-if value="{{ open0 }}" hint-placeholder-val="{{ false }}">
-            <div style="font-family:'Authentic Sans 90',sans-serif;font-size:18px;line-height:1.5;padding:14px 0 4px;text-wrap:pretty">The original Add Blocks panel wasn’t clear enough. The illustrations didn’t always communicate what each block actually did, while the amount of visual information created unnecessary noise and confusion.<br><span style="display:block;height:8px"></span>
+            <div style="font-family:'Authentic Sans 90',sans-serif;font-size:16px;line-height:1.5;padding:14px 0 4px;text-wrap:pretty">The original Add Blocks panel wasn’t clear enough. The illustrations didn’t always communicate what each block actually did, while the amount of visual information created unnecessary noise and confusion.<br><span style="display:block;height:8px"></span>
             With over 200 blocks, many of them closely related, it was important to create clear distinctions between them. How do you distinguish a physical product block from a digital one? Or a booking block for a class, a course, or an appointment?</div>
           </sc-if>
           <div onClick="{{ toggle1 }}" style="display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 0;border-bottom:1px solid #0D2565;cursor:pointer">
@@ -117,7 +119,7 @@ a { color: inherit; text-decoration: none; }
             <svg viewBox="0 0 14 8" style="{{ chev1 }}"><path d="M1 1 L7 7 L13 1" fill="none" stroke="#0D2565" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>
           </div>
           <sc-if value="{{ open1 }}" hint-placeholder-val="{{ false }}">
-            <div style="font-family:'Authentic Sans 90',sans-serif;font-size:18px;line-height:1.5;padding:14px 0 4px;text-wrap:pretty">Make adding a new block feel simple and intuitive - creating a clear, coherent visual system that users could understand within seconds.<br><span style="display:block;height:8px"></span>
+            <div style="font-family:'Authentic Sans 90',sans-serif;font-size:16px;line-height:1.5;padding:14px 0 4px;text-wrap:pretty">Make adding a new block feel simple and intuitive - creating a clear, coherent visual system that users could understand within seconds.<br><span style="display:block;height:8px"></span>
             Similar blocks needed to feel like part of the same family, while each block still had to be recognizable on its own.</div>
           </sc-if>
           <div onClick="{{ toggle2 }}" style="display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 0;border-bottom:1px solid #0D2565;cursor:pointer">
@@ -125,7 +127,7 @@ a { color: inherit; text-decoration: none; }
             <svg viewBox="0 0 14 8" style="{{ chev2 }}"><path d="M1 1 L7 7 L13 1" fill="none" stroke="#0D2565" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>
           </div>
           <sc-if value="{{ open2 }}" hint-placeholder-val="{{ false }}">
-            <div style="font-family:'Authentic Sans 90',sans-serif;font-size:18px;line-height:1.5;padding:14px 0 4px;text-wrap:pretty">I redesigned the structure of the Add Blocks panel and created over 200 custom illustrations, developing a visual language that connects related blocks while giving each one its own recognizable identity.<br><span style="display:block;height:8px"></span>
+            <div style="font-family:'Authentic Sans 90',sans-serif;font-size:16px;line-height:1.5;padding:14px 0 4px;text-wrap:pretty">I redesigned the structure of the Add Blocks panel and created over 200 custom illustrations, developing a visual language that connects related blocks while giving each one its own recognizable identity.<br><span style="display:block;height:8px"></span>
             The result is a cleaner, friendlier system that makes it easier to scan, understand, and navigate between blocks.</div>
           </sc-if>
         </div>
@@ -136,7 +138,7 @@ a { color: inherit; text-decoration: none; }
       <div ref="{{ lockInner }}" style="position:sticky;top:var(--hopp-texttop, calc(min(80px,7.5vh) + 30px))">
         <div style="font-family:'Authentic Sans 130',sans-serif;font-size:26px;text-transform:uppercase;line-height:1.15">Lock Panel</div>
         <div style="font-family:'Authentic Sans 90',sans-serif;font-size:17px;margin-top:4px">Redesign &amp; illustrations</div>
-        <div style="margin-top:20px;font-family:'Authentic Sans 90',sans-serif;font-size:18px;line-height:1.5;text-wrap:pretty">
+        <div style="margin-top:20px;font-family:'Authentic Sans 90',sans-serif;font-size:16px;line-height:1.5;text-wrap:pretty">
           The Lock Panel allows users to control access to their content by choosing how visitors can unlock it. I redesigned the experience to make the available options clearer, more consistent, and easier to scan.
         </div>
       </div>
@@ -146,13 +148,13 @@ a { color: inherit; text-decoration: none; }
       <div ref="{{ visualInner }}" style="position:sticky;top:var(--hopp-texttop, calc(min(80px,7.5vh) + 30px))">
         <div style="font-family:'Authentic Sans 130',sans-serif;font-size:26px;text-transform:uppercase;line-height:1.15">Visual Content</div>
         <div style="font-family:'Authentic Sans 90',sans-serif;font-size:17px;margin-top:4px">Image Making &amp; Default Content</div>
-        <div style="margin-top:20px;font-family:'Authentic Sans 90',sans-serif;font-size:18px;line-height:1.5;text-wrap:pretty">
+        <div style="margin-top:20px;font-family:'Authentic Sans 90',sans-serif;font-size:16px;line-height:1.5;text-wrap:pretty">
           Alongside product design, I used AI tools like Weavy and Midjourney to create default content and imagery for Hopp.
         </div>
       </div>
       </div>
     </div>
-    <div style="grid-column:3 / span 3;grid-row:1;padding:0 24px 0 0;min-width:0;display:flex;flex-direction:column;gap:20px">
+    <div data-col="img" style="grid-column:3 / span 3;grid-row:1;padding:0 24px 0 0;min-width:0;display:flex;flex-direction:column;gap:20px">
       <div style="position:relative;display:flex;flex-direction:column;container-type:inline-size">
       <div ref="{{ phoneRowRef }}" style="position:sticky;top:var(--hopp-head, 48px);z-index:1;height:var(--hopp-frame, calc(100vh - 108px));padding:40px 0 0;box-sizing:border-box;display:flex;justify-content:center;align-items:flex-start;clip-path:inset(0px -100vw);container-type:inline-size">
         <div ref="{{ carouselRef }}" style="position:relative;width:100%;height:min(625px, calc((100vh - 220px) * 0.8925), 76cqw)">
@@ -362,7 +364,7 @@ a { color: inherit; text-decoration: none; }
   <div ref="{{ lineIcon }}" style="position:fixed;left:12px;bottom:74px;z-index:6;padding:10px 12px;box-sizing:content-box;width:104px;height:21px;background:#F8F8F6;border-radius:6px;pointer-events:none;transition:opacity .25s ease">
     <img src="/assets/hopp-icon.svg" alt="" style="width:100%;height:100%;object-fit:contain;display:block">
   </div>
-  <div style="position:sticky;bottom:0;z-index:20;display:flex;flex:none;height:60px;box-sizing:border-box;background:#F8F8F6;border-top:2px solid #0D2565">
+  <div data-nav-page="hopp" style="position:sticky;bottom:0;z-index:20;display:flex;flex:none;height:60px;box-sizing:border-box;background:#F8F8F6;border-top:2px solid #0D2565">
     <a href="/fetch/" style-hover="background:#F1B8FF" style="flex:1;min-width:0;display:block;line-height:58px;padding:0 16px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;border-right:2px solid #0D2565;font-family:'Authentic Sans 130',sans-serif;font-size:clamp(13px,1.3vw,18px)">FETCH / GUILTY PLEASURES</a>
     <a href="/hopp/" style-hover="background:#F1B8FF" style="flex:1;min-width:0;display:block;line-height:58px;padding:0 16px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;border-right:2px solid #0D2565;background:#F1B8FF;font-family:'Authentic Sans 130',sans-serif;font-size:clamp(13px,1.3vw,18px)">HOPP BY WIX</a>
     <a href="/heres-how-it-happened/" style-hover="background:#F1B8FF" style="flex:1;min-width:0;display:block;line-height:58px;padding:0 16px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;border-right:2px solid #0D2565;font-family:'Authentic Sans 130',sans-serif;font-size:clamp(13px,1.3vw,18px)">HERE'S HOW IT HAPPENED</a>
@@ -500,7 +502,9 @@ class Component extends DCLogic {
         if (next !== this.state.section) this.setState({ section: next });
       }
       const intro = this._introEl, panelEl = this._panelEl;
-      if (intro && panelEl) {
+      // the scroll-zone spacers only make sense in the two-column desktop layout:
+      // in the single-column mobile stack the measured gap feeds back into itself
+      if (intro && panelEl && window.innerWidth > 700) {
         const raw = Math.round(panelEl.getBoundingClientRect().top - intro.getBoundingClientRect().top);
         const innerH = this._introInnerEl ? this._introInnerEl.offsetHeight : 0;
         const zone = Math.max(innerH + 348, raw);
@@ -628,7 +632,8 @@ class Component extends DCLogic {
       frameLabel: (this._panelIndexOf(this.state.lightbox) + 1) + ' / 8',
       prevFrame: (e) => { if (e) e.stopPropagation(); this._stepFrame(-1); },
       nextFrame: (e) => { if (e) e.stopPropagation(); this._stepFrame(1); },
-      lightboxOpen: !!this.state.lightbox,
+      // the zoom overlay is a desktop affordance - on a phone the image is already full width
+      lightboxOpen: !!this.state.lightbox && (typeof window === 'undefined' || window.innerWidth > 700),
       lightboxSrc: this.state.lightbox || 'data:image/gif;base64,R0lGODlhAQABAAAAACw=',
       closeZoom: () => this.setState({ lightbox: null }),
       open0: this.state.open === 0, open1: this.state.open === 1, open2: this.state.open === 2,

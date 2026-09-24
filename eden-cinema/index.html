@@ -18,6 +18,8 @@ body { cursor: url("/assets/cursor.svg") 2 2, auto; text-wrap: pretty; }
 a, button, [role="button"] { cursor: url("/assets/cursor.svg") 2 2, pointer; }
 a { color: inherit; text-decoration: none; }
 </style>
+<link rel="stylesheet" href="/mobile.css" />
+<script src="/mobile-nav.js"></script>
 <script src="/image-slot.js"></script>
 <script src="/drift.js"></script>
 <script src="/preload.js"></script>
@@ -31,10 +33,10 @@ a { color: inherit; text-decoration: none; }
     <div ref="{{ textBlock }}" style="grid-column:1 / span 2;padding:0 32px 0 24px;position:sticky;top:calc(min(80px,7.5vh) + 30px);align-self:start;max-width:30vw;display:flex;flex-direction:column">
       <div style="font-family:'Authentic Sans 130',sans-serif;font-size:30px;text-transform:uppercase;line-height:1.1">Eden Cinema</div>
       <div style="font-family:'Authentic Sans 90',sans-serif;font-size:17px;margin-top:4px">Visual Identity</div>
-      <div style="font-family:'Authentic Sans 90',sans-serif;font-size:18px;line-height:1.5;margin-top:14px;text-wrap:pretty">
+      <div style="font-family:'Authentic Sans 90',sans-serif;font-size:16px;line-height:1.5;margin-top:14px;text-wrap:pretty">
         A new visual identity for Eden, the first cinema in Tel Aviv, reimagined as a contemporary home for Israeli film and local creation.
       </div>
-      <div style="font-family:'Authentic Sans 90',sans-serif;font-size:18px;line-height:1.5;margin-top:12px;text-wrap:pretty">
+      <div style="font-family:'Authentic Sans 90',sans-serif;font-size:16px;line-height:1.5;margin-top:12px;text-wrap:pretty">
         The project brings Eden back to life as a platform for emerging filmmakers, with all revenue reinvested in supporting young creators and Israeli cinema. Created as my graduation project in Visual Communication at HIT.
       </div>
     </div>
@@ -120,7 +122,7 @@ a { color: inherit; text-decoration: none; }
       <img src="/assets/eden-posters-wall-scene.webp" alt="Five Eden posters pasted side by side on a street hoarding" style="width:100%;height:auto;display:block;margin-top:-32px" />
     </div>
   </div>
-  <div style="position:sticky;bottom:0;z-index:20;display:flex;flex:none;height:60px;box-sizing:border-box;background:#F8F8F6;border-top:2px solid #0D2565">
+  <div data-nav-page="eden" style="position:sticky;bottom:0;z-index:20;display:flex;flex:none;height:60px;box-sizing:border-box;background:#F8F8F6;border-top:2px solid #0D2565">
     <a href="/fetch/" style-hover="background:#F1B8FF" style="flex:1;min-width:0;display:block;line-height:58px;padding:0 16px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;border-right:2px solid #0D2565;font-family:'Authentic Sans 130',sans-serif;font-size:clamp(13px,1.3vw,18px)">FETCH / GUILTY PLEASURES</a>
     <a href="/hopp/" style-hover="background:#F1B8FF" style="flex:1;min-width:0;display:block;line-height:58px;padding:0 16px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;border-right:2px solid #0D2565;font-family:'Authentic Sans 130',sans-serif;font-size:clamp(13px,1.3vw,18px)">HOPP BY WIX</a>
     <a href="/heres-how-it-happened/" style-hover="background:#F1B8FF" style="flex:1;min-width:0;display:block;line-height:58px;padding:0 16px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;border-right:2px solid #0D2565;font-family:'Authentic Sans 130',sans-serif;font-size:clamp(13px,1.3vw,18px)">HERE'S HOW IT HAPPENED</a>

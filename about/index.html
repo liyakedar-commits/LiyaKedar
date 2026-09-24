@@ -17,30 +17,32 @@ body { cursor: url("/assets/cursor.svg") 2 2, auto; text-wrap: pretty; }
 a, button, [role="button"] { cursor: url("/assets/cursor.svg") 2 2, pointer; }
 a { color: inherit; text-decoration: none; }
 </style>
+<link rel="stylesheet" href="/mobile.css" />
+<script src="/mobile-nav.js"></script>
 <script src="/image-slot.js"></script>
 <script src="/drift.js"></script>
 <script src="/preload.js"></script>
 <script src="/assets/cv-data.js"></script>
 </helmet>
 <div data-screen-label="About" style="min-height:100vh;display:flex;flex-direction:column;background:#F8F8F6;font-family:'Authentic Sans 90',sans-serif;color:#0D2565">
-  <div style="flex:0 0 min(80px,7.5vh);display:flex;justify-content:space-between;align-items:center;padding:0 {{ sidePad }}px;background:{{ headerBg }}">
+  <div data-about-header="1" style="flex:0 0 min(80px,7.5vh);display:flex;justify-content:space-between;align-items:center;padding:0 {{ sidePad }}px;background:{{ headerBg }}">
     <a href="/" style="font-family:'Sloop Script',cursive;font-size:{{ logoSize }};display:inline-block;transition:transform .3s cubic-bezier(.22,.61,.36,1)">Liya Kedar</a>
     <a href="/" style-hover="font-family:'Sloop Script', cursive;font-size:29px;letter-spacing:0;text-transform:none" style-active="font-family:'Sloop Script', cursive;font-size:29px;letter-spacing:0;text-transform:none" style-focus="font-family:'Sloop Script', cursive;font-size:29px;letter-spacing:0;text-transform:none" style="font-family:{{ navFont }};font-size:{{ navSize }};letter-spacing:1px;text-transform:{{ capsTransform }};display:inline-block;transition:transform .3s cubic-bezier(.22,.61,.36,1)">{{ navLabel }}</a>
   </div>
   <div style="height:2px;background:#0D2565"></div>
-  <div style="flex:0 0 auto;box-sizing:border-box;display:flex;align-items:center;padding:14px {{ sidePad }}px;height:{{ heroHeight }};overflow:hidden;background:{{ heroBg }}">
+  <div data-about-hero="1" style="flex:0 0 auto;box-sizing:border-box;display:flex;align-items:center;padding:14px {{ sidePad }}px;height:{{ heroHeight }};overflow:hidden;background:{{ heroBg }}">
     <h1 style="font-family:{{ heroFont }};font-weight:400;font-size:{{ heroSize }};line-height:{{ heroLineHeight }};letter-spacing:.2px;margin:0;transform:{{ heroShift }};display:flex;flex-direction:column;text-transform:{{ capsTransform }}">
       <span style="display:block;white-space:{{ heroNoWrap }}">I am a visual designer and image-maker. I value the power of observation.</span>
       <span style="display:block;white-space:{{ heroNoWrap }}">Playing with <span onMouseEnter="{{ onHoverTypo }}" onMouseLeave="{{ onLeave }}" onClick="{{ onTapTypo }}" data-hover-trigger="1" style="font-family:{{ triggerFont }};text-decoration:underline;text-decoration-thickness:{{ underlineThickness }};text-underline-offset:.12em;cursor:pointer">typography</span>, <span onMouseEnter="{{ onHoverColor }}" onMouseLeave="{{ onLeave }}" onClick="{{ onTapColor }}" data-hover-trigger="1" style="font-family:{{ triggerFont }};text-decoration:underline;text-decoration-thickness:{{ underlineThickness }};text-underline-offset:.12em;cursor:pointer">color</span>, and all kinds of <span onMouseEnter="{{ onHoverTexture }}" onMouseLeave="{{ onLeave }}" onClick="{{ onTapTexture }}" data-hover-trigger="1" style="font-family:{{ triggerFont }};text-decoration:underline;text-decoration-thickness:{{ underlineThickness }};text-underline-offset:.12em;cursor:pointer">textures</span> is my thing.</span>
     </h1>
   </div>
-  <div style="height:2px;background:#0D2565"></div>
-  <div style="flex:1;position:relative;min-height:520px;background:{{ bodyBg }};overflow:hidden">
+  <div data-about-rule="2" style="height:2px;background:#0D2565"></div>
+  <div data-about-stage="1" style="flex:1;position:relative;min-height:520px;background:{{ bodyBg }};overflow:hidden">
     <sc-if value="{{ showBgLines }}" hint-placeholder-val="{{ false }}">
       <img src="/assets/about-bg-lines.svg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 50%;display:block;pointer-events:none">
     </sc-if>
     <video src="/assets/about-video.mp4" autoPlay="{{ true }}" loop="{{ true }}" muted="{{ true }}" defaultMuted="{{ true }}" ref="{{ videoRef }}" playsInline="{{ true }}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:{{ videoOpacity }}"></video>
-    <div style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:88%;max-width:1180px">
+    <div data-about-card="1" style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:88%;max-width:1180px">
       
     <div data-drift="6" style="display:block;position:relative;box-sizing:border-box;width:100%;aspect-ratio:2213/680;container-type:inline-size;border:{{ cardBorder }};background:{{ cardBg }};color:#0D2565;transition:transform .3s cubic-bezier(.22,.61,.36,1)">
         <div style="position:absolute;left:1.717%;top:5.59%;width:28.56%;height:88.82%;background:{{ portraitBg }};border:{{ portraitBorder }};box-sizing:border-box;overflow:hidden">
@@ -75,7 +77,20 @@ a { color: inherit; text-decoration: none; }
         </div>
       </div></div>
   </div>
-  <div style="flex:0 0 64px;display:flex;border-top:2px solid #0D2565">
+  <div data-about-mobile="1" style="display:none;flex-direction:column;gap:20px;padding:22px 16px 34px;background:{{ bodyBg }}">
+    <div style="font-family:{{ bodyFont }};font-size:clamp(19px,min(6.9vw,3.15vh),34px);line-height:1.22;text-align:center;text-transform:{{ capsTransform }};padding:8px 0 6px;text-wrap:pretty">Hi there! I’m Liya, a designer who loves bringing creativity and craft into digital experiences.</div>
+    <img src="/assets/about-portrait.jpg" alt="Liya Kedar" style="width:100%;aspect-ratio:4/5;object-fit:cover;object-position:50% 30%;display:block">
+    <div style="font-family:{{ bodyFont }};font-size:clamp(19px,min(6.6vw,3.0vh),26px);line-height:1.45">
+      <div>B.Des graduate in Visual Communication from {{ schoolLabel }}</div>
+      <div style="margin-top:.5em">Based {{ locationLabel }}</div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:12px;font-family:{{ bodyFont }};font-size:clamp(19px,min(6.6vw,3.0vh),26px);text-transform:{{ capsTransform }}">
+      <a href="/assets/liya-kedar-cv.pdf" target="_blank" rel="noopener" onClick="{{ openCV }}" style="display:flex;align-items:center;gap:10px;color:inherit;text-decoration:none"><svg viewBox="0 0 38 34" style="width:22px;height:auto;flex-shrink:0;display:block"><path d="M0 16.5505H35M19.6289 1.38379L35 16.5505L19.6289 31.7171" stroke="#0D2565" stroke-width="2" vector-effect="non-scaling-stroke" fill="none"></path></svg>CV_</a>
+      <span onClick="{{ copyEmail }}" style="display:flex;align-items:center;gap:10px;cursor:pointer"><svg viewBox="0 0 38 34" style="width:22px;height:auto;flex-shrink:0;display:block"><path d="M0 16.5505H35M19.6289 1.38379L35 16.5505L19.6289 31.7171" stroke="#0D2565" stroke-width="2" vector-effect="non-scaling-stroke" fill="none"></path></svg>{{ emailLabel }}</span>
+      <a href="https://www.linkedin.com/in/liya-kedar-b12814367/" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:10px;color:inherit;text-decoration:none"><svg viewBox="0 0 38 34" style="width:22px;height:auto;flex-shrink:0;display:block"><path d="M0 16.5505H35M19.6289 1.38379L35 16.5505L19.6289 31.7171" stroke="#0D2565" stroke-width="2" vector-effect="non-scaling-stroke" fill="none"></path></svg>Linkedin_</a>
+    </div>
+  </div>
+  <div data-about-foot="1" style="flex:0 0 64px;display:flex;border-top:2px solid #0D2565">
     <a href="/fetch/" style-hover="background:#F1B8FF" style="flex:1;display:flex;align-items:center;padding:0 24px;overflow:hidden;background:{{ foot0Bg }};font-family:{{ headFont }};text-transform:{{ capsTransform }};border-right:2px solid #0D2565;font-size:{{ footSize }}">Fetch / Guilty Pleasures</a>
     <a href="/hopp/" style-hover="background:#F1B8FF" style="flex:1;display:flex;align-items:center;padding:0 24px;overflow:hidden;background:{{ foot1Bg }};font-family:{{ headFont }};text-transform:{{ capsTransform }};border-right:2px solid #0D2565;font-size:{{ footSize }}">Hopp by Wix</a>
     <a href="/heres-how-it-happened/" style-hover="background:#F1B8FF" style="flex:1;display:flex;align-items:center;padding:0 24px;overflow:hidden;background:{{ foot2Bg }};font-family:{{ headFont }};text-transform:{{ capsTransform }};border-right:2px solid #0D2565;font-size:{{ footSize }}">Here's How It Happened</a>
@@ -97,8 +112,9 @@ class Component extends DCLogic {
       this.setState({ locked: next, hover: next });
     };
   }
-  setHover(cat) { return () => { if (!this.state.locked) this.setState({ hover: cat }); }; }
-  clear = () => { if (!this.state.locked) this.setState({ hover: null }); };
+  // on phones the emulated mouseenter would fight the tap, so hover is tap-only there
+  setHover(cat) { return () => { if (this.state.width <= 700) return; if (!this.state.locked) this.setState({ hover: cat }); }; }
+  clear = () => { if (this.state.width <= 700) return; if (!this.state.locked) this.setState({ hover: null }); };
   componentDidMount() {
     this.onResize = () => this.setState({ width: window.innerWidth });
     window.addEventListener('resize', this.onResize);

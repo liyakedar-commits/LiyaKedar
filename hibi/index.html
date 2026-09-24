@@ -17,6 +17,8 @@ body { cursor: url("/assets/cursor.svg") 2 2, auto; text-wrap: pretty; }
 a, button, [role="button"] { cursor: url("/assets/cursor.svg") 2 2, pointer; }
 a { color: inherit; text-decoration: none; }
 </style>
+<link rel="stylesheet" href="/mobile.css" />
+<script src="/mobile-nav.js"></script>
 <script src="/image-slot.js"></script>
 <script src="/drift.js"></script>
 <script src="/preload.js"></script>
@@ -30,10 +32,10 @@ a { color: inherit; text-decoration: none; }
     <div style="grid-column:1 / span 2;grid-row:1 / span 3;padding:0 32px 0 24px;position:sticky;top:calc(min(80px,7.5vh) + 30px);align-self:start;max-width:30vw" ref="{{ textBlock }}">
       <div style="font-family:'Authentic Sans 130',sans-serif;font-size:30px;text-transform:uppercase;line-height:1.1">Hibi</div>
       <div style="font-family:'Authentic Sans 90',sans-serif;font-size:17px;margin-top:4px">Mobile App</div>
-      <div style="font-family:'Authentic Sans 90',sans-serif;font-size:18px;line-height:1.5;margin-top:20px">
+      <div style="font-family:'Authentic Sans 90',sans-serif;font-size:16px;line-height:1.5;margin-top:20px">
         A weather app inspired by Ikko Tanaka, built around Japan's 72 micro-seasons. It offers a unique way to experience forecasts, weaving together weather insights with traditions, festivals, and the subtle shifts in nature. Visualizing time, nature &amp; tradition.
       </div>
-      <div style="font-family:'Authentic Sans 90',sans-serif;font-size:18px;line-height:1.5;margin-top:20px">
+      <div style="font-family:'Authentic Sans 90',sans-serif;font-size:16px;line-height:1.5;margin-top:20px">
         I made a set of icons for the seasons and the small things that mark them. Working on them I kept coming back to Ikko Tanaka - simple, basic geometric shapes, and how much they can hold.
       </div>
     </div>
@@ -103,7 +105,7 @@ a { color: inherit; text-decoration: none; }
       <img src="/assets/hibi-s5.avif" alt="" style="flex:1;min-width:0;width:100%;height:auto;max-height:calc(100vh - 178px);object-fit:contain;display:block" />
     </div>
   </div>
-  <div style="position:sticky;bottom:0;z-index:20;display:flex;flex:none;height:60px;box-sizing:border-box;background:#F8F8F6;border-top:2px solid #0D2565">
+  <div data-nav-page="hibi" style="position:sticky;bottom:0;z-index:20;display:flex;flex:none;height:60px;box-sizing:border-box;background:#F8F8F6;border-top:2px solid #0D2565">
     <a href="/fetch/" style-hover="background:#F1B8FF" style="flex:1;min-width:0;display:block;line-height:58px;padding:0 16px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;border-right:2px solid #0D2565;font-family:'Authentic Sans 130',sans-serif;font-size:clamp(13px,1.3vw,18px)">FETCH / GUILTY PLEASURES</a>
     <a href="/hopp/" style-hover="background:#F1B8FF" style="flex:1;min-width:0;display:block;line-height:58px;padding:0 16px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;border-right:2px solid #0D2565;font-family:'Authentic Sans 130',sans-serif;font-size:clamp(13px,1.3vw,18px)">HOPP BY WIX</a>
     <a href="/heres-how-it-happened/" style-hover="background:#F1B8FF" style="flex:1;min-width:0;display:block;line-height:58px;padding:0 16px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;border-right:2px solid #0D2565;font-family:'Authentic Sans 130',sans-serif;font-size:clamp(13px,1.3vw,18px)">HERE'S HOW IT HAPPENED</a>
