@@ -224,11 +224,11 @@ class Component extends DCLogic {
       soundOff: !this.state.soundOn,
       expanded: this.state.expanded,
       boxStyle: this.state.expanded
-        ? 'position:fixed;inset:0;z-index:40;width:100%;padding-top:0;background:#F8F8F6;cursor:pointer;display:flex;align-items:center;justify-content:center;overflow:hidden'
+        ? 'position:fixed;inset:0;z-index:40;width:100%;padding-top:0;background:' + ((typeof window !== 'undefined' && window.matchMedia && window.matchMedia('(pointer:coarse)').matches && Math.min(window.innerWidth, window.innerHeight) <= 500 && window.innerWidth > window.innerHeight) ? '#000' : '#F8F8F6') + ';cursor:pointer;display:flex;align-items:center;justify-content:center;overflow:hidden'
         : 'position:relative;width:100%;padding-top:56.25%;cursor:pointer',
       frameStyle: this.state.expanded
-        ? ((typeof window !== 'undefined' && window.innerWidth <= 700 && window.innerHeight > window.innerWidth)
-            ? 'position:relative;width:min(100vh,177.7vw);height:min(56.25vh,100vw);transform:rotate(90deg);container-type:inline-size;font-size:clamp(14px,2.2cqw,28px)'
+        ? ((typeof window !== 'undefined' && (window.innerWidth <= 700 || (window.matchMedia && window.matchMedia('(pointer:coarse)').matches && Math.min(window.innerWidth, window.innerHeight) <= 500)))
+            ? 'position:relative;width:' + Math.floor(Math.min(window.innerWidth, window.innerHeight * 16 / 9)) + 'px;aspect-ratio:16/9;container-type:inline-size;font-size:clamp(14px,2.2cqw,28px)'
             : 'position:relative;width:100%;aspect-ratio:16/9;container-type:inline-size;font-size:clamp(18px,2.2cqw,28px)')
         : 'position:absolute;inset:0;container-type:inline-size;font-size:clamp(18px,2.2cqw,28px)',
       goFullscreen: (e) => {

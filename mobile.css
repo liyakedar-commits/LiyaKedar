@@ -115,8 +115,8 @@
   div[data-grid][data-slide="4"] > a[href$="/hibi/"] { display: flex !important; }
 
 
-  /* the header scrolls away instead of pinning */
-  div[style*="position: sticky"][style*="top: 0px"] { position: static !important; }
+  /* the header stays pinned while the page scrolls */
+  div[data-about-header] { position: sticky !important; top: 0; z-index: 20; }
 
   /* the ABOUT link is folded into the menu button (but stays inside the menu) */
   body.has-mobile-nav a[href$="About.dc.html"],
@@ -265,4 +265,63 @@
 
   /* hopp: extra air between the add-panel carousel and the block gallery */
   div[data-col="img"] > div:has(img[src*="hopp-block-"]) { margin-top: 28px !important; }
+
+  /* hopp add blocks: both illustration galleries run one card per row */
+  div:has(> img[src*="hopp-add-"]), div:has(> img[src*="hopp-block-"]) {
+    flex-direction: column !important;
+    gap: 20px !important;
+  }
+  img[src*="hopp-add-"], img[src*="hopp-block-"] {
+    flex: none !important;
+    width: 100% !important;
+  }
+
+  /* hopp add blocks: one even 20px rhythm - the extra top margins on the
+     link-preview shot and the panel reel doubled some gaps */
+  img[data-rev="4"], div[data-rev="5"] { margin-top: 0 !important; }
+
+  /* hopp lock panel: before sits small as the reference, after takes the
+     full width as the result, the editor shot follows - one even rhythm */
+  div:has(> div[data-rev="10"]):has(> div[data-rev="11"]) { flex-direction: column !important; gap: 28px !important; }
+  div[data-rev="10"] { flex: none !important; width: 42% !important; }
+  div[data-rev="11"] { flex: none !important; width: 100% !important; }
+  div[data-rev="12"] { margin-top: 8px !important; }
+
+  /* hopp: the six content cards become a swipe gallery - one card at a
+     time, snapping, with a sliver of the next one peeking in */
+  div[data-vcgal] {
+    width: auto !important;
+    margin-left: calc(50% - 50vw) !important;
+    margin-right: calc(50% - 50vw) !important;
+    padding-left: calc(50vw - 50%);
+    padding-right: calc(50vw - 50%);
+    flex-wrap: nowrap !important;
+    justify-content: flex-start !important;
+    overflow: hidden !important;
+    touch-action: pan-y;
+    user-select: none;
+    -webkit-user-select: none;
+  }
+  div[data-vcgal] > img {
+    flex: 0 0 88% !important;
+    cursor: default !important;
+    will-change: transform;
+    -webkit-user-drag: none;
+    pointer-events: none;
+  }
+
+  /* hopp: visual content plays as one stationary showcase - the three
+     compositions share a single frame and crossfade in place */
+  div[data-vcshow] { display: grid !important; gap: 0 !important; }
+  div[data-vcshow] > img {
+    grid-area: 1 / 1 !important;
+    width: 100% !important;
+    aspect-ratio: 1800 / 3200;
+    opacity: 0 !important;
+    transform: none !important;
+    transition: opacity .45s ease !important;
+    cursor: default !important;
+  }
+  div[data-vcshow] > img:first-child:not([data-on]):not(:has(~ img[data-on])),
+  div[data-vcshow] > img[data-on] { opacity: 1 !important; }
 }
