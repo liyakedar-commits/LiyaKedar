@@ -276,6 +276,33 @@
     width: 100% !important;
   }
 
+  /* about: the portrait sits smaller (the source is only 668px wide, so at
+     full width it read soft) and the header keeps its rule while pinned */
+  div[data-about-mobile] > img[src*="about-portrait"] { width: 72% !important; align-self: center; }
+  div[data-about-header] { border-bottom: 2px solid #0D2565; }
+  div[data-about-header] + div[style*="height: 2px"] { display: none !important; }
+
+  /* hibi icons: every icon in the same square cell and the same 80% box, so
+     they read as one even set; a wider gutter keeps them off the edges */
+  div[style*="repeat(4"] {
+    column-gap: 22px !important;
+    row-gap: 34px !important;
+    padding: 0 18px !important;
+    box-sizing: border-box;
+  }
+  div[style*="repeat(4"] > div { height: auto !important; aspect-ratio: 1 / 1; }
+  div[style*="repeat(4"] > div > img[src*="/icons/"] {
+    width: 80% !important;
+    height: 80% !important;
+    max-width: none !important;
+    object-fit: contain !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  /* project descriptions read at 18px on a phone */
+  div[style*="font-size: 16px"][style*="Authentic Sans 90"] { font-size: 18px !important; }
+
   /* hopp add blocks: one even 20px rhythm - the extra top margins on the
      link-preview shot and the panel reel doubled some gaps */
   img[data-rev="4"], div[data-rev="5"] { margin-top: 0 !important; }

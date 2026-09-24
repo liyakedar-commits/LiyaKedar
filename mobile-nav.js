@@ -38,7 +38,7 @@
     // the next project is always Hopp, except on Hopp itself, where it is Eden
     var next = here === 'hopp' ? 'eden' : 'hopp';
     var base = "color:" + INK + ";text-decoration:none;line-height:58px;padding:0 16px;white-space:nowrap;" +
-      "font-family:'Authentic Sans 130',sans-serif;font-size:14px;letter-spacing:.3px;";
+      "font-family:'Authentic Sans 130',sans-serif;font-size:18px;letter-spacing:.3px;";
     function mk(label, href) {
       var a = document.createElement('a');
       a.className = 'mnav-foot';
