@@ -62,7 +62,27 @@
   img[style*="21vw"] { width: 37vw !important; top: calc(50% - 20vw) !important; }
 
   /* eden: half the poster-stack scroll runway */
-  div[style*="520vh"] { height: 170vh !important; }
+  div[style*="520vh"] { height: 170vh !important; margin-bottom: 14px !important; } /* + the 14px gap = a double 28px before the tees */
+  /* the pinned window is exactly the poster box: posters still waiting to rise
+     stay hidden below it instead of showing as a second stack, and the box
+     pins centred between the header and the footer */
+  div[style*="520vh"] > div {
+    height: auto !important;
+    top: max(62px, calc(50vh - 2.5px - 0.655 * (100vw - 32px))) !important;
+  }
+  /* bigger posters: the fan spread is halved (16% of the box, was 32%), so
+     each poster can take ~84% of the width instead of ~68% */
+  div[style*="520vh"] > div > div {
+    height: min(calc(100vh - 180px), 131cqw) !important;
+    aspect-ratio: 0.762 !important;
+  }
+  img[src*="eden-poster-1.webp"] { right: 0.00% !important; }
+  img[src*="eden-poster-gala.webp"] { right: 2.67% !important; }
+  img[src*="eden-poster-sea.webp"] { right: 5.33% !important; }
+  img[src*="eden-poster-two.webp"] { right: 8.00% !important; }
+  img[src*="eden-poster-cult.webp"] { right: 10.67% !important; }
+  img[src*="eden-poster-tubeav.webp"] { right: 13.33% !important; }
+  img[src*="eden-poster-ugly.webp"] { right: 16.00% !important; }
 
   /* hibi: the flow clip bleeds past the viewport at phone width */
   video[style*="132%"] { width: 100% !important; }
@@ -91,6 +111,9 @@
   .hopp-textcol > :nth-child(5) { order: 7 !important; }
   div[data-col="img"] > :nth-child(4) { order: 8 !important; }
   div[data-col="img"] > :nth-child(5) { order: 9 !important; }
+  /* visual content: the swipe gallery comes first, the crossfading showcase after */
+  div[data-col="img"] > div[data-vcgal] { order: 8 !important; }
+  div[data-col="img"] > div[data-vcshow] { order: 9 !important; }
   .hopp-textcol > :nth-child(4),
   div[data-col="img"] > :nth-child(6) { display: none !important; }
 
@@ -234,7 +257,12 @@
   div[data-about-hero], div[data-about-rule="2"] { display: none !important; }
   div[data-about-foot] { display: none !important; }
   div[data-about-stage] { display: none !important; }
-  div[data-about-mobile] { display: flex !important; order: 1 !important; }
+  div[data-about-mobile] { display: flex !important; order: 1 !important; flex: 1 0 auto; padding-bottom: 18px !important; }
+
+  /* eden: the three event-programme brochures close the page */
+  div:has(> img[src*="eden-brochure-"]),
+  div:has(> img[src*="eden-doko-"]),
+  div:has(> img[src*="eden-june-"]) { order: 1 !important; }
 
   /* eden: desktop offsets between the stacked pieces give way to the uniform gap */
   div[style*="repeat(5"] div[style*="margin-top: 96px"],
@@ -278,16 +306,46 @@
 
   /* about: the portrait sits smaller (the source is only 668px wide, so at
      full width it read soft) and the header keeps its rule while pinned */
-  div[data-about-mobile] > img[src*="about-portrait"] { width: 72% !important; align-self: center; }
+  /* about: the degree + city lines sit under the links, a touch smaller,
+     as one tight two-line block */
+  div[data-about-mobile] > div:nth-child(3) {
+    order: 1;
+    font-size: clamp(16px, min(5.4vw, 2.5vh), 21px) !important;
+    line-height: 1.35 !important;
+  }
+  /* the arrow links float midway between the polaroid and the footer line */
+  div[data-about-mobile] > div:nth-child(4) { margin-top: auto; margin-bottom: auto; }
+  div[data-about-mobile] > div:nth-child(3) > div { margin-top: 0 !important; display: inline; }
+
+  /* the portrait is printed as a polaroid: square crop, thin white sides,
+     a deep bottom lip, soft instant-film colour and a faint drop */
+  div[data-about-mobile] > img[src*="about-portrait"] {
+    width: 57.6% !important;
+    align-self: center;
+    transform: rotate(1.2deg);
+    aspect-ratio: 1 / 1 !important;
+    height: auto !important;
+    object-fit: cover !important;
+    object-position: 50% 30%;
+    box-sizing: content-box;
+    padding: 4.5% 4.5% 17%;
+    background: #FDFDFB;
+    border-radius: 2px !important;
+    box-shadow: 0 1px 2px rgba(13,37,101,.10), 0 8px 22px rgba(13,37,101,.10);
+    filter: saturate(.82) contrast(.94) brightness(1.04) sepia(.06);
+  }
   div[data-about-header] { border-bottom: 2px solid #0D2565; }
   div[data-about-header] + div[style*="height: 2px"] { display: none !important; }
 
   /* hibi icons: every icon in the same square cell and the same 80% box, so
      they read as one even set; a wider gutter keeps them off the edges */
   div[style*="repeat(4"] {
-    column-gap: 22px !important;
-    row-gap: 34px !important;
-    padding: 0 18px !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    column-gap: 36px !important;
+    row-gap: 40px !important;
+    padding: 0 28px !important;
+    margin-top: 42px !important;    /* with the 14px page gap: 56px */
+    margin-bottom: 42px !important; /* above and below the icon set */
     box-sizing: border-box;
   }
   div[style*="repeat(4"] > div { height: auto !important; aspect-ratio: 1 / 1; }
@@ -339,13 +397,37 @@
 
   /* hopp: visual content plays as one stationary showcase - the three
      compositions share a single frame and crossfade in place */
-  div[data-vcshow] { display: grid !important; gap: 0 !important; }
+  /* the frame runs edge to edge, square-cornered; each composition is drawn
+     15% larger than before (was content width, 100% - 32px) and centred, so
+     the Hopp page grows while only the background's outer edges are trimmed */
+  div[data-vcshow] {
+    display: grid !important; gap: 0 !important;
+    width: auto !important;
+    margin-left: calc(50% - 50vw) !important;
+    margin-right: calc(50% - 50vw) !important;
+    aspect-ratio: 1800 / 3200;
+    height: var(--vc-h, auto);
+    position: relative;
+    overflow: hidden;
+    border-radius: 0 !important;
+  }
+  /* the showcase is the page's last visual - it runs straight into the footer rule */
+  div:has(> div[data-col="img"] > div[data-vcshow]) { padding-bottom: 0 !important; }
+  div[data-screen-label]:has(div[data-vcshow]) div[data-nav-page] { margin-top: 0 !important; }
   div[data-vcshow] > img {
-    grid-area: 1 / 1 !important;
-    width: 100% !important;
+    /* sized to the larger of: 15% over the old content width, or enough to
+       cover the frame - then centred, so the background always fills it */
+    position: absolute !important;
+    left: 50% !important;
+    top: 50% !important;
+    margin: 0 !important;
+    border-radius: 0 !important;
+    max-width: none !important;
+    width: max(calc(1.15 * (100% - 32px)), calc(var(--vc-h, 0px) * 0.5625), 100%) !important;
+    height: auto !important;
     aspect-ratio: 1800 / 3200;
     opacity: 0 !important;
-    transform: none !important;
+    transform: translate(-50%, -50%) !important;
     transition: opacity .45s ease !important;
     cursor: default !important;
   }

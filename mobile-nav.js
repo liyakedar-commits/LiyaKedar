@@ -79,7 +79,7 @@
       for (var i = 0; i < nodes.length; i++) {
         var el = nodes[i];
         if (el.dataset.reveal) continue;
-        if (el.closest('[data-grid], [data-nav-page], #mnav-panel, #liya-gate')) continue;
+        if (el.closest('[data-grid], [data-nav-page], #mnav-panel, #liya-gate, [data-about-mobile]')) continue;
         // add-blocks cards already rise with the page's own entrance
         if (el.matches('img[src*="hopp-add-"], img[src*="hopp-block-"]')) continue;
         var show = el.closest('[data-vcshow], [data-vcgal]');
@@ -119,14 +119,19 @@
     // the About stack rises in sequence when the page opens
     var about = document.querySelector('[data-about-mobile]');
     if (about) {
-      [].slice.call(about.children).forEach(function (el, i) {
+      // stagger in visual order (the polaroid is pulled to the top via CSS
+      // order). Animate the separate 'translate' property so each element's
+      // own CSS transform, e.g. the polaroid tilt, is never touched.
+      [].slice.call(about.children)
+        .sort(function (x, y) { return (parseFloat(getComputedStyle(x).order) || 0) - (parseFloat(getComputedStyle(y).order) || 0); })
+        .forEach(function (el, i) {
         if (el.dataset.reveal) return;
         el.dataset.reveal = '1';
         el.style.opacity = '0';
-        el.style.transform = 'translateY(22px)';
-        el.style.transition = 'opacity 1s cubic-bezier(.22,.61,.36,1) ' + (i * 140) + 'ms, transform 1s cubic-bezier(.22,.61,.36,1) ' + (i * 140) + 'ms';
+        el.style.translate = '0 22px';
+        el.style.transition = 'opacity 1s cubic-bezier(.22,.61,.36,1) ' + (i * 140) + 'ms, translate 1s cubic-bezier(.22,.61,.36,1) ' + (i * 140) + 'ms';
         requestAnimationFrame(function () {
-          requestAnimationFrame(function () { el.style.opacity = '1'; el.style.transform = 'none'; });
+          requestAnimationFrame(function () { el.style.opacity = '1'; el.style.translate = '0 0'; });
         });
       });
     }
@@ -270,7 +275,23 @@
   }
 
   // hopp visual content: one fixed frame, each composition held ~2s, quick crossfade
+  // the showcase frame is exactly the space between the pinned header and the
+  // pinned footer, so at the bottom of the page its background fills the screen
+  function sizeShowcase() {
+    var box = document.querySelector('[data-vcshow]');
+    if (!box) return;
+    if (!window.matchMedia(MQ).matches) { box.style.removeProperty('--vc-h'); box.style.removeProperty('aspect-ratio'); return; }
+    var head = document.querySelector('div[style*="position: sticky"][style*="top: 0px"]');
+    var foot = document.querySelector('[data-nav-page]');
+    var top = head ? head.getBoundingClientRect().height : 0;
+    var bot = foot ? foot.getBoundingClientRect().height : 0;
+    var h = Math.round(window.innerHeight - top - bot);
+    // height comes from the screen, width stays full-bleed (no aspect-ratio pull)
+    if (h > 200) { box.style.setProperty('--vc-h', h + 'px'); box.style.setProperty('aspect-ratio', 'auto', 'important'); }
+  }
+  window.addEventListener('resize', sizeShowcase);
   function showcase() {
+    sizeShowcase();
     var box = document.querySelector('[data-vcshow]');
     if (!box || box.dataset.cycling) return;
     var slides = box.querySelectorAll(':scope > img');
