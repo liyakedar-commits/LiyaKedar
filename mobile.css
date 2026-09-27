@@ -62,7 +62,7 @@
   img[style*="21vw"] { width: 37vw !important; top: calc(50% - 20vw) !important; }
 
   /* eden: half the poster-stack scroll runway */
-  div[style*="520vh"] { height: 170vh !important; margin-bottom: 14px !important; } /* + the 14px gap = a double 28px before the tees */
+  div[style*="520vh"] { height: 300vh !important; margin-bottom: 14px !important; } /* + the 14px gap = a double 28px before the tees */
   /* the pinned window is exactly the poster box: posters still waiting to rise
      stay hidden below it instead of showing as a second stack, and the box
      pins centred between the header and the footer */

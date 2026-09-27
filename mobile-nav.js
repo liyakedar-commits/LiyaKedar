@@ -23,6 +23,29 @@
   }
 
 
+  // project footer hides while reading down and slides back up on a small
+  // scroll up (or once the page bottom is reached)
+  var footLast = 0, footAcc = 0, footHidden = false;
+  function footSet(bar, hide) {
+    if (hide === footHidden) return;
+    footHidden = hide;
+    bar.style.transition = 'translate .32s cubic-bezier(.3,0,.2,1)';
+    bar.style.translate = hide ? '0 calc(100% + 4px)' : '0 0';
+  }
+  window.addEventListener('scroll', function () {
+    var bar = document.querySelector('div[data-nav-page]');
+    if (!bar) return;
+    if (!window.matchMedia(MQ).matches) { bar.style.translate = ''; footHidden = false; return; }
+    var y = window.scrollY, dy = y - footLast;
+    footLast = y;
+    var atEnd = y + window.innerHeight >= document.documentElement.scrollHeight - 40;
+    if (y < 40 || atEnd) { footAcc = 0; footSet(bar, false); return; }
+    if ((dy > 0) !== (footAcc > 0)) footAcc = 0;
+    footAcc += dy;
+    if (footAcc > 12) footSet(bar, true);
+    else if (footAcc < -24) footSet(bar, false);
+  }, { passive: true });
+
   function buildFooter() {
     var bar = document.querySelector('div[data-nav-page]');
     if (!bar || bar.querySelector('.mnav-foot')) return;
