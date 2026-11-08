@@ -16,12 +16,12 @@ html, body { margin: 0; background: #F8F8F6; }
 body { cursor: url("/assets/cursor.svg") 2 2, auto; text-wrap: pretty; }
 a, button, [role="button"] { cursor: url("/assets/cursor.svg") 2 2, pointer; }
 a { color: inherit; text-decoration: none; }
+@keyframes dollsMarquee { from { transform: translate3d(0,0,0); } to { transform: translate3d(-50%,0,0); } }
 </style>
 <link rel="stylesheet" href="/mobile.css" />
 <script src="/mobile-nav.js"></script>
 <script src="/image-slot.js"></script>
 <script src="/drift.js"></script>
-<script src="/preload.js"></script>
 </helmet>
 <div data-screen-label="Project – Here's How It Happened" style="min-height:100vh;display:flex;flex-direction:column;background:#F8F8F6;font-family:'Authentic Sans 90',sans-serif;color:#0D2565">
   <div style="position:sticky;top:0;z-index:20;background:#F8F8F6;border-bottom:2px solid #0D2565;display:flex;justify-content:space-between;align-items:center;height:min(80px,7.5vh);box-sizing:border-box;padding:0 24px;cursor:pointer" onClick="{{ scrollTop }}">
@@ -85,23 +85,24 @@ a { color: inherit; text-decoration: none; }
   </div>
   <div style="display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:20px;align-items:start;padding:0 24px;position:relative;z-index:2;background:#F8F8F6">
     <div style="grid-column:3 / span 3;grid-row:1">
-      <video ref="{{ muteVideo }}" src="/assets/happened-anemones.webm" autoPlay="{{ true }}" loop="{{ true }}" muted="{{ true }}" playsInline="{{ true }}" style="width:100%;height:auto;display:block"></video>
+      <video ref="{{ dollsVideo }}" src="/assets/happened-anemones.webm" autoPlay="{{ true }}" loop="{{ true }}" muted="{{ true }}" playsInline="{{ true }}" style="width:100%;height:auto;display:block"></video>
     </div>
     <div ref="{{ tinBlock }}" style="grid-column:3 / span 3;grid-row:2;margin-top:64px">
       <video src="/assets/happened-tin.webm" autoPlay="{{ true }}" loop="{{ true }}" muted="{{ true }}" playsInline="{{ true }}" style="width:100%;height:auto;display:block"></video>
     </div>
   </div>
-  <div style="position:relative;height:62vh;overflow:hidden">
-    <img ref="{{ vespaImg }}" src="/assets/happened-vespa.png" alt="" style="position:absolute;top:38%;left:0;width:21vw;height:auto;display:block;will-change:transform">
+  <div style="position:relative;height:max(62vh, calc(23.56vh + 23.1vw + 56px));overflow:hidden">
+    <img ref="{{ vespaImg }}" src="/assets/happened-vespa.png" alt="" style="position:absolute;top:23.56vh;left:0;width:21vw;height:auto;display:block;will-change:transform">
   </div>
   <div style="display:grid;grid-template-columns:repeat(5,minmax(0,1fr));padding:64px 24px 40px;position:relative;z-index:2;background:#F8F8F6">
     <div style="grid-column:3 / span 3;display:flex;flex-direction:column;gap:20px">
       <img src="/assets/happened-frame-1.webp" alt="" style="width:100%;height:auto;display:block">
-      <img src="/assets/happened-frame-2.webp" alt="" style="width:100%;height:auto;display:block">
       
       <img src="/assets/happened-frame-4.webp" alt="" style="width:100%;height:auto;display:block">
-      <img src="/assets/happened-frame-5.webp" alt="" style="width:100%;height:auto;display:block">
-      <img src="/assets/happened-frame-6.webp" alt="" style="width:100%;height:auto;display:block"><img src="/assets/happened-frame-7.webp" alt="" style="width:100%;height:auto;display:block">
+      <div data-collage style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:20px;align-items:center">
+        <div data-dolls aria-hidden="true" style="grid-column:1 / -1;overflow:hidden;padding:3vw 0">{{ dollsRow }}</div>
+      </div>
+      <div style="width:100%;aspect-ratio:3450 / 1920;overflow:hidden"><video ref="{{ recVideo }}" src="/assets/happened-recording.webm?v=2" autoPlay="{{ true }}" loop="{{ true }}" muted="{{ true }}" playsInline="{{ true }}" disablePictureInPicture="{{ true }}" style="width:100%;height:auto;display:block;pointer-events:none"></video></div>
       
     </div>
   </div>
@@ -203,8 +204,20 @@ class Component extends DCLogic {
     window.removeEventListener('resize', this._onScroll);
     if (this._raf) cancelAnimationFrame(this._raf);
   }
+  _dollsRow() {
+    if (this._dollsEl) return this._dollsEl;
+    const names = ['cream', 'black', 'floral', 'green', 'red'];
+    const kids = [];
+    for (let s = 0; s < 2; s++) names.forEach((n, i) => kids.push(React.createElement('div', { key: s + '-' + i, 'data-doll': '', style: { flex: 'none', paddingRight: '4.4vw' } },
+      React.createElement('img', { src: '/assets/happened-doll-' + n + '.webp', alt: '', draggable: false, style: { height: '17vw', width: 'auto', display: 'block' } }))));
+    this._dollsEl = React.createElement('div', { 'data-dolls-track': '', style: { display: 'flex', width: 'max-content', animation: 'dollsMarquee 18.2s linear infinite', willChange: 'transform', backfaceVisibility: 'hidden' } }, kids);
+    return this._dollsEl;
+  }
   renderVals() {
     return {
+      dollsRow: this._dollsRow(),
+      recVideo: (el) => { if (el) { el.defaultPlaybackRate = 0.8; el.playbackRate = 0.8; el.onplay = () => { el.playbackRate = 0.8; }; } },
+      dollsVideo: (el) => { if (el) { el.muted = true; el.defaultMuted = true; el.loop = true; el.playsInline = true; el.autoplay = true; el.defaultPlaybackRate = 1; el.playbackRate = 1; el.onplay = () => { el.playbackRate = 1; }; const p = el.play(); if (p && p.catch) p.catch(() => {}); } },
       scrollTop: (e) => {
         if (e && e.target && e.target.closest && e.target.closest('a')) return;
         window.scrollTo({ top: 0, behavior: 'smooth' });

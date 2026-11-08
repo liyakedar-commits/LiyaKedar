@@ -54,6 +54,8 @@
   /* hibi: the four phone screens read as 2x2 */
   div[style*="gap: 34px"] { flex-wrap: wrap !important; gap: 12px !important; padding: 0 !important; }
   div[style*="gap: 34px"] > img { flex: 0 0 calc(50% - 6px) !important; max-height: none !important; }
+  div[style*="gap: 34px"] > div[data-hibi-phone] { flex: 0 0 calc(50% - 6px) !important; }
+  div[data-hibi-phone] > div[data-hibi-device] { max-width: none !important; }
 
   /* fetch: full-bleed cover instead of the bleed-out crop */
   div[style*="-24px 0px -6px"] { margin: 32px 0 0 !important; height: auto !important; }
@@ -86,6 +88,7 @@
 
   /* hibi: the flow clip bleeds past the viewport at phone width */
   video[style*="132%"] { width: 100% !important; }
+  div[data-hibi-flow] { width: 80.815% !important; }
 
   /* hopp: gaps tighten */
   div[style*="margin-top: 280px"], div[style*="margin-top: 200px"] { margin-top: 64px !important; }
@@ -114,6 +117,13 @@
   /* visual content: the swipe gallery comes first, the crossfading showcase after */
   div[data-col="img"] > div[data-vcgal] { order: 8 !important; }
   div[data-col="img"] > div[data-vcshow] { order: 9 !important; }
+  div[data-col="img"] > div[data-vccollage] { order: 6 !important; }
+  div[data-vccollage] > div { grid-template-columns: minmax(0,1fr) !important; }
+  div[data-vccollage], div[data-vccollage] div { gap: 12px !important; }
+  div[data-vccollage] > div > div { grid-column: auto !important; }
+  div[data-vccollage] [data-vcpair] { grid-template-columns: minmax(0,1fr) !important; }
+  div[data-vcfill] { flex: none !important; }
+  div[data-vcfill] > img { position: static !important; height: auto !important; }
   .hopp-textcol > :nth-child(4),
   div[data-col="img"] > :nth-child(6) { display: none !important; }
 
@@ -289,11 +299,12 @@
      own ~2% baked corners, so they read rounder than the add-panel cards -
      drop it and every card shows the same small baked radius */
   img[src*="hopp-block-"], img[src*="hopp-lock-before"], img[src*="hopp-lock-after"],
-  img[src*="hopp-custom-modal"] { border-radius: 0 !important; }
+  img[src*="hopp-custom-modal"] { border-radius: 12px !important; }
 
   /* hopp: extra air between the add-panel carousel and the block gallery */
   div[data-col="img"] > div:has(img[src*="hopp-block-"]) { margin-top: 28px !important; }
 
+  div[data-blockrow] { width: 100% !important; }
   /* hopp add blocks: both illustration galleries run one card per row */
   div:has(> img[src*="hopp-add-"]), div:has(> img[src*="hopp-block-"]) {
     flex-direction: column !important;
@@ -433,4 +444,20 @@
   }
   div[data-vcshow] > img:first-child:not([data-on]):not(:has(~ img[data-on])),
   div[data-vcshow] > img[data-on] { opacity: 1 !important; }
+}
+
+/* happened: closing collage - keep the small frame readable on tablets, stack on phones */
+@media (max-width: 1100px) and (min-width: 701px) {
+  div[data-collage] { grid-template-columns: minmax(0,2fr) minmax(0,3fr) !important; }
+}
+@media (max-width: 700px) {
+  div[data-collage] { display: flex !important; flex-direction: column !important; gap: 14px !important; margin-top: 0 !important; }
+  div[data-collage] > img { width: 100% !important; }
+}
+
+/* happened: matryoshka marquee - larger dolls on phones */
+@media (max-width: 700px) {
+  div[data-dolls] { padding: 14px 0 !important; }
+  div[data-doll] { padding-right: 8vw !important; }
+  div[data-doll] > img { height: 36vw !important; }
 }

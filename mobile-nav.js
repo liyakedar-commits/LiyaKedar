@@ -1,3 +1,36 @@
+/* Page transitions (all screen sizes): a cream veil fades out once the page has
+   loaded, and fades back in before following an internal link. */
+(function () {
+  var html = document.documentElement;
+  var css = document.createElement('style');
+  css.textContent = 'html::after{content:"";position:fixed;inset:0;z-index:2147483647;background:#F8F8F6;pointer-events:none;opacity:1;transition:opacity .8s cubic-bezier(.4,0,.2,1)}' +
+    'html.pt-ready::after{opacity:0}' +
+    'html.pt-leave::after{opacity:1;pointer-events:auto;transition:opacity .6s cubic-bezier(.4,0,.2,1)}';
+  (document.head || html).appendChild(css);
+  var shown = false;
+  function reveal() {
+    if (shown) return; shown = true;
+    requestAnimationFrame(function () { requestAnimationFrame(function () { html.classList.add('pt-ready'); }); });
+  }
+  if (document.readyState === 'complete') setTimeout(reveal, 250);
+  else window.addEventListener('load', function () { setTimeout(reveal, 250); });
+  setTimeout(reveal, 3000);
+  window.addEventListener('pageshow', function (e) {
+    if (e.persisted) { html.classList.remove('pt-leave'); html.classList.add('pt-ready'); shown = true; }
+  });
+  document.addEventListener('click', function (e) {
+    if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+    var a = e.target.closest && e.target.closest('a[href]');
+    if (!a || (a.target && a.target !== '_self') || a.hasAttribute('download')) return;
+    var url = new URL(a.href, location.href);
+    if (url.origin !== location.origin || /^(mailto|tel):/.test(a.getAttribute('href'))) return;
+    if (url.pathname === location.pathname && url.search === location.search) return;
+    e.preventDefault();
+    html.classList.remove('pt-ready'); html.classList.add('pt-leave');
+    setTimeout(function () { location.href = url.href; }, 600);
+  });
+})();
+
 /* Phone-only navigation: a menu button that opens the project list.
    Above 700px this script does nothing at all. */
 (function () {
