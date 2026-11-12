@@ -386,7 +386,7 @@ class Component extends DCLogic {
     const heroShift = t ? 'translateY(-0.11em)' : 'none';
     const heroNoWrap = w < 1100 ? 'normal' : 'nowrap';
     const heroPadY = isDesktop ? 20 : 18;
-    const heroHeight = 'auto';
+    const heroHeight = isDesktop ? 'min(calc(5.7vw + 40px), 154px)' : 'auto';
     // derived from the tallest state (typography) so it never clips, yet is shorter than the old fixed clamp
     const labelHeight = isDesktop ? 'min(175px,16vh)' : 'auto';
     const navSize = t ? '26px' : '20px';
