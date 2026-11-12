@@ -7,6 +7,20 @@
     'html.pt-ready::after{opacity:0}' +
     'html.pt-leave::after{opacity:1;pointer-events:auto;transition:opacity .6s cubic-bezier(.4,0,.2,1)}';
   (document.head || html).appendChild(css);
+  // keep the header and footer out from under the veil. The live site sets these per page
+  // in its <head>; anywhere they are missing, work them out from the page name.
+  (function () {
+    var cs = getComputedStyle(html);
+    if (cs.getPropertyValue('--pt-top').trim()) return;
+    var p = location.pathname.toLowerCase();
+    var file = p.split('/').pop();
+    var narrow = window.matchMedia('(max-width: 700px)').matches;
+    var top = 'min(80px,7.5vh)', bot = '60px';
+    if (/about/.test(p)) { top = narrow ? '65px' : 'calc(min(80px,7.5vh) + 2px)'; bot = narrow ? '0px' : '66px'; }
+    else if (/^home/.test(file) || ((file === '' || file === 'index.html') && !/fetch|hopp|happened|hibi|eden/.test(p))) { top = narrow ? '58px' : 'calc(min(80px,7.5vh) + 2px)'; bot = '0px'; }
+    html.style.setProperty('--pt-top', top);
+    html.style.setProperty('--pt-bot', bot);
+  })();
   var shown = false;
   function reveal() {
     if (shown) return; shown = true;
