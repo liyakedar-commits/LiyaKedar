@@ -3,7 +3,7 @@
 (function () {
   var html = document.documentElement;
   var css = document.createElement('style');
-  css.textContent = 'html::after{content:"";position:fixed;inset:0;z-index:2147483647;background:#F8F8F6;pointer-events:none;opacity:1;transition:opacity .8s cubic-bezier(.4,0,.2,1)}' +
+  css.textContent = 'html::after{content:"";position:fixed;left:0;right:0;top:var(--pt-top,0px);bottom:var(--pt-bot,0px);z-index:2147483647;background:#F8F8F6;pointer-events:none;opacity:1;transition:opacity .8s cubic-bezier(.4,0,.2,1)}' +
     'html.pt-ready::after{opacity:0}' +
     'html.pt-leave::after{opacity:1;pointer-events:auto;transition:opacity .6s cubic-bezier(.4,0,.2,1)}';
   (document.head || html).appendChild(css);

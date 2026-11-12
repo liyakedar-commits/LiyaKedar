@@ -1,5 +1,10 @@
 /* Mobile layer (<=700px). Desktop keeps its inline styles untouched;
    these overrides only switch on for phone widths. */
+
+/* the phone footer links (all projects | next project) never show above phone width,
+   even if they were added while the window was narrow */
+div[data-nav-page] > a.mnav-foot { display: none; }
+
 @media (max-width: 700px) {
 
   /* no visible scrollbar on a phone */
