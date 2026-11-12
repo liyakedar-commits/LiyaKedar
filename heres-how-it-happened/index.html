@@ -26,7 +26,7 @@ a { color: inherit; text-decoration: none; }
 <div data-screen-label="Project – Here's How It Happened" style="min-height:100vh;display:flex;flex-direction:column;background:#F8F8F6;font-family:'Authentic Sans 90',sans-serif;color:#0D2565">
   <div style="position:sticky;top:0;z-index:20;background:#F8F8F6;border-bottom:2px solid #0D2565;display:flex;justify-content:space-between;align-items:center;height:min(80px,7.5vh);box-sizing:border-box;padding:0 24px;cursor:pointer" onClick="{{ scrollTop }}">
     <a href="/" style="font-family:'Sloop Script',cursive;font-size:29px;display:inline-block;transition:transform .3s cubic-bezier(.22,.61,.36,1)">Liya Kedar</a>
-    <a href="/about/" style-hover="font-family:'Sloop Script', cursive;font-size:29px;letter-spacing:0;text-transform:none" style-active="font-family:'Sloop Script', cursive;font-size:29px;letter-spacing:0;text-transform:none" style-focus="font-family:'Sloop Script', cursive;font-size:29px;letter-spacing:0;text-transform:none" style="font-family:'Authentic Sans 90',sans-serif;font-size:20px;letter-spacing:1px;text-transform:uppercase;display:inline-block;transition:transform .3s cubic-bezier(.22,.61,.36,1)">About</a>
+    <a href="/about/" style-hover="font-family:'Sloop Script', cursive;font-size:29px;letter-spacing:0;text-transform:none" style-active="font-family:'Sloop Script', cursive;font-size:29px;letter-spacing:0;text-transform:none" style-focus="font-family:'Sloop Script', cursive;font-size:29px;letter-spacing:0;text-transform:none" style="font-family:'Authentic Sans 90',sans-serif;font-size:20px;letter-spacing:.5px;text-transform:uppercase;display:inline-block;transition:transform .3s cubic-bezier(.22,.61,.36,1)">About</a>
   </div>
   <div style="flex:1;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));padding:28px 0 24px">
     <div ref="{{ introText }}" style="grid-column:1 / span 2;grid-row:1 / span 2;padding:0 32px 0 24px;position:fixed;top:calc(min(80px,7.5vh) + 30px);left:0;width:30vw;max-width:30vw;z-index:6;display:flex;flex-direction:column;transition:opacity .3s ease">
@@ -39,7 +39,7 @@ a { color: inherit; text-decoration: none; }
     <div style="{{ playerCellStyle }}">
       <div onClick="{{ togglePlay }}" onMouseEnter="{{ showControls }}" onMouseLeave="{{ hideControls }}" style="{{ boxStyle }}">
         <div style="{{ frameStyle }}">
-          <iframe id="happened-player" src="https://player.vimeo.com/video/1221082520?background=1&amp;autoplay=1&amp;loop=1&amp;muted=1&amp;autopause=0" frameBorder="0" allow="autoplay; fullscreen" title="Here's How It Happened" style="position:absolute;inset:0;width:100%;height:100%;border:0;display:block;pointer-events:none"></iframe>
+          <video id="happened-player" ref="{{ mainVideo }}" src="/assets/happened-title.mp4" autoPlay="{{ true }}" loop="{{ true }}" muted="{{ true }}" playsInline="{{ true }}" preload="auto" title="Here's How It Happened" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border:0;display:block;pointer-events:none;background:#000"></video>
           <div style="{{ overlayStyle }}">
           <div style="position:absolute;left:0;right:0;bottom:0;height:12cqw;max-height:96px;background:linear-gradient(to top,rgba(0,0,0,0.3),rgba(0,0,0,0));pointer-events:none"></div>
           <div style="position:absolute;left:1.6cqw;right:1.6cqw;bottom:1.6cqw;display:flex;align-items:center;gap:1.4em">
@@ -110,11 +110,11 @@ a { color: inherit; text-decoration: none; }
     <img src="/assets/happened-icon.svg" alt="" style="width:100%;height:100%;object-fit:contain;display:block">
   </div>
   <div data-nav-page="happened" style="position:sticky;bottom:0;z-index:20;display:flex;flex:none;height:60px;box-sizing:border-box;background:#F8F8F6;border-top:2px solid #0D2565">
-    <a href="/fetch/" style-hover="background:#F1B8FF" style="flex:1;min-width:0;display:block;line-height:58px;padding:0 16px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;border-right:2px solid #0D2565;font-family:'Authentic Sans 130',sans-serif;font-size:clamp(13px,1.3vw,18px)">FETCH / GUILTY PLEASURES</a>
-    <a href="/hopp/" style-hover="background:#F1B8FF" style="flex:1;min-width:0;display:block;line-height:58px;padding:0 16px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;border-right:2px solid #0D2565;font-family:'Authentic Sans 130',sans-serif;font-size:clamp(13px,1.3vw,18px)">HOPP BY WIX</a>
-    <a href="/heres-how-it-happened/" style-hover="background:#F1B8FF" style="flex:1;min-width:0;display:block;line-height:58px;padding:0 16px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;border-right:2px solid #0D2565;background:#F1B8FF;font-family:'Authentic Sans 130',sans-serif;font-size:clamp(13px,1.3vw,18px)">HERE'S HOW IT HAPPENED</a>
-    <a href="/hibi/" style-hover="background:#F1B8FF" style="flex:1;min-width:0;display:block;line-height:58px;padding:0 16px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;border-right:2px solid #0D2565;font-family:'Authentic Sans 130',sans-serif;font-size:clamp(13px,1.3vw,18px)">HIBI</a>
-    <a href="/eden-cinema/" style-hover="background:#F1B8FF" style="flex:1;min-width:0;display:block;line-height:58px;padding:0 16px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-family:'Authentic Sans 130',sans-serif;font-size:clamp(13px,1.3vw,18px)">EDEN CINEMA</a>
+    <a href="/fetch/" style-hover="background:#F1B8FF" style="flex:1;min-width:0;display:block;line-height:58px;padding:0 16px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;border-right:2px solid #0D2565;font-family:'Authentic Sans 130',sans-serif;font-size:clamp(14px,1.3vw,22px)">FETCH / GUILTY PLEASURES</a>
+    <a href="/hopp/" style-hover="background:#F1B8FF" style="flex:1;min-width:0;display:block;line-height:58px;padding:0 16px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;border-right:2px solid #0D2565;font-family:'Authentic Sans 130',sans-serif;font-size:clamp(14px,1.3vw,22px)">HOPP BY WIX</a>
+    <a href="/heres-how-it-happened/" style-hover="background:#F1B8FF" style="flex:1;min-width:0;display:block;line-height:58px;padding:0 16px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;border-right:2px solid #0D2565;background:#F1B8FF;font-family:'Authentic Sans 130',sans-serif;font-size:clamp(14px,1.3vw,22px)">HERE'S HOW IT HAPPENED</a>
+    <a href="/hibi/" style-hover="background:#F1B8FF" style="flex:1;min-width:0;display:block;line-height:58px;padding:0 16px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;border-right:2px solid #0D2565;font-family:'Authentic Sans 130',sans-serif;font-size:clamp(14px,1.3vw,22px)">HIBI</a>
+    <a href="/eden-cinema/" style-hover="background:#F1B8FF" style="flex:1;min-width:0;display:block;line-height:58px;padding:0 16px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-family:'Authentic Sans 130',sans-serif;font-size:clamp(14px,1.3vw,22px)">EDEN CINEMA</a>
   </div>
 </div>
 
@@ -123,25 +123,29 @@ a { color: inherit; text-decoration: none; }
 class Component extends DCLogic {
   state = { soundOn: false, expanded: false, playing: true, hover: false };
   _post(method, value) {
-    const f = document.getElementById('happened-player');
-    if (!f || !f.contentWindow) return;
-    const msg = value === undefined ? { method } : { method, value };
-    f.contentWindow.postMessage(JSON.stringify(msg), '*');
+    const v = document.getElementById('happened-player');
+    if (!v) return;
+    if (method === 'play') { const p = v.play(); if (p && p.catch) p.catch(() => {}); }
+    else if (method === 'pause') v.pause();
+    else if (method === 'setCurrentTime' && isFinite(value)) v.currentTime = value;
+  }
+  _wireMain(v) {
+    if (!v || v._wired) return;
+    v._wired = true;
+    v.muted = true; v.defaultMuted = true; v.loop = true; v.playsInline = true;
+    const sync = () => {
+      this._time = v.currentTime || 0;
+      this._dur = v.duration || this._dur || 0;
+      if (this._fillEl && this._dur) this._fillEl.style.width = ((this._time / this._dur) * 100).toFixed(2) + '%';
+    };
+    v.addEventListener('timeupdate', sync);
+    v.addEventListener('loadedmetadata', sync);
+    if (this.state.playing) { const p = v.play(); if (p && p.catch) p.catch(() => {}); }
   }
   componentDidMount() {
     this._time = 0;
-    this._onVimeoMsg = (e) => {
-      if (typeof e.data !== 'string') return;
-      let d; try { d = JSON.parse(e.data); } catch (err) { return; }
-      if (d && d.event === 'playProgress' && d.data) {
-        this._time = d.data.seconds || 0;
-        this._dur = d.data.duration || this._dur || 0;
-        if (this._fillEl && this._dur) this._fillEl.style.width = ((this._time / this._dur) * 100).toFixed(2) + '%';
-      }
-      if (d && d.event === 'ready') this._post('addEventListener', 'playProgress');
-    };
-    window.addEventListener('message', this._onVimeoMsg);
-    setTimeout(() => this._post('addEventListener', 'playProgress'), 800);
+    this._onVimeoMsg = () => {};
+    this._wireMain(document.getElementById('happened-player'));
     this._outer = React.createRef ? this._outer : null;
     this._x = 0; this._target = 0;
     this._onScroll = () => {
@@ -216,6 +220,7 @@ class Component extends DCLogic {
   renderVals() {
     return {
       dollsRow: this._dollsRow(),
+      mainVideo: (el) => { if (el) this._wireMain(el); },
       recVideo: (el) => { if (el) { el.defaultPlaybackRate = 0.8; el.playbackRate = 0.8; el.onplay = () => { el.playbackRate = 0.8; }; } },
       dollsVideo: (el) => { if (el) { el.muted = true; el.defaultMuted = true; el.loop = true; el.playsInline = true; el.autoplay = true; el.defaultPlaybackRate = 1; el.playbackRate = 1; el.onplay = () => { el.playbackRate = 1; }; const p = el.play(); if (p && p.catch) p.catch(() => {}); } },
       scrollTop: (e) => {
@@ -290,10 +295,11 @@ class Component extends DCLogic {
         if (e) { e.stopPropagation(); e.preventDefault(); }
         const on = !this.state.soundOn;
         this.setState({ soundOn: on });
-        const f = document.getElementById('happened-player');
-        if (!f || !f.contentWindow) return;
-        f.contentWindow.postMessage(JSON.stringify({ method: 'setVolume', value: on ? 1 : 0 }), '*');
-        f.contentWindow.postMessage(JSON.stringify({ method: 'play' }), '*');
+        const v = document.getElementById('happened-player');
+        if (!v) return;
+        v.muted = !on; v.volume = on ? 1 : 0;
+        this._post('play');
+        if (!this.state.playing) this.setState({ playing: true });
       }
     };
   }

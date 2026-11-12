@@ -25,7 +25,7 @@ a { color: inherit; text-decoration: none; }
 <div data-screen-label="Home" style="background:#F8F8F6;min-height:{{ rootMinHeight }};height:{{ rootHeight }};overflow:{{ rootOverflow }};display:flex;flex-direction:column;font-family:'Authentic Sans 90',sans-serif;color:#0D2565">
   <div style="flex:0 0 {{ headerHeight }};display:flex;justify-content:space-between;align-items:center;padding:0 {{ headerPad }}px;background:{{ headerBg }}">
     <a href="/" style="font-family:'Sloop Script',cursive;font-size:29px;color:#0D2565;display:inline-block;transition:transform .3s cubic-bezier(.22,.61,.36,1)">Liya Kedar</a>
-    <a href="/about/" style-hover="font-family:'Sloop Script', cursive;font-size:29px;letter-spacing:0;text-transform:none" style-active="font-family:'Sloop Script', cursive;font-size:29px;letter-spacing:0;text-transform:none" style-focus="font-family:'Sloop Script', cursive;font-size:29px;letter-spacing:0;text-transform:none" style="font-family:{{ navFont }};font-size:{{ navSize }};letter-spacing:1px;color:#0D2565;display:inline-block;transition:transform .3s cubic-bezier(.22,.61,.36,1);text-transform:{{ capsTransform }}">{{ navLabel }}</a>
+    <a href="/about/" style-hover="font-family:'Sloop Script', cursive;font-size:29px;letter-spacing:0;text-transform:none" style-active="font-family:'Sloop Script', cursive;font-size:29px;letter-spacing:0;text-transform:none" style-focus="font-family:'Sloop Script', cursive;font-size:29px;letter-spacing:0;text-transform:none" style="font-family:{{ navFont }};font-size:{{ navSize }};letter-spacing:.5px;color:#0D2565;display:inline-block;transition:transform .3s cubic-bezier(.22,.61,.36,1);text-transform:{{ capsTransform }}">{{ navLabel }}</a>
   </div>
   <div style="height:2px;background:#0D2565"></div>
   <div data-hero="1" style="flex:0 0 {{ heroHeight }};box-sizing:border-box;display:flex;align-items:center;padding:{{ heroPadY }}px {{ sidePad }}px;background:{{ heroBg }}">
@@ -63,10 +63,10 @@ a { color: inherit; text-decoration: none; }
           <img src="/assets/fetch-overlay.webp" ref="{{ fetchOverlayRef }}" alt="Fetch issue label" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:{{ ovFetchW }};height:auto;transition:transform .35s cubic-bezier(.22,.61,.36,1)" />
         </sc-if>
       </div>
-      <div style="border-top:2px solid #0D2565;padding:16px 16px 10px {{ labelPadL }}px;background:{{ label0Bg }};flex:0 0 {{ labelHeight }};box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start;overflow:hidden">
-        <div style="font-family:{{ headFont }};font-weight:400;font-size:{{ titleSize }};line-height:1.1;min-height:calc(2.2em - 12px);display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;text-transform:{{ capsTransform }}">Fetch / Guilty Pleasures</div>
+      <div style="border-top:2px solid #0D2565;padding:20px 16px 22px {{ labelPadL }}px;background:{{ label0Bg }};flex:0 0 {{ labelHeight }};box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start;overflow:hidden">
+        <div style="font-family:{{ headFont }};font-weight:400;font-size:{{ titleSize }};line-height:1.1;min-height:0;display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;text-transform:{{ capsTransform }}">Fetch / Guilty Pleasures</div>
         <div style="font-family:{{ bodyFont }};font-size:{{ subSize }};line-height:1.2;margin-top:1px">Magazine</div>
-        <div style="font-family:{{ bodyFont }};font-size:{{ tagSize }};line-height:1.25;min-height:2.5em;font-style:italic;margin-top:0.7em;opacity:.85">A playful take on pop culture</div>
+        <div style="font-family:{{ bodyFont }};font-size:{{ tagSize }};line-height:1.25;font-style:italic;margin-top:auto;padding-top:0.9em;opacity:.85">A playful take on pop culture</div>
       </div>
     </a>
 
@@ -95,10 +95,10 @@ a { color: inherit; text-decoration: none; }
           <img src="/assets/hopp-overlay-phone.webp" ref="{{ hoppOverlayRef }}" alt="" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);height:69.7%;width:auto;max-width:54.4%;object-fit:contain;transition:transform .35s cubic-bezier(.22,.61,.36,1)" />
         </sc-if>
       </div>
-      <div style="border-top:2px solid #0D2565;padding:16px 16px 10px {{ labelPadL }}px;background:{{ label2Bg }};flex:0 0 {{ labelHeight }};box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start;overflow:hidden">
-        <div style="font-family:{{ headFont }};font-weight:400;font-size:{{ titleSize }};line-height:1.1;min-height:calc(2.2em - 12px);display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;text-transform:{{ capsTransform }}">Hopp by Wix</div>
+      <div style="border-top:2px solid #0D2565;padding:20px 16px 22px {{ labelPadL }}px;background:{{ label2Bg }};flex:0 0 {{ labelHeight }};box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start;overflow:hidden">
+        <div style="font-family:{{ headFont }};font-weight:400;font-size:{{ titleSize }};line-height:1.1;min-height:0;display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;text-transform:{{ capsTransform }}">Hopp by Wix</div>
         <div style="font-family:{{ bodyFont }};font-size:{{ subSize }};line-height:1.2;margin-top:1px">Product Design</div>
-        <div style="font-family:{{ bodyFont }};font-size:{{ tagSize }};line-height:1.25;min-height:2.5em;font-style:italic;margin-top:0.7em;opacity:.85">Link-in-Bio mini sites platform</div>
+        <div style="font-family:{{ bodyFont }};font-size:{{ tagSize }};line-height:1.25;font-style:italic;margin-top:auto;padding-top:0.9em;opacity:.85">Link-in-Bio mini sites platform</div>
       </div>
     </a>
 
@@ -126,10 +126,10 @@ a { color: inherit; text-decoration: none; }
           <img src="/assets/happened-overlay.webp" ref="{{ happenedOverlayRef }}" alt="Sardine tin" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:{{ ovHappenedW }};height:auto;transition:transform .35s cubic-bezier(.22,.61,.36,1)" />
         </sc-if>
       </div>
-      <div style="border-top:2px solid #0D2565;padding:16px 16px 10px {{ labelPadL }}px;background:{{ label1Bg }};flex:0 0 {{ labelHeight }};box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start;overflow:hidden">
-        <div style="font-family:{{ headFont }};font-weight:400;font-size:{{ titleSize }};line-height:1.1;min-height:calc(2.2em - 12px);display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;text-transform:{{ capsTransform }}">Here's How It Happened</div>
+      <div style="border-top:2px solid #0D2565;padding:20px 16px 22px {{ labelPadL }}px;background:{{ label1Bg }};flex:0 0 {{ labelHeight }};box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start;overflow:hidden">
+        <div style="font-family:{{ headFont }};font-weight:400;font-size:{{ titleSize }};line-height:1.1;min-height:0;display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;text-transform:{{ capsTransform }}">Here's How It Happened</div>
         <div style="font-family:{{ bodyFont }};font-size:{{ subSize }};line-height:1.2;margin-top:1px">Title Sequence</div>
-        <div style="font-family:{{ bodyFont }};font-size:{{ tagSize }};line-height:1.25;min-height:2.5em;font-style:italic;margin-top:0.7em;opacity:.85">Title sequence for a Meir Shalev adaptation</div>
+        <div style="font-family:{{ bodyFont }};font-size:{{ tagSize }};line-height:1.25;font-style:italic;margin-top:auto;padding-top:0.9em;opacity:.85">Title sequence for a Meir Shalev adaptation</div>
       </div>
     </a>
 
@@ -156,10 +156,10 @@ a { color: inherit; text-decoration: none; }
           <img src="/assets/hibi-scene-object.svg" ref="{{ hibiOverlayRef }}" data-fullbleed="1" alt="Hibi app icon outline" style="position:absolute;inset:0;width:100%;height:100%;display:block;object-fit:cover;object-position:50% 50%;transition:transform .35s cubic-bezier(.22,.61,.36,1)" />
         </sc-if>
       </div>
-      <div style="border-top:2px solid #0D2565;padding:16px 16px 10px {{ labelPadL }}px;background:{{ label3Bg }};flex:0 0 {{ labelHeight }};box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start;overflow:hidden">
-        <div style="font-family:{{ headFont }};font-weight:400;font-size:{{ titleSize }};line-height:1.1;min-height:calc(2.2em - 12px);display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;text-transform:{{ capsTransform }}">Hibi</div>
+      <div style="border-top:2px solid #0D2565;padding:20px 16px 22px {{ labelPadL }}px;background:{{ label3Bg }};flex:0 0 {{ labelHeight }};box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start;overflow:hidden">
+        <div style="font-family:{{ headFont }};font-weight:400;font-size:{{ titleSize }};line-height:1.1;min-height:0;display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;text-transform:{{ capsTransform }}">Hibi</div>
         <div style="font-family:{{ bodyFont }};font-size:{{ subSize }};line-height:1.2;margin-top:1px">Mobile App</div>
-        <div style="font-family:{{ bodyFont }};font-size:{{ tagSize }};line-height:1.25;min-height:2.5em;font-style:italic;margin-top:0.7em;opacity:.85">Weather app inspired by Ikko Tanaka</div>
+        <div style="font-family:{{ bodyFont }};font-size:{{ tagSize }};line-height:1.25;font-style:italic;margin-top:auto;padding-top:0.9em;opacity:.85">Weather app inspired by Ikko Tanaka</div>
       </div>
     </a>
     <a href="/eden-cinema/" onMouseEnter="{{ onCard4 }}" onMouseMove="{{ onCardMove }}" onMouseLeave="{{ onCardLeave }}" style="display:flex;flex-direction:column;border-right:{{ edenBorderRight }};border-bottom:none;min-height:0;height:{{ cardHeight }}">
@@ -186,18 +186,18 @@ a { color: inherit; text-decoration: none; }
         <div style="position:absolute;inset:0;z-index:3;pointer-events:none;opacity:.22;mix-blend-mode:overlay;background-image:url(data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%27140%27%20height%3D%27140%27%3E%3Cfilter%20id%3D%27n%27%3E%3CfeTurbulence%20type%3D%27fractalNoise%27%20baseFrequency%3D%270.9%27%20numOctaves%3D%273%27%20stitchTiles%3D%27stitch%27%2F%3E%3C%2Ffilter%3E%3Crect%20width%3D%27140%27%20height%3D%27140%27%20filter%3D%27url%28%23n%29%27%2F%3E%3C%2Fsvg%3E);background-size:140px 140px;background-repeat:repeat"></div>
         </sc-if>
       </div>
-      <div style="border-top:2px solid #0D2565;padding:16px 16px 10px {{ labelPadL }}px;background:{{ label4Bg }};flex:0 0 {{ labelHeight }};box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start;overflow:hidden">
-        <div style="font-family:{{ headFont }};font-weight:400;font-size:{{ titleSize }};line-height:1.1;min-height:calc(2.2em - 12px);display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;text-transform:{{ capsTransform }}">Eden Cinema</div>
+      <div style="border-top:2px solid #0D2565;padding:20px 16px 22px {{ labelPadL }}px;background:{{ label4Bg }};flex:0 0 {{ labelHeight }};box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start;overflow:hidden">
+        <div style="font-family:{{ headFont }};font-weight:400;font-size:{{ titleSize }};line-height:1.1;min-height:0;display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;text-transform:{{ capsTransform }}">Eden Cinema</div>
         <div style="font-family:{{ bodyFont }};font-size:{{ subSize }};line-height:1.2;margin-top:1px">Visual Identity</div>
-        <div style="font-family:{{ bodyFont }};font-size:{{ tagSize }};line-height:1.25;min-height:2.5em;font-style:italic;margin-top:0.7em;opacity:.85">Rebranding the first cinema in Tel Aviv</div>
+        <div style="font-family:{{ bodyFont }};font-size:{{ tagSize }};line-height:1.25;font-style:italic;margin-top:auto;padding-top:0.9em;opacity:.85">Rebranding the first cinema in Tel Aviv</div>
       </div>
     </a>
 
     <sc-if value="{{ showFiller }}" hint-placeholder-val="{{ false }}">
       <div style="display:flex;flex-direction:column;border-right:none;border-bottom:none;min-height:0;height:{{ cardHeight }}">
         <div style="flex:{{ imgFlex }};min-height:{{ imgMinHeight }};aspect-ratio:{{ imgAspect }};background:#F8F8F6"></div>
-        <div style="border-top:2px solid #0D2565;padding:16px 16px 10px {{ labelPadL }}px;background:#F8F8F6;flex:0 0 {{ labelHeight }};box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start;overflow:hidden">
-          <div style="font-family:{{ headFont }};font-weight:400;font-size:{{ titleSize }};line-height:1.1;min-height:calc(2.2em - 12px);display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;text-transform:{{ capsTransform }}">To be continued...</div>
+        <div style="border-top:2px solid #0D2565;padding:20px 16px 22px {{ labelPadL }}px;background:#F8F8F6;flex:0 0 {{ labelHeight }};box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start;overflow:hidden">
+          <div style="font-family:{{ headFont }};font-weight:400;font-size:{{ titleSize }};line-height:1.1;min-height:0;display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;text-transform:{{ capsTransform }}">To be continued...</div>
           <div aria-hidden="true" style="font-family:{{ bodyFont }};font-size:{{ subSize }};line-height:1.2;min-height:1.2em;margin-top:1px;visibility:hidden"></div>
           <div aria-hidden="true" style="font-family:{{ bodyFont }};font-size:{{ tagSize }};line-height:1.25;min-height:2.5em;margin-top:0.7em;visibility:hidden">&nbsp;</div>
         </div>
@@ -350,24 +350,24 @@ class Component extends DCLogic {
     const headFont = h === 'typography' ? scriptFont : "'Authentic Sans 130', sans-serif";
     const bodyFont = h === 'typography' ? scriptFont : "'Authentic Sans 90', sans-serif";
     const t = h === 'typography';
-    const sansSize = 'clamp(17px,2.62vw,54px)';
+    const sansSize = 'clamp(16px,2.4vw,48px)';
     const scriptSize = 'clamp(25px,3.88vw,78px)';
     const heroFont = t ? scriptFont : "'Authentic Sans 90', sans-serif";
     const triggerFont = t ? scriptFont : "'Authentic Sans 90', sans-serif";
     const heroSize = t ? scriptSize : sansSize;
-    const heroLineHeight = t ? '0.8em' : '1.2em';
+    const heroLineHeight = t ? '0.8em' : '1.12em';
     const heroStroke = '0px transparent';
     const underlineThickness = t ? '.03em' : '.05em';
     const heroShift = t ? 'translateY(-0.11em)' : 'none';
     const heroNoWrap = w < 1100 ? 'normal' : 'nowrap';
-    const heroPadY = isDesktop ? 22 : 18;
-    const heroHeight = isDesktop ? 'min(180px,16.7vh)' : 'auto';
+    const heroPadY = isDesktop ? 20 : 18;
+    const heroHeight = 'auto';
     // derived from the tallest state (typography) so it never clips, yet is shorter than the old fixed clamp
-    const labelHeight = isDesktop ? 'min(160px,14.8vh)' : 'auto';
+    const labelHeight = isDesktop ? 'min(175px,16vh)' : 'auto';
     const navSize = t ? '26px' : '20px';
     const navFont = t ? scriptFont : "'Authentic Sans 90', sans-serif";
-    const titleSize = 'clamp(15px,1.45vw,26px)';
-    const subSize = 'clamp(13px,1.12vw,20px)';
+    const titleSize = 'clamp(14px,1.3vw,22px)';
+    const subSize = 'clamp(14px,1.3vw,23px)';
     const tagSize = 'clamp(11px,0.98vw,18px)';
     const sidePad = w < 700 ? 16 : 24;
     const headerPad = w < 700 ? 16 : 24;

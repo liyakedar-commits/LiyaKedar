@@ -26,7 +26,7 @@ a { color: inherit; text-decoration: none; }
 <div data-screen-label="About" style="min-height:100vh;display:flex;flex-direction:column;background:#F8F8F6;font-family:'Authentic Sans 90',sans-serif;color:#0D2565">
   <div data-about-header="1" style="flex:0 0 min(80px,7.5vh);display:flex;justify-content:space-between;align-items:center;padding:0 {{ sidePad }}px;background:{{ headerBg }}">
     <a href="/" style="font-family:'Sloop Script',cursive;font-size:{{ logoSize }};display:inline-block;transition:transform .3s cubic-bezier(.22,.61,.36,1)">Liya Kedar</a>
-    <a href="/" style-hover="font-family:'Sloop Script', cursive;font-size:29px;letter-spacing:0;text-transform:none" style-active="font-family:'Sloop Script', cursive;font-size:29px;letter-spacing:0;text-transform:none" style-focus="font-family:'Sloop Script', cursive;font-size:29px;letter-spacing:0;text-transform:none" style="font-family:{{ navFont }};font-size:{{ navSize }};letter-spacing:1px;text-transform:{{ capsTransform }};display:inline-block;transition:transform .3s cubic-bezier(.22,.61,.36,1)">{{ navLabel }}</a>
+    <a href="/" style-hover="font-family:'Sloop Script', cursive;font-size:29px;letter-spacing:0;text-transform:none" style-active="font-family:'Sloop Script', cursive;font-size:29px;letter-spacing:0;text-transform:none" style-focus="font-family:'Sloop Script', cursive;font-size:29px;letter-spacing:0;text-transform:none" style="font-family:{{ navFont }};font-size:{{ navSize }};letter-spacing:.5px;text-transform:{{ capsTransform }};display:inline-block;transition:transform .3s cubic-bezier(.22,.61,.36,1)">{{ navLabel }}</a>
   </div>
   <div style="height:2px;background:#0D2565"></div>
   <div data-about-hero="1" style="flex:0 0 auto;box-sizing:border-box;display:flex;align-items:center;padding:14px {{ sidePad }}px;height:{{ heroHeight }};overflow:hidden;background:{{ heroBg }}">
@@ -90,11 +90,11 @@ a { color: inherit; text-decoration: none; }
     </div>
   </div>
   <div data-about-foot="1" style="flex:0 0 64px;display:flex;border-top:2px solid #0D2565">
-    <a href="/fetch/" style-hover="background:#F1B8FF" style="flex:1;display:flex;align-items:center;padding:0 24px;overflow:hidden;background:{{ foot0Bg }};font-family:{{ headFont }};text-transform:{{ capsTransform }};border-right:2px solid #0D2565;font-size:{{ footSize }}">Fetch / Guilty Pleasures</a>
-    <a href="/hopp/" style-hover="background:#F1B8FF" style="flex:1;display:flex;align-items:center;padding:0 24px;overflow:hidden;background:{{ foot1Bg }};font-family:{{ headFont }};text-transform:{{ capsTransform }};border-right:2px solid #0D2565;font-size:{{ footSize }}">Hopp by Wix</a>
-    <a href="/heres-how-it-happened/" style-hover="background:#F1B8FF" style="flex:1;display:flex;align-items:center;padding:0 24px;overflow:hidden;background:{{ foot2Bg }};font-family:{{ headFont }};text-transform:{{ capsTransform }};border-right:2px solid #0D2565;font-size:{{ footSize }}">Here's How It Happened</a>
-    <a href="/hibi/" style-hover="background:#F1B8FF" style="flex:1;display:flex;align-items:center;padding:0 24px;overflow:hidden;background:{{ foot3Bg }};font-family:{{ headFont }};text-transform:{{ capsTransform }};border-right:2px solid #0D2565;font-size:{{ footSize }}">Hibi</a>
-    <a href="/eden-cinema/" style-hover="background:#F1B8FF" style="flex:1;display:flex;align-items:center;padding:0 24px;overflow:hidden;background:{{ foot4Bg }};font-family:{{ headFont }};text-transform:{{ capsTransform }};font-size:{{ footSize }}">Eden Cinema</a>
+    <a href="/fetch/" style-hover="background:#F1B8FF" style="flex:1;display:flex;align-items:center;padding:0 24px;overflow:hidden;background:{{ foot0Bg }};font-family:{{ headFont }};white-space:nowrap;text-transform:{{ capsTransform }};border-right:2px solid #0D2565;font-size:{{ footSize }}">Fetch / Guilty Pleasures</a>
+    <a href="/hopp/" style-hover="background:#F1B8FF" style="flex:1;display:flex;align-items:center;padding:0 24px;overflow:hidden;background:{{ foot1Bg }};font-family:{{ headFont }};white-space:nowrap;text-transform:{{ capsTransform }};border-right:2px solid #0D2565;font-size:{{ footSize }}">Hopp by Wix</a>
+    <a href="/heres-how-it-happened/" style-hover="background:#F1B8FF" style="flex:1;display:flex;align-items:center;padding:0 24px;overflow:hidden;background:{{ foot2Bg }};font-family:{{ headFont }};white-space:nowrap;text-transform:{{ capsTransform }};border-right:2px solid #0D2565;font-size:{{ footSize }}">Here's How It Happened</a>
+    <a href="/hibi/" style-hover="background:#F1B8FF" style="flex:1;display:flex;align-items:center;padding:0 24px;overflow:hidden;background:{{ foot3Bg }};font-family:{{ headFont }};white-space:nowrap;text-transform:{{ capsTransform }};border-right:2px solid #0D2565;font-size:{{ footSize }}">Hibi</a>
+    <a href="/eden-cinema/" style-hover="background:#F1B8FF" style="flex:1;display:flex;align-items:center;padding:0 24px;overflow:hidden;background:{{ foot4Bg }};font-family:{{ headFont }};white-space:nowrap;text-transform:{{ capsTransform }};font-size:{{ footSize }}">Eden Cinema</a>
   </div>
 </div>
 
@@ -188,7 +188,7 @@ class Component extends DCLogic {
       logoSize: t ? '29px' : '29px',
       cardSize: t ? 'clamp(17px,1.95vw,30px)' : 'clamp(13px,1.5vw,23px)',
       cardSubSize: t ? 'clamp(15px,1.72vw,26px)' : 'clamp(12px,1.32vw,20px)',
-      footSize: t ? '21px' : '18px',
+      footSize: t ? '21px' : 'clamp(14px,1.3vw,22px)',
       headerBg: h === 'color' ? '#F1B8FF' : cream,
       heroBg: h === 'color' ? '#F6E23E' : cream,
       bodyBg: h === 'color' ? '#A8D8F7' : cream,

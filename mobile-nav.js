@@ -94,7 +94,7 @@
     // the next project is always Hopp, except on Hopp itself, where it is Eden
     var next = here === 'hopp' ? 'eden' : 'hopp';
     var base = "color:" + INK + ";text-decoration:none;line-height:58px;padding:0 16px;white-space:nowrap;" +
-      "font-family:'Authentic Sans 130',sans-serif;font-size:18px;letter-spacing:.3px;";
+      "font-family:'Authentic Sans 90',sans-serif;font-size:18px;letter-spacing:.5px;";
     function mk(label, href) {
       var a = document.createElement('a');
       a.className = 'mnav-foot';
@@ -388,7 +388,7 @@
     // the frame is only as tall as the menu, so it ends at the rule under About
     panel.style.cssText = 'position:fixed;left:0;right:0;top:0;z-index:9001;overflow:hidden;' +
       'visibility:hidden;pointer-events:none;color:' + INK + ';' +
-      "font-family:'Authentic Sans 130',sans-serif;text-transform:uppercase;letter-spacing:.3px";
+      "font-family:'Authentic Sans 90',sans-serif;text-transform:uppercase;letter-spacing:.5px";
     var sheet = document.createElement('div');
     sheet.style.cssText = 'background:' + CREAM + ';display:flex;flex-direction:column;' +
       'justify-content:flex-start;gap:0;padding:0;transform:translate3d(0,-100%,0);will-change:transform;' +
